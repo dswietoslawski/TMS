@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+    <script src="../app.js"></script>
+    <script src="../controllers/userController.js"></script>
+    <script src="../services/userService.js"></script>
+
+    <title>Team Management Service</title>
+
+    <meta charset="utf-8" />
+</head>
+<body ng-app="tmsApp">
+    <div ng-controller="userController">
+        <form>
+            <input type="text" ng-model="registerUser.UserName" required />
+            <input type="text" ng-model="registerUser.Password" required />
+            <input type="text" ng-model="registerUser.ConfirmPassword" required />
+            <input type="text" ng-model="registerUser.Email" required />
+            <input type="text" ng-model="registerUser.FirstName" required />
+            <input type="text" ng-model="registerUser.LastName" required />
+            <input type="submit" value="Submit" ng-click="register(registerUser)">
+        </form>
+
+        <form>
+            <input type="text" ng-model="loginUser.UserName" required />
+            <input type="text" ng-model="loginUser.Password" required />
+            <input type="submit" value="Submit" ng-click="login(loginUser)">
+        </form>
+
+        <button ng-click="logout(loginUser)">Logout</button>
+    </div>
+
+</body>
+</html>
