@@ -16,16 +16,12 @@ namespace TeamManagementService.Models {
 
         public UserReturnModel Create(ApplicationUser appUser) {
             return new UserReturnModel {
-                Url = _urlHelper.Link("GetUserById", new { id = appUser.Id }),
                 Id = appUser.Id,
                 UserName = appUser.UserName,
                 FullName = string.Format("{0} {1}", appUser.FirstName, appUser.LastName),
                 Email = appUser.Email,
                 EmailConfirmed = appUser.EmailConfirmed,
-                Level = appUser.Level,
                 JoinDate = appUser.JoinTime,
-                Roles = _appUserManager.GetRolesAsync(appUser.Id).Result,
-                Claims = _appUserManager.GetClaimsAsync(appUser.Id).Result
             };
         }
     }
