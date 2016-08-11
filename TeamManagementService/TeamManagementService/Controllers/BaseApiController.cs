@@ -12,12 +12,14 @@ using System.Web;
 using System.Web.Http;
 using TeamManagementService.Infrastructure;
 using TeamManagementService.Models;
+using TeamManagementService.Repositories;
 
 namespace TeamManagementService.Controllers {
     public class BaseApiController : ApiController {
         private ModelFactory _modelFactory;
         private ApplicationUserManager _appUserManager = null;
         private IAuthenticationManager _authManager = null;
+        private UnitOfWork _uow;
 
         protected ApplicationUserManager AppUserManager {
             get {
@@ -30,6 +32,15 @@ namespace TeamManagementService.Controllers {
                 return _authManager ?? Request.GetOwinContext().Authentication;
             }
         }
+
+        protected UnitOfWork UnitOfWork {
+            get {
+                if (_uow == null)
+                    _uow = new UnitOfWork();
+                return _uow;
+            }
+        }
+
 
         public BaseApiController() {
 

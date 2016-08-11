@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using TeamManagementService.Models.Tasks;
+using TeamManagementService.Models.Teams;
 
 namespace TeamManagementService.Models {
     public class ApplicationUser : IdentityUser {
@@ -17,5 +20,8 @@ namespace TeamManagementService.Models {
 
         [Required]
         public DateTime JoinTime { get; set; }
+
+        public virtual IEnumerable<ToDoItem> Tasks { get; set; }
+        public virtual IEnumerable<Team> Groups { get; set; }
     }
 }

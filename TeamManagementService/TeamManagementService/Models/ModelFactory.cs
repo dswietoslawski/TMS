@@ -1,12 +1,11 @@
 ﻿using System.Net.Http;
 using System.Web.Http.Routing;
 using TeamManagementService.Infrastructure;
+using TeamManagementService.Models.Teams;
 using TeamManagementService.Models.Users;
 
-namespace TeamManagementService.Models
-{
-    public class ModelFactory
-    {
+namespace TeamManagementService.Models {
+    public partial class ModelFactory {
         private UrlHelper _urlHelper;
         private ApplicationUserManager _appUserManager;
 

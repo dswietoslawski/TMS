@@ -4,8 +4,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 
     <script src="../app.js"></script>
-    <script src="../controllers/userController.js"></script>
-    <script src="../services/userService.js"></script>
+    <script src="../users/userController.js"></script>
+    <script src="../users/userService.js"></script>
+    <script src="../teams/teamController.js"></script>
+    <script src="../teams/teamService.js"></script>
+    <script src="../appService.js"></script>
 
     <title>Team Management Service</title>
 
@@ -13,24 +16,34 @@
 </head>
 <body ng-app="tmsApp">
     <div ng-controller="userController">
+
+        <label>{{registerMsg}}</label>
+        <label>logged in as</label>
+        <label>{{currentUser.userName}}</label>
+
         <form>
-            <input type="text" ng-model="registerUser.UserName" required />
-            <input type="text" ng-model="registerUser.Password" required />
-            <input type="text" ng-model="registerUser.ConfirmPassword" required />
-            <input type="text" ng-model="registerUser.Email" required />
-            <input type="text" ng-model="registerUser.FirstName" required />
-            <input type="text" ng-model="registerUser.LastName" required />
+            <input type="text" ng-model="registerUser.userName" required />
+            <input type="text" ng-model="registerUser.password" required />
+            <input type="text" ng-model="registerUser.confirmPassword" required />
+            <input type="text" ng-model="registerUser.email" required />
+            <input type="text" ng-model="registerUser.firstName" required />
+            <input type="text" ng-model="registerUser.lastName" required />
             <input type="submit" value="Submit" ng-click="register(registerUser)">
         </form>
 
         <form>
-            <input type="text" ng-model="loginUser.UserName" required />
-            <input type="text" ng-model="loginUser.Password" required />
+            <input type="text" ng-model="loginUser.userName" required />
+            <input type="text" ng-model="loginUser.password" required />
             <input type="submit" value="Submit" ng-click="login(loginUser)">
         </form>
 
         <button ng-click="logout(loginUser)">Logout</button>
     </div>
 
+    <div ng-controller="teamController">
+        <label>Team Name</label>
+        <input type="text" ng-model="newTeam.name" required />
+        <input type="submit" value="Submit" ng-click="add(newTeam)">
+    </div>
 </body>
 </html>
