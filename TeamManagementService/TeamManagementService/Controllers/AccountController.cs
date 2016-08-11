@@ -71,12 +71,12 @@ namespace TeamManagementService.Controllers {
 
 
         [Route("logout")]
-        public async Task<IHttpActionResult> Logout([FromBody] LoginUserBindingModel user) {
+        public async Task<IHttpActionResult> Logout([FromBody] UserBindingModel user) {
             if (!ModelState.IsValid) {
                 return BadRequest(ModelState);
             }
 
-            var appUser = await this.AppUserManager.FindByNameAsync(user.UserName);
+            var appUser = await this.AppUserManager.FindByNameAsync(user.Name);
 
             if (appUser != null) {
                 AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);

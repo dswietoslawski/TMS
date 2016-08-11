@@ -23,13 +23,17 @@ namespace TeamManagementService.Controllers {
 
         protected ApplicationUserManager AppUserManager {
             get {
-                return _appUserManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                if (_appUserManager == null)
+                    _appUserManager = Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                return _appUserManager;
             }
         }
 
         protected IAuthenticationManager AuthenticationManager {
             get {
-                return _authManager ?? Request.GetOwinContext().Authentication;
+                if (_authManager == null)
+                    _authManager = Request.GetOwinContext().Authentication;
+                return _authManager;
             }
         }
 

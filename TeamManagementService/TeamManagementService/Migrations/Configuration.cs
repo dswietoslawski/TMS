@@ -1,4 +1,5 @@
-namespace TeamManagementService.Migrations {
+namespace TeamManagementService.Migrations
+{
     using Infrastructure;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
@@ -6,29 +7,35 @@ namespace TeamManagementService.Migrations {
     using Models.Teams;
     using System;
     using System.Collections.Generic;
+    using System.Data.Entity;
     using System.Data.Entity.Migrations;
+    using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext> {
+    internal sealed class Configuration : DbMigrationsConfiguration<TeamManagementService.Infrastructure.ApplicationDbContext>
+    {
         public Configuration() {
             AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(ApplicationDbContext context) {
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+
             ApplicationUser user = getDefaultUser();
-
-            IEnumerable<Team> Teams = getTeams();
-            context.Teams.AddRange(Teams);
-
             manager.Create(user, "MySuperP@ssword!");
+            context.SaveChanges();
+
+            IEnumerable<Team> Teams = getTeams(manager.FindByName("SuperPowerUser"));
+            // context.Teams.AddRange(Teams);
+
             context.SaveChanges();
 
         }
 
-        private IEnumerable<Team> getTeams() {
+        private IEnumerable<Team> getTeams(ApplicationUser user) {
             return new List<Team>() {
                 new Team() {
-                    Name = "TestTeam"
+                    Name = "TestTeam",
+                    Admin = user
                 }
             };
         }

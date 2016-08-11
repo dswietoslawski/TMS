@@ -3,7 +3,13 @@
 app.service('appService', function () {
 
     this.currentUser = {
-        UserName: ""
+        userName: "",
+        id: ""
     };
+
+    this.login = function (user) {
+        this.currentUser.userName = user.userName;
+        this.currentUser.id = user.id;
+    }
 
 });

@@ -14,6 +14,8 @@ namespace TeamManagementService.Repositories {
         }
 
         public Team Add(Team team) {
+            var user = context.Users.Single(u => u.UserName == team.Admin.UserName);
+            team.Admin = user;
             return context.Teams.Add(team);
         }
 

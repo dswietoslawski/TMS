@@ -30,7 +30,9 @@ namespace TeamManagementService.Controllers {
         [Authorize]
         public IHttpActionResult Post(TeamBindingModel teamModel) {
             if (ModelState.IsValid) {
+
                 var team = ModelFactory.Create(teamModel);
+                team.Admin = AppUserManager.FindByIdAsync(teamModel.AdminUser.Id).Result;
                 var entity = UnitOfWork.TeamRepository.Add(team);
                 UnitOfWork.Save();
 

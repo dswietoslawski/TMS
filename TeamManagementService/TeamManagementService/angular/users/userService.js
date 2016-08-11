@@ -27,7 +27,7 @@ app.service('userService', ['$http', 'appService', '$q', function ($http, appSer
 
         $http.post('http://localhost:63601/api/accounts/login', user, config)
             .success(function (response) {
-                appService.currentUser = response;
+                appService.login(response);
                 def.resolve(response);
             }).error(function (data) {
                 def.reject("Failed to login");
