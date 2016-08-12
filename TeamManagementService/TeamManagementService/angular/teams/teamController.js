@@ -7,7 +7,7 @@ app.controller('teamController', ['$scope', 'teamService', 'appService' , functi
     }
 
     $scope.add = function (team) {
-        team.adminUser = appService.currentUser;
-        teamService.add(team); // get a promise use login function if SUCCESS
+        team.adminUserId = appService.currentUser.id;
+        teamService.add(team);
     };
 }]);

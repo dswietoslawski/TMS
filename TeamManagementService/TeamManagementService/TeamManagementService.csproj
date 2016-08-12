@@ -211,6 +211,8 @@
     <Compile Include="Repositories\Team\ITeamRepository.cs" />
     <Compile Include="Repositories\Team\TeamRepository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
+    <Compile Include="Repositories\User\IUserRepository.cs" />
+    <Compile Include="Repositories\User\UserRepository.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <PropertyGroup>

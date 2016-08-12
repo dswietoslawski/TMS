@@ -14,6 +14,6 @@ namespace TeamManagementService.Models.Teams {
         public string Name { get; set; }
 
         [Required]
-        public UserBindingModel AdminUser { get; set; }
+        public string AdminUserId { get; set; }
     }
 }

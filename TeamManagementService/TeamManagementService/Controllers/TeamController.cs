@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Web.Http;
 using TeamManagementService.Models.Teams;
 
-namespace TeamManagementService.Controllers {
+namespace TeamManagementService.Controllers
+{
     [RoutePrefix("api/teams")]
-    public class TeamController : BaseApiController {
+    public class TeamController : BaseApiController
+    {
 
         [HttpGet]
         [Route("")]
-        public IHttpActionResult Get() {
+        public IHttpActionResult Get()
+        {
             var entities = UnitOfWork.TeamRepository.Get();
             var response = new List<TeamReturnModel>();
 
@@ -21,18 +24,22 @@ namespace TeamManagementService.Controllers {
 
         [HttpGet]
         [Route("")]
-        public IHttpActionResult Get(int id) {
+        public IHttpActionResult Get(int id)
+        {
             return Ok(ModelFactory.Create(UnitOfWork.TeamRepository.Get(id)));
         }
 
         [HttpPost]
         [Route("")]
         [Authorize]
-        public IHttpActionResult Post(TeamBindingModel teamModel) {
-            if (ModelState.IsValid) {
+        public IHttpActionResult Post(TeamBindingModel teamModel)
+        {
+            if (ModelState.IsValid)
+            {
 
                 var team = ModelFactory.Create(teamModel);
-                team.Admin = AppUserManager.FindByIdAsync(teamModel.AdminUser.Id).Result;
+                team.Admin = UnitOfWork.UserRepository.Get(teamModel.AdminUserId);
+
                 var entity = UnitOfWork.TeamRepository.Add(team);
                 UnitOfWork.Save();
 
