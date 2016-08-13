@@ -42,7 +42,7 @@ namespace TeamManagementService.Controllers {
                 return BadRequest(ModelState);
             }
 
-            var appUser = ConvertToApplicationUser(user);
+            var appUser = ModelFactory.Create(user);
             IdentityResult registerUserResult = await this.AppUserManager.CreateAsync(appUser, user.Password);
             if (!registerUserResult.Succeeded)
                 return GetErrorResult(registerUserResult);
@@ -66,7 +66,7 @@ namespace TeamManagementService.Controllers {
             } else {
                 ModelState.AddModelError("", "Invalid username or password.");
             }
-            return BadRequest();
+            return BadRequest(ModelState);
         }
 
 
@@ -76,7 +76,7 @@ namespace TeamManagementService.Controllers {
                 return BadRequest(ModelState);
             }
 
-            var appUser = await this.AppUserManager.FindByNameAsync(user.Name);
+            var appUser = await this.AppUserManager.FindByNameAsync(user.UserName);
 
             if (appUser != null) {
                 AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
@@ -97,16 +97,5 @@ namespace TeamManagementService.Controllers {
             }, identity);
         }
 
-        private static ApplicationUser ConvertToApplicationUser(RegisterUserBindingModel userModel) {
-            return new ApplicationUser() {
-
-                UserName = userModel.Username,
-                Email = userModel.Email,
-                FirstName = userModel.FirstName,
-                LastName = userModel.LastName,
-                Level = 3,
-                JoinTime = DateTime.Now.Date,
-            };
-        }
     }
 }

@@ -27,10 +27,10 @@ app.service('userService', ['$http', 'appService', '$q', function ($http, appSer
 
         $http.post('http://localhost:63601/api/accounts/login', user, config)
             .success(function (response) {
-                appService.login(response);
+                appService.setLoginInfo(response);
                 def.resolve(response);
             }).error(function (data) {
-                def.reject("Failed to login");
+                def.reject(parseErrors(data));
             });
 
         return def.promise;
@@ -49,4 +49,14 @@ app.service('userService', ['$http', 'appService', '$q', function ($http, appSer
 
         return def.promise;
     };
+
+    function parseErrors(response) {
+        var errors = [];
+        for (var key in response.modelState) {
+            for (var i = 0; i < response.modelState[key].length; i++) {
+                errors.push(response.modelState[key][i]);
+            }
+        }
+        return errors;
+    }
 }]);

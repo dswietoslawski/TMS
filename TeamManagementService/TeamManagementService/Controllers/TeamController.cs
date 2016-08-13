@@ -38,7 +38,7 @@ namespace TeamManagementService.Controllers
             {
 
                 var team = ModelFactory.Create(teamModel);
-                team.Admin = UnitOfWork.UserRepository.Get(teamModel.AdminUserId);
+                team.Admin = UnitOfWork.UserRepository.Get(teamModel.AdminId);
 
                 var entity = UnitOfWork.TeamRepository.Add(team);
                 UnitOfWork.Save();

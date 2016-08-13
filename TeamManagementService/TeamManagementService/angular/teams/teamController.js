@@ -2,12 +2,12 @@
 
 app.controller('teamController', ['$scope', 'teamService', 'appService' , function ($scope, teamService, appService) {
     $scope.newTeam = {
-        name: "asdf",
-        admin: { }
+        name: "",
+        adminId: 0
     }
 
     $scope.add = function (team) {
-        team.adminUserId = appService.currentUser.id;
+        team.adminId = appService.currentUser.Id;
         teamService.add(team);
     };
 }]);

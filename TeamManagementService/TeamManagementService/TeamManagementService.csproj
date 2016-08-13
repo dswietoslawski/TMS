@@ -194,12 +194,13 @@
     <Compile Include="Infrastructure\ApplicationUserManager.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Tasks\ToDoItemBindingModel.cs" />
+    <Compile Include="Models\Tasks\ToDoItemReturnModel.cs" />
     <Compile Include="Models\Teams\ModelFactory.cs" />
     <Compile Include="Models\Teams\TeamBindingModel.cs" />
     <Compile Include="Models\Teams\Team.cs" />
     <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="Models\Tasks\ToDoItem.cs" />
-    <Compile Include="Models\Tasks\ToDoItemBindingModel.cs" />
     <Compile Include="Models\Tasks\ToDoItemType.cs" />
     <Compile Include="Models\Teams\TeamReturnModel.cs" />
     <Compile Include="Models\Users\LoginUserBindingModel.cs" />

@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
 using System.Web.Http.Routing;
 using TeamManagementService.Infrastructure;
 using TeamManagementService.Models.Teams;
@@ -22,6 +23,18 @@ namespace TeamManagementService.Models {
                 Email = appUser.Email,
                 EmailConfirmed = appUser.EmailConfirmed,
                 JoinDate = appUser.JoinTime,
+            };
+        }
+
+        public ApplicationUser Create(RegisterUserBindingModel userModel) {
+            return new ApplicationUser() {
+
+                UserName = userModel.UserName,
+                Email = userModel.Email,
+                FirstName = userModel.FirstName,
+                LastName = userModel.LastName,
+                Level = 3,
+                JoinTime = DateTime.Now.Date,
             };
         }
     }

@@ -1,15 +1,12 @@
 ﻿var app = angular.module('tmsApp');
 
-app.service('appService', function () {
+app.service('appService', function ($window, $rootScope) {
 
-    this.currentUser = {
-        userName: "",
-        id: ""
-    };
-
-    this.login = function (user) {
-        this.currentUser.userName = user.userName;
-        this.currentUser.id = user.id;
+    this.setLoginInfo = function (user) {
+        $window.localStorage && window.localStorage.setItem('userInfo', user);
+    }
+    this.getLoginInfo = function () {
+        $window.localStorage && window.localStorage.getItem('userInfo');
     }
 
 });

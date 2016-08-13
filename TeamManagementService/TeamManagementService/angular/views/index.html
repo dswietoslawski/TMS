@@ -15,9 +15,8 @@
     <meta charset="utf-8" />
 </head>
 <body ng-app="tmsApp">
-    <div ng-controller="userController">
+    <div ng-controller="userController" ng-init="onInit()">
 
-        <label>{{registerMsg}}</label>
         <label>logged in as</label>
         <label>{{currentUser.userName}}</label>
 
@@ -34,10 +33,12 @@
         <form>
             <input type="text" ng-model="loginUser.userName" required />
             <input type="text" ng-model="loginUser.password" required />
+            <input type="checkbox" ng-model="loginUser.rememberMe" required />
             <input type="submit" value="Submit" ng-click="login(loginUser)">
         </form>
 
-        <button ng-click="logout(loginUser)">Logout</button>
+        <button ng-click="logout(currentUser)">Logout</button>
+        <label>{{userMsg}}</label>
     </div>
 
     <div ng-controller="teamController">

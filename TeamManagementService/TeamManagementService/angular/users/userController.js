@@ -12,29 +12,32 @@ app.controller('userController', ['$scope', 'userService', 'appService', functio
 
     $scope.loginUser = {
         userName: "TestUser",
-        password: "TestTest"
+        password: "TestTest",
+        rememberMe: true
     };
 
     $scope.currentUser = {
         userName: ""
     };
 
-    $scope.registerMsg = "";
+    $scope.userMsg = "";
 
     $scope.register = function (user) {
         userService.register(user)
             .then(function (response) {
-                $scope.registerMsg = response;
+                $scope.userMsg = response;
             },
             function (error) {
-                $scope.registerMsg = error;
+                $scope.userMsg = error;
             });// get a promise use login function if SUCCESS
     };
 
     $scope.login = function (user) {
         var promise = userService.login(user);// get promise reload and pin the user as logged in if SUCCESS
         promise.then(function () {
-            $scope.currentUser = appService.currentUser;
+            $scope.currentUser = appService.getLoginInfo();
+        }, function (error) {
+            $scope.userMsg = error;
         })// get a promise use login function if SUCCESS
     }
 
@@ -42,6 +45,12 @@ app.controller('userController', ['$scope', 'userService', 'appService', functio
         userService.logout(user)
         .then(function () {
             $scope.currentUser = appService.currentUser;
+        }, function (error) {
+            $scope.userMsg = error;
         });
+    }
+
+    $scope.onInit = function () {
+        $scope.currentUser = appService.getLoginInfo();
     }
 }]);

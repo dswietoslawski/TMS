@@ -4,6 +4,7 @@ using Microsoft.Owin.Cors;
 using Microsoft.Owin.Security.Cookies;
 using Newtonsoft.Json.Serialization;
 using Owin;
+using System;
 using System.Linq;
 using System.Net.Http.Formatting;
 using System.Web.Http;
@@ -34,6 +35,7 @@ namespace TeamManagementService
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+                ExpireTimeSpan = TimeSpan.FromDays(7),
                 LoginPath = new PathString("/accounts/Login")
             });
         }
