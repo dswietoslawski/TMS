@@ -28,6 +28,7 @@ app.service('userService', ['$http', 'appService', '$q', function ($http, appSer
         $http.post('http://localhost:63601/api/accounts/login', user, config)
             .success(function (response) {
                 appService.setLoginInfo(response);
+                var test = appService.getLoginInfo();
                 def.resolve(response);
             }).error(function (data) {
                 def.reject(parseErrors(data));

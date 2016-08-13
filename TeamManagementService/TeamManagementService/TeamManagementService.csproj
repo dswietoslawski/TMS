@@ -163,6 +163,18 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="angular\lib\angular-local-storage\.gitattributes" />
+    <Content Include="angular\lib\angular-local-storage\.gitignore" />
+    <Content Include="angular\lib\angular-local-storage\demo\demo-app.js" />
+    <Content Include="angular\lib\angular-local-storage\demo\demo-style.css" />
+    <Content Include="angular\lib\angular-local-storage\demo\demo.html" />
+    <Content Include="angular\lib\angular-local-storage\dist\angular-local-storage.js" />
+    <Content Include="angular\lib\angular-local-storage\dist\angular-local-storage.min.js" />
+    <Content Include="angular\lib\angular-local-storage\index.js" />
+    <Content Include="angular\lib\angular\angular-csp.css" />
+    <Content Include="angular\lib\angular\angular.js" />
+    <Content Include="angular\lib\angular\angular.min.js" />
+    <Content Include="angular\lib\angular\index.js" />
     <Content Include="angular\teams\teamController.js" />
     <Content Include="angular\teams\teamService.js" />
     <Content Include="angular\users\userController.js" />
@@ -171,6 +183,42 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="scripts\bower\angular-local-storage\.bower.json" />
+    <Content Include="scripts\bower\angular-local-storage\.bowerrc" />
+    <Content Include="scripts\bower\angular-local-storage\.editorconfig" />
+    <Content Include="scripts\bower\angular-local-storage\.travis.yml" />
+    <Content Include="scripts\bower\angular-local-storage\bower.json" />
+    <Content Include="scripts\bower\angular-local-storage\CHANGELOG.md" />
+    <Content Include="scripts\bower\angular-local-storage\dist\angular-local-storage.min.js.map" />
+    <Content Include="scripts\bower\angular-local-storage\LICENSE" />
+    <Content Include="scripts\bower\angular-local-storage\package.json" />
+    <Content Include="scripts\bower\angular-local-storage\README.md" />
+    <Content Include="scripts\bower\angular\.bower.json" />
+    <Content Include="scripts\bower\angular\angular.min.js.gzip" />
+    <Content Include="scripts\bower\angular\angular.min.js.map" />
+    <Content Include="scripts\bower\angular\bower.json" />
+    <Content Include="scripts\bower\angular\LICENSE.md" />
+    <Content Include="scripts\bower\angular\package.json" />
+    <Content Include="scripts\bower\angular\README.md" />
+    <Content Include=".bowerrc" />
+    <Content Include="bower.json" />
+    <Content Include="angular\lib\angular-local-storage\.bower.json" />
+    <Content Include="angular\lib\angular-local-storage\.bowerrc" />
+    <Content Include="angular\lib\angular-local-storage\.editorconfig" />
+    <Content Include="angular\lib\angular-local-storage\.travis.yml" />
+    <Content Include="angular\lib\angular-local-storage\bower.json" />
+    <Content Include="angular\lib\angular-local-storage\CHANGELOG.md" />
+    <Content Include="angular\lib\angular-local-storage\dist\angular-local-storage.min.js.map" />
+    <Content Include="angular\lib\angular-local-storage\LICENSE" />
+    <Content Include="angular\lib\angular-local-storage\package.json" />
+    <Content Include="angular\lib\angular-local-storage\README.md" />
+    <Content Include="angular\lib\angular\.bower.json" />
+    <Content Include="angular\lib\angular\angular.min.js.gzip" />
+    <Content Include="angular\lib\angular\angular.min.js.map" />
+    <Content Include="angular\lib\angular\bower.json" />
+    <Content Include="angular\lib\angular\LICENSE.md" />
+    <Content Include="angular\lib\angular\package.json" />
+    <Content Include="angular\lib\angular\README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -183,6 +231,18 @@
     <Content Include="angular\views\index.html" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="scripts\bower\angular-local-storage\.gitattributes" />
+    <Content Include="scripts\bower\angular-local-storage\.gitignore" />
+    <Content Include="scripts\bower\angular-local-storage\demo\demo-app.js" />
+    <Content Include="scripts\bower\angular-local-storage\demo\demo-style.css" />
+    <Content Include="scripts\bower\angular-local-storage\demo\demo.html" />
+    <Content Include="scripts\bower\angular-local-storage\dist\angular-local-storage.js" />
+    <Content Include="scripts\bower\angular-local-storage\dist\angular-local-storage.min.js" />
+    <Content Include="scripts\bower\angular-local-storage\index.js" />
+    <Content Include="scripts\bower\angular\angular-csp.css" />
+    <Content Include="scripts\bower\angular\angular.js" />
+    <Content Include="scripts\bower\angular\angular.min.js" />
+    <Content Include="scripts\bower\angular\index.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

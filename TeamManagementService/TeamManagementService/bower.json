@@ -1,0 +1,7 @@
+{
+	"name": "ASP.NET",
+	"private": true,
+  "dependencies": {
+    "angular-local-storage": "0.3.0"
+  }
+}
