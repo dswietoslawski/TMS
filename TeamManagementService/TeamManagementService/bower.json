@@ -2,6 +2,8 @@
 	"name": "ASP.NET",
 	"private": true,
   "dependencies": {
-    "angular-local-storage": "0.3.0"
+    "angular-local-storage": "0.3.0",
+    "angular-ui-bootstrap": "2.0.1",
+    "bootstrap": "3.3.7"
   }
 }
