@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>wat</title>
+</head>
+<body>
+    <div ng-controller="userController" ng-init="onInit()">
+        <label>logged in as</label>
+        <label>{{currentUser.userName}}</label>
+
+        <form>
+            <input type="text" ng-model="registerUser.userName" required />
+            <input type="text" ng-model="registerUser.password" required />
+            <input type="text" ng-model="registerUser.confirmPassword" required />
+            <input type="text" ng-model="registerUser.email" required />
+            <input type="text" ng-model="registerUser.firstName" required />
+            <input type="text" ng-model="registerUser.lastName" required />
+            <input type="submit" value="Submit" ng-click="register(registerUser)">
+        </form>
+
+        <form>
+            <input type="text" ng-model="loginUser.userName" required />
+            <input type="password" ng-model="loginUser.password" required />
+            <input type="checkbox" ng-model="loginUser.rememberMe" required />
+            <input type="submit" value="Submit" ng-click="login(loginUser)">
+        </form>
+
+        <button ng-click="logout(currentUser)">Logout</button>
+        <label>{{userMsg}}</label>
+    </div>
+</body>
+</html>

@@ -7,7 +7,7 @@ app.controller('teamController', ['$scope', 'teamService', 'appService' , functi
     }
 
     $scope.add = function (team) {
-        team.adminId = appService.currentUser.Id;
+        team.adminId = appService.getLoginInfo().adminId;
         teamService.add(team);
     };
 }]);

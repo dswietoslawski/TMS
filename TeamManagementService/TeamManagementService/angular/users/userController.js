@@ -2,17 +2,17 @@
 
 app.controller('userController', ['$scope', 'userService', 'appService', function ($scope, userService, appService) {
     $scope.registerUser = {
-        userName: "asdf",
-        password: "asdf",
-        confirmPassword: "asdf",
-        email: "asdf",
-        firstName: "asdf",
-        lastName: "asdf"
+        userName: "",
+        password: "",
+        confirmPassword: "",
+        email: "",
+        firstName: "",
+        lastName: ""
     };
 
     $scope.loginUser = {
-        userName: "TestUser",
-        password: "TestTest",
+        userName: "",
+        password: "",
         rememberMe: true
     };
 
@@ -44,6 +44,7 @@ app.controller('userController', ['$scope', 'userService', 'appService', functio
     $scope.logout = function (user) {
         userService.logout(user)
         .then(function () {
+            appService.setLoginInfo(null);
             $scope.currentUser = appService.currentUser;
         }, function (error) {
             $scope.userMsg = error;

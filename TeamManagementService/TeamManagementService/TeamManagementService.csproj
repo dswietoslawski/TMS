@@ -178,7 +178,9 @@
     <Content Include="angular\teams\teamController.js" />
     <Content Include="angular\teams\teamService.js" />
     <Content Include="angular\users\userController.js" />
+    <Content Include="angular\users\userDirective.js" />
     <Content Include="angular\users\userService.js" />
+    <Content Include="angular\users\userView.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

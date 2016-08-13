@@ -11,7 +11,7 @@ namespace TeamManagementService.Repositories
     public class UnitOfWork
     {
 
-        ApplicationDbContext context = new ApplicationDbContext();
+        private ApplicationDbContext context = new ApplicationDbContext();
 
         private ITeamRepository teamRepository;
         public ITeamRepository TeamRepository

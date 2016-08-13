@@ -6,7 +6,6 @@ app.service('appService',['localStorageService', function (localStorageService) 
         localStorageService.set('userInfo', user);
     }
     this.getLoginInfo = function () {
-        var keys = localStorageService.keys();
         return localStorageService.get('userInfo');
     }
 
