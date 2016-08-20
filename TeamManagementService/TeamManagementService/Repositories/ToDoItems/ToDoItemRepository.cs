@@ -8,8 +8,7 @@ namespace TeamManagementService.Repositories.ToDoItems {
     public class ToDoItemRepository : BaseRepository, IToDoItemRepository {
         public ToDoItemRepository(ApplicationDbContext context) : base(context) {
         }
-
-
+        
         public ToDoItem Add(ToDoItem team) {
             return context.Tasks.Add(team);
         }
@@ -22,6 +21,10 @@ namespace TeamManagementService.Repositories.ToDoItems {
             return context.Tasks.Find(id);
         }
 
+        public IEnumerable<ToDoItem> GetByUser(string userId) {
+            return context.Tasks.Where(t => t.User.Id == userId).ToList();
+        }
+        
         public IEnumerable<ToDoItem> Get(int teamId, string userId) {
             return context.Tasks.Where(t => t.User.Id == userId && t.Team.Id == teamId).ToList();
         }

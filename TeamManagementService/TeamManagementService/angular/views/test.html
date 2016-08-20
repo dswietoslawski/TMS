@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="../lib/ui-bootstrap/ui-bootstrap-tpls-2.0.1.min.js"></script>
+
+    <script src="../lib/angular-local-storage/dist/angular-local-storage.min.js"></script>
+
+    <script src="../app.js"></script>
+    <script src="../users/userController.js"></script>
+    <script src="../users/userService.js"></script>
+    <script src="../teams/teamController.js"></script>
+    <script src="../teams/teamService.js"></script>
+    <script src="../appService.js"></script>
+    <script src="../users/userDirective.js"></script>
+    <script src="../toDoItems/toDoItemController.js"></script>
+    <script src="../toDoItems/toDoItemService.js"></script>
+
+
+    <title>Team Management Service</title>
+
+    <meta charset="utf-8" />
+</head>
+<body ng-app="tmsApp">
+    <user></user>
+
+
+    <div ng-controller="teamController as teamCtrl">
+        <label>Team Name</label>
+        <input type="text" ng-model="newTeam.name" required />
+        <input type="submit" value="Submit" ng-click="add(newTeam)">
+
+        <div class="btn-group" uib-dropdown>
+            <button id="single-button" style="min-width:100px" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
+                {{selectedProject}}
+            </button>
+            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                <li ng-repeat="project in projects" ng-click="selectProject(project)">{{project.name}}</li>
+            </ul>
+        </div>
+
+        <div ng-controller="toDoItemController">
+                    <div ng-repeat="item in toDoItems">{{item.name}}</div>
+        </div>
+
+    </div>
+
+</body>
+</html>

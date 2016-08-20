@@ -1,6 +1,6 @@
 ﻿var app = angular.module('tmsApp');
 
-app.service('teamService', function ($http) {
+app.service('teamService',['$http', '$q', function ($http, $q) {
 
     var config = {
         headers: {
@@ -14,12 +14,20 @@ app.service('teamService', function ($http) {
     }
 
     this.get = function () {
-        var response = $http.get('http://localhost:63601/api/teams', team, config)
-        return response;
+        var def = $q.defer();
+
+        var response = $http.get('http://localhost:63601/api/teams', config)
+        .success(function (response) {
+            def.resolve(response);
+        }).error(function (error) {
+            def.reject("Error");
+        });
+
+        return def.promise;
     }
 
     this.getById = function (id) {
         var response = $http.get('http://localhost:63601/api/teams' + id, user, config)
         return response;
     }
-});
+}]);

@@ -8,5 +8,6 @@ namespace TeamManagementService.Repositories.ToDoItems {
         ToDoItem Get(int id);
         IEnumerable<ToDoItem> GetByTeam(int teamId);
         IEnumerable<ToDoItem> Get(int teamId, string userId);
+        IEnumerable<ToDoItem> GetByUser(string userId);
     }
 }

@@ -50,6 +50,11 @@ namespace TeamManagementService.Controllers {
         public IHttpActionResult Get(int teamId, string userId) {
             return Ok(UnitOfWork.ToDoItemRepository.Get(teamId, userId));
         }
-        
+
+        [HttpGet]
+        [Route("users/{userId}/todoitems")]
+        public IHttpActionResult GetByUser(string userId) {
+            return Ok(UnitOfWork.ToDoItemRepository.GetByUser(userId));
+        }
     }
 }
