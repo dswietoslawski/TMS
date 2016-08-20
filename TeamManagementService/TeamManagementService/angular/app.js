@@ -1,1 +1,1 @@
-﻿var app = angular.module('tmsApp', ['LocalStorageModule']);
+﻿var app = angular.module('tmsApp', ['LocalStorageModule', 'ui.bootstrap']);
