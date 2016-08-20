@@ -394,13 +394,13 @@
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Tasks\ToDoItemBindingModel.cs" />
     <Compile Include="Models\Tasks\ToDoItemReturnModel.cs" />
-    <Compile Include="Models\Teams\ModelFactory.cs" />
-    <Compile Include="Models\Teams\ProjectBindingModel.cs" />
-    <Compile Include="Models\Teams\Project.cs" />
+    <Compile Include="Models\Projects\ModelFactory.cs" />
+    <Compile Include="Models\Projects\ProjectBindingModel.cs" />
+    <Compile Include="Models\Projects\Project.cs" />
     <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="Models\Tasks\ToDoItem.cs" />
     <Compile Include="Models\Tasks\ToDoItemType.cs" />
-    <Compile Include="Models\Teams\ProjectReturnModel.cs" />
+    <Compile Include="Models\Projects\ProjectReturnModel.cs" />
     <Compile Include="Models\Users\LoginUserBindingModel.cs" />
     <Compile Include="Models\Users\RegisterUserBindingModel.cs" />
     <Compile Include="Models\Users\UserBindingModel.cs" />
