@@ -12,8 +12,8 @@
     <script src="../app.js"></script>
     <script src="../users/userController.js"></script>
     <script src="../users/userService.js"></script>
-    <script src="../teams/teamController.js"></script>
-    <script src="../teams/teamService.js"></script>
+    <script src="../teams/projectController.js"></script>
+    <script src="../teams/projectService.js"></script>
     <script src="../appService.js"></script>
     <script src="../users/userDirective.js"></script>
     <script src="../toDoItems/toDoItemController.js"></script>
@@ -28,10 +28,10 @@
     <user></user>
 
 
-    <div ng-controller="teamController as teamCtrl">
+    <div ng-controller="projectController as projectCtrl">
         <label>Team Name</label>
-        <input type="text" ng-model="newTeam.name" required />
-        <input type="submit" value="Submit" ng-click="add(newTeam)">
+        <input type="text" ng-model="newProject.name" required />
+        <input type="submit" value="Submit" ng-click="add(newProject)">
 
         <div class="btn-group" uib-dropdown>
             <button id="single-button" style="min-width:100px" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
