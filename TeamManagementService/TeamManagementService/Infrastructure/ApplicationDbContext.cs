@@ -3,7 +3,7 @@ using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using TeamManagementService.Models;
 using TeamManagementService.Models.Tasks;
-using TeamManagementService.Models.Teams;
+using TeamManagementService.Models.Projects;
 
 namespace TeamManagementService.Infrastructure {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser> {

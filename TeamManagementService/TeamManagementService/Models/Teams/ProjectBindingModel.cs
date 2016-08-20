@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TeamManagementService.Models.Users;
 
-namespace TeamManagementService.Models.Teams {
+namespace TeamManagementService.Models.Projects {
     public class ProjectBindingModel {
 
         [Required]

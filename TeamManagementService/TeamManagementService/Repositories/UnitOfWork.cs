@@ -13,12 +13,12 @@ namespace TeamManagementService.Repositories
 
         private ApplicationDbContext context = new ApplicationDbContext();
 
-        private ITeamRepository teamRepository;
-        public ITeamRepository TeamRepository
+        private IProjectRepository teamRepository;
+        public IProjectRepository TeamRepository
         {
             get
             {
-                if (teamRepository == null) teamRepository = new TeamRepository(context);
+                if (teamRepository == null) teamRepository = new ProjectRepository(context);
                 return teamRepository;
             }
         }

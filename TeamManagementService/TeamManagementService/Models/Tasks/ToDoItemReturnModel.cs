@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TeamManagementService.Models.Teams;
+using TeamManagementService.Models.Projects;
 using TeamManagementService.Models.Users;
 
 namespace TeamManagementService.Models.Tasks

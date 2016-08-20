@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TeamManagementService.Infrastructure;
-using TeamManagementService.Models.Teams;
+using TeamManagementService.Models.Projects;
 
 namespace TeamManagementService.Repositories {
-    public class TeamRepository : BaseRepository, ITeamRepository {
+    public class ProjectRepository : BaseRepository, IProjectRepository {
 
-        public TeamRepository(ApplicationDbContext context) : base(context) {
+        public ProjectRepository(ApplicationDbContext context) : base(context) {
 
         }
 

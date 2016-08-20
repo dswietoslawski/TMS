@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using TeamManagementService.Models.Teams;
+using TeamManagementService.Models.Projects;
 
 namespace TeamManagementService.Repositories {
-    public interface ITeamRepository {
+    public interface IProjectRepository {
         IEnumerable<Project> Get();
         Project Get(int id);
         Project Add(Project team);

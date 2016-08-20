@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using TeamManagementService.Models.Tasks;
 
-namespace TeamManagementService.Models.Teams {
+namespace TeamManagementService.Models.Projects {
     public class Project {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

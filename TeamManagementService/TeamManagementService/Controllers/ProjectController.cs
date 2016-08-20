@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Http;
-using TeamManagementService.Models.Teams;
+using TeamManagementService.Models.Projects;
 
 namespace TeamManagementService.Controllers
 {
     [RoutePrefix("api/teams")]
-    public class TeamController : BaseApiController
+    public class ProjectController : BaseApiController
     {
 
         [HttpGet]

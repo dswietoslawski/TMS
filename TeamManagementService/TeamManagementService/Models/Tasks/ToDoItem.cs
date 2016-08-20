@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.RegularExpressions;
-using TeamManagementService.Models.Teams;
+using TeamManagementService.Models.Projects;
 
 namespace TeamManagementService.Models.Tasks {
     public class ToDoItem {

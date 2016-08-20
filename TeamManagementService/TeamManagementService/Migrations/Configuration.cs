@@ -4,7 +4,7 @@ namespace TeamManagementService.Migrations
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
-    using Models.Teams;
+    using Models.Projects;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
