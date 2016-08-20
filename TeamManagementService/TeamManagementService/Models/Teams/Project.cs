@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using TeamManagementService.Models.Tasks;
 
 namespace TeamManagementService.Models.Teams {
-    public class Team {
+    public class Project {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }

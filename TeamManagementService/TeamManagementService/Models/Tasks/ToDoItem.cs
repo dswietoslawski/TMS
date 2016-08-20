@@ -15,7 +15,7 @@ namespace TeamManagementService.Models.Tasks {
         [StringLength(100)]
         public string Description { get; set; }
 
-        public virtual Team Team { get; set; }
+        public virtual Project Team { get; set; }
         public virtual ApplicationUser User { get; set; }
         public virtual ToDoItemType Type { get; set; }
     }

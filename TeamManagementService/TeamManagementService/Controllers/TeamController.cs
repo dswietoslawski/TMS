@@ -14,7 +14,7 @@ namespace TeamManagementService.Controllers
         public IHttpActionResult Get()
         {
             var entities = UnitOfWork.TeamRepository.Get();
-            var response = new List<TeamReturnModel>();
+            var response = new List<ProjectReturnModel>();
 
             foreach (var entity in entities)
                 response.Add(ModelFactory.Create(entity));
@@ -32,7 +32,7 @@ namespace TeamManagementService.Controllers
         [HttpPost]
         [Route("")]
         [Authorize]
-        public IHttpActionResult Post(TeamBindingModel teamModel)
+        public IHttpActionResult Post(ProjectBindingModel teamModel)
         {
             if (ModelState.IsValid)
             {

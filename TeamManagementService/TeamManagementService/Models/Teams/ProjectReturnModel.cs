@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TeamManagementService.Models.Teams
 {
-    public class TeamReturnModel
+    public class ProjectReturnModel
     {
         public int Id { get; set; }
         public string Name { get; set; }

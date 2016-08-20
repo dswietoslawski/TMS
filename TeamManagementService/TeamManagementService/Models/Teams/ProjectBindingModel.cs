@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using TeamManagementService.Models.Users;
 
 namespace TeamManagementService.Models.Teams {
-    public class TeamBindingModel {
+    public class ProjectBindingModel {
 
         [Required]
         [StringLength(100)]

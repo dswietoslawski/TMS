@@ -7,15 +7,15 @@ using TeamManagementService.Models.Teams;
 namespace TeamManagementService.Models {
     public partial class ModelFactory {
 
-        public TeamReturnModel Create(Team team) {
-            return new TeamReturnModel() {
+        public ProjectReturnModel Create(Project team) {
+            return new ProjectReturnModel() {
                 Id = team.Id,
                 Name = team.Name
             };
         }
 
-        public Team Create(TeamBindingModel team) {
-            return new Team() {
+        public Project Create(ProjectBindingModel team) {
+            return new Project() {
                 Name = team.Name
             };
         }

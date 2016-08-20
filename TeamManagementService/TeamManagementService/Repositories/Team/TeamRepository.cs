@@ -13,15 +13,15 @@ namespace TeamManagementService.Repositories {
 
         }
 
-        public Team Add(Team team) {
+        public Project Add(Project team) {
             return context.Teams.Add(team);
         }
 
-        public IEnumerable<Team> Get() {
+        public IEnumerable<Project> Get() {
             return context.Teams;
         }
 
-        public Team Get(int id) {
+        public Project Get(int id) {
             return context.Teams.Find(id);
         }
     }

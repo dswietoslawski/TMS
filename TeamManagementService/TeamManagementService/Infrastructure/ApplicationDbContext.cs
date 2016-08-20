@@ -16,7 +16,7 @@ namespace TeamManagementService.Infrastructure {
             return new ApplicationDbContext();
         }
 
-        public DbSet<Team> Teams { get; set; }
+        public DbSet<Project> Teams { get; set; }
         public DbSet<ToDoItem> Tasks { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {

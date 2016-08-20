@@ -386,17 +386,21 @@
     <Compile Include="Controllers\TeamController.cs" />
     <Compile Include="Infrastructure\ApplicationDbContext.cs" />
     <Compile Include="Infrastructure\ApplicationUserManager.cs" />
+    <Compile Include="Migrations\201608201205183_changed team to project.cs" />
+    <Compile Include="Migrations\201608201205183_changed team to project.Designer.cs">
+      <DependentUpon>201608201205183_changed team to project.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Tasks\ToDoItemBindingModel.cs" />
     <Compile Include="Models\Tasks\ToDoItemReturnModel.cs" />
     <Compile Include="Models\Teams\ModelFactory.cs" />
-    <Compile Include="Models\Teams\TeamBindingModel.cs" />
-    <Compile Include="Models\Teams\Team.cs" />
+    <Compile Include="Models\Teams\ProjectBindingModel.cs" />
+    <Compile Include="Models\Teams\Project.cs" />
     <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="Models\Tasks\ToDoItem.cs" />
     <Compile Include="Models\Tasks\ToDoItemType.cs" />
-    <Compile Include="Models\Teams\TeamReturnModel.cs" />
+    <Compile Include="Models\Teams\ProjectReturnModel.cs" />
     <Compile Include="Models\Users\LoginUserBindingModel.cs" />
     <Compile Include="Models\Users\RegisterUserBindingModel.cs" />
     <Compile Include="Models\Users\UserBindingModel.cs" />
@@ -409,6 +413,11 @@
     <Compile Include="Repositories\User\IUserRepository.cs" />
     <Compile Include="Repositories\User\UserRepository.cs" />
     <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201608201205183_changed team to project.resx">
+      <DependentUpon>201608201205183_changed team to project.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

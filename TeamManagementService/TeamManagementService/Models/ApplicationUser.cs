@@ -22,6 +22,6 @@ namespace TeamManagementService.Models {
         public DateTime JoinTime { get; set; }
 
         public virtual IEnumerable<ToDoItem> Tasks { get; set; }
-        public virtual IEnumerable<Team> Groups { get; set; }
+        public virtual IEnumerable<Project> Groups { get; set; }
     }
 }

@@ -24,16 +24,16 @@ namespace TeamManagementService.Migrations
             manager.Create(user, "MySuperP@ssword!");
             context.SaveChanges();
 
-            IEnumerable<Team> Teams = getTeams(manager.FindByName("SuperPowerUser"));
+            IEnumerable<Project> Teams = getTeams(manager.FindByName("SuperPowerUser"));
             // context.Teams.AddRange(Teams);
 
             context.SaveChanges();
 
         }
 
-        private IEnumerable<Team> getTeams(ApplicationUser user) {
-            return new List<Team>() {
-                new Team() {
+        private IEnumerable<Project> getTeams(ApplicationUser user) {
+            return new List<Project>() {
+                new Project() {
                     Name = "TestTeam",
                     Admin = user
                 }
