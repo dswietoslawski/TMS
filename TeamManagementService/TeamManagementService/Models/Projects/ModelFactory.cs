@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using TeamManagementService.Models.Projects;
+﻿using TeamManagementService.Models.Projects;
 
 namespace TeamManagementService.Models {
     public partial class ModelFactory {

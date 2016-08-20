@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TeamManagementService.Models.Projects;
-using TeamManagementService.Models.Users;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace TeamManagementService.Models.Tasks {
     public class ToDoItemBindingModel {

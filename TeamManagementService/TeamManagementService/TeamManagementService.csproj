@@ -384,6 +384,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\ToDoItemController.cs" />
     <Compile Include="Infrastructure\ApplicationDbContext.cs" />
     <Compile Include="Infrastructure\ApplicationUserManager.cs" />
     <Compile Include="Migrations\201608201205183_changed team to project.cs" />
@@ -392,6 +393,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Tasks\ModelFactory.cs" />
     <Compile Include="Models\Tasks\ToDoItemBindingModel.cs" />
     <Compile Include="Models\Tasks\ToDoItemReturnModel.cs" />
     <Compile Include="Models\Projects\ModelFactory.cs" />
@@ -409,6 +411,8 @@
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\Project\IProjectRepository.cs" />
     <Compile Include="Repositories\Project\ProjectRepository.cs" />
+    <Compile Include="Repositories\ToDoItems\IToDoItemRepository.cs" />
+    <Compile Include="Repositories\ToDoItems\ToDoItemRepository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Repositories\User\IUserRepository.cs" />
     <Compile Include="Repositories\User\UserRepository.cs" />
