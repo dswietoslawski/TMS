@@ -3,10 +3,13 @@
 <head>
 
     <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="../lib/ui-bootstrap/ui-bootstrap-tpls-2.0.1.min.js"></script>
 
+    <script src="../lib/angular-ui-sortable/sortable.min.js"></script>
     <script src="../lib/angular-local-storage/dist/angular-local-storage.min.js"></script>
 
     <script src="../app.js"></script>
@@ -46,29 +49,38 @@
 
             <div ng-controller="toDoItemController">
                 <div class="row">
-                    <div class="col-md-4">
-                        <p class="column-title">To Do</p>
-                        <div ng-class="item.type" class="note col-md-6" ng-repeat="item in toDoItems">
+                    <h3 class="col-md-4">To do</h3>
+                    <h3 class="col-md-4">In progress</h3>
+                    <h3 class="col-md-4">Done</h3>
+                </div>
+                <div class="row">
+                    <ul ui-sortable="sortableOptions" ng-model="toDoItems" id="to-do-column" class="connectedSortable col-md-4">
+                        <li ng-class="item.type" class="note col-md-12" ng-repeat="item in toDoItems">
                             <div to-do-item></div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <p class="column-title">In Progress</p>
-                        <div ng-class="item.type" class="note col-md-6" ng-repeat="item in inProgressItems">
+                        </li>
+                        <li ng-show="toDoItems.length==0">&nbsp;</li>
+                    </ul>
+                    <ul ui-sortable="sortableOptions" ng-model="inProgressItems" id="in-progress-column" class="connectedSortable col-md-4">
+                        <li ng-class="item.type" class="note col-md-6" ng-repeat="item in inProgressItems">
                             <div to-do-item></div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <p class="column-title">Done</p>
-                        <div ng-class="item.type" class="note col-md-6" ng-repeat="item in doneItems">
+                        </li>
+                        <li ng-show="inProgressItems.length==0">&nbsp;</li>
+                    </ul>
+                    <ul ui-sortable="sortableOptions" ng-model="doneItems" id="done-column" class="connectedSortable col-md-4">
+                        <li ng-class="item.type" class="note col-md-6" ng-repeat="item in doneItems">
                             <div to-do-item></div>
-                        </div>
-                    </div>
+                        </li>
+                        <li ng-show="doneItems.length==0">&nbsp;</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
     <style>
+        .connectedSortable > li {
+            list-style-type: none;
+        }
+
         .Bug:before {
             border-color: #97010A #fff;
         }
@@ -99,12 +111,20 @@
             padding: 1em 1.5em;
             margin: 5px;
             color: #fff;
-            width: 125px;
+            width: 300px;
             height: 125px;
         }
 
         .column-title {
             margin: 10px;
+        }
+
+        .connectedSortable {
+            min-height: 100px;
+        }
+
+        .placeholder {
+            background: #AEF;
         }
     </style>
 </body>

@@ -20,4 +20,9 @@ app.service('toDoItemService', ['httpService', function (httpService) {
         var url = 'http://localhost:63601/api/teams/' + teamId + '/users/' + userId + '/todoitems';
         return httpService.get(url);
     }
+
+    this.update = function (toDoItem) {
+        var url = 'http://localhost:63601/api/todoitems';
+        return httpService.put(url, toDoItem);
+    }
 }]);

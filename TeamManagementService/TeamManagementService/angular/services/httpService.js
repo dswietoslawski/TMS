@@ -21,6 +21,23 @@ app.service('httpService', ['$http', '$q', function ($http, $q) {
         return def.promise;
     };
 
+    this.post = function (url, data) {
+
+    };
+
+    this.put = function (url, data) {
+        var def = $q.defer();
+
+        var response = $http.put(url, data, config)
+        .success(function (response) {
+            def.resolve(response);
+        }).error(function (error) {
+            def.reject(parseErrors(error));
+        });
+
+        return def.promise;
+    }
+
     function parseErrors(response) {
         var errors = [];
         for (var key in response.modelState) {

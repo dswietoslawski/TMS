@@ -56,5 +56,16 @@ namespace TeamManagementService.Controllers {
         public IHttpActionResult GetByUser(string userId) {
             return Ok(ModelFactory.Create(UnitOfWork.ToDoItemRepository.GetByUser(userId)));
         }
+
+        [HttpPut]
+        [Route("todoitems")]
+        public IHttpActionResult Update(ToDoItemBindingModel model) {
+            if (ModelState.IsValid) {
+                UnitOfWork.ToDoItemRepository.Update(ModelFactory.Create(model));
+                UnitOfWork.Save();
+                return Ok();
+            };
+            return BadRequest();
+        }
     }
 }
