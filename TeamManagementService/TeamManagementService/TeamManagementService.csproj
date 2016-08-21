@@ -128,6 +128,7 @@
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
@@ -163,6 +164,25 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="angular\directives\toDoItem.html" />
+    <Content Include="angular\directives\toDoItemDirective.js" />
+    <Content Include="angular\lib\angular-dragdrop\karma.conf.js" />
+    <Content Include="angular\lib\angular-dragdrop\src\angular-dragdrop.js" />
+    <Content Include="angular\lib\angular-dragdrop\src\angular-dragdrop.min.js" />
+    <Content Include="angular\lib\angular-gridster\demo\common\style.css" />
+    <Content Include="angular\lib\angular-gridster\demo\dashboard\script.js" />
+    <Content Include="angular\lib\angular-gridster\demo\dashboard\style.css" />
+    <Content Include="angular\lib\angular-gridster\demo\dashboard\view.html" />
+    <Content Include="angular\lib\angular-gridster\demo\dashboard\widget_settings.html" />
+    <Content Include="angular\lib\angular-gridster\demo\main\script.js" />
+    <Content Include="angular\lib\angular-gridster\demo\main\style.css" />
+    <Content Include="angular\lib\angular-gridster\demo\main\view.html" />
+    <Content Include="angular\lib\angular-gridster\dist\angular-gridster.css" />
+    <Content Include="angular\lib\angular-gridster\dist\angular-gridster.min.css" />
+    <Content Include="angular\lib\angular-gridster\dist\angular-gridster.min.js" />
+    <Content Include="angular\lib\angular-gridster\index.html" />
+    <Content Include="angular\lib\angular-gridster\src\angular-gridster.js" />
+    <Content Include="angular\lib\angular-gridster\test.html" />
     <Content Include="angular\lib\angular-local-storage\.gitattributes" />
     <Content Include="angular\lib\angular-local-storage\.gitignore" />
     <Content Include="angular\lib\angular-local-storage\demo\demo-app.js" />
@@ -171,6 +191,8 @@
     <Content Include="angular\lib\angular-local-storage\dist\angular-local-storage.js" />
     <Content Include="angular\lib\angular-local-storage\dist\angular-local-storage.min.js" />
     <Content Include="angular\lib\angular-local-storage\index.js" />
+    <Content Include="angular\lib\angular-ui-sortable\sortable.js" />
+    <Content Include="angular\lib\angular-ui-sortable\sortable.min.js" />
     <Content Include="angular\lib\angular\angular-csp.css" />
     <Content Include="angular\lib\angular\angular.js" />
     <Content Include="angular\lib\angular\angular.min.js" />
@@ -204,12 +226,16 @@
     <Content Include="angular\lib\bootstrap\js\transition.js" />
     <Content Include="angular\lib\bootstrap\package.js" />
     <Content Include="angular\lib\ui-bootstrap\ui-bootstrap-tpls-2.0.1.min.js" />
-    <Content Include="angular\teams\teamController.js" />
-    <Content Include="angular\teams\teamService.js" />
+    <Content Include="angular\services\httpService.js" />
+    <Content Include="angular\teams\projectController.js" />
+    <Content Include="angular\teams\projectService.js" />
+    <Content Include="angular\toDoItems\toDoItemController.js" />
+    <Content Include="angular\toDoItems\toDoItemService.js" />
     <Content Include="angular\users\userController.js" />
     <Content Include="angular\users\userDirective.js" />
     <Content Include="angular\users\userService.js" />
     <Content Include="angular\users\userView.html" />
+    <Content Include="angular\views\test.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -353,6 +379,19 @@
     <Content Include="angular\lib\bootstrap\nuget\MyGet.ps1" />
     <Content Include="angular\lib\bootstrap\package.json" />
     <Content Include="angular\lib\bootstrap\README.md" />
+    <Content Include="angular\lib\angular-dragdrop\.bower.json" />
+    <Content Include="angular\lib\angular-dragdrop\bower.json" />
+    <Content Include="angular\lib\angular-dragdrop\LICENSE" />
+    <Content Include="angular\lib\angular-dragdrop\README.md" />
+    <Content Include="angular\lib\angular-gridster\.bower.json" />
+    <Content Include="angular\lib\angular-gridster\.jsbeautifyrc" />
+    <Content Include="angular\lib\angular-gridster\bower.json" />
+    <Content Include="angular\lib\angular-gridster\LICENSE" />
+    <Content Include="angular\lib\angular-gridster\README.md" />
+    <Content Include="angular\lib\angular-gridster\src\angular-gridster.less" />
+    <Content Include="angular\lib\angular-ui-sortable\.bower.json" />
+    <Content Include="angular\lib\angular-ui-sortable\.travis.yml" />
+    <Content Include="angular\lib\angular-ui-sortable\bower.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -380,16 +419,21 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="angular\appService.js" />
+    <Content Include="angular\services\appService.js" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\ToDoItemController.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Infrastructure\ApplicationDbContext.cs" />
     <Compile Include="Infrastructure\ApplicationUserManager.cs" />
     <Compile Include="Migrations\201608201205183_changed team to project.cs" />
     <Compile Include="Migrations\201608201205183_changed team to project.Designer.cs">
       <DependentUpon>201608201205183_changed team to project.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608211026093_added status to to do items.cs" />
+    <Compile Include="Migrations\201608211026093_added status to to do items.Designer.cs">
+      <DependentUpon>201608211026093_added status to to do items.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -401,6 +445,7 @@
     <Compile Include="Models\Projects\Project.cs" />
     <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="Models\Tasks\ToDoItem.cs" />
+    <Compile Include="Models\Tasks\ToDoItemStatus.cs" />
     <Compile Include="Models\Tasks\ToDoItemType.cs" />
     <Compile Include="Models\Projects\ProjectReturnModel.cs" />
     <Compile Include="Models\Users\LoginUserBindingModel.cs" />
@@ -421,6 +466,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201608201205183_changed team to project.resx">
       <DependentUpon>201608201205183_changed team to project.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608211026093_added status to to do items.resx">
+      <DependentUpon>201608211026093_added status to to do items.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
