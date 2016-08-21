@@ -25,10 +25,10 @@ namespace TeamManagementService.Models {
             };
         }
 
-        public IEnumerable<ToDoItemReturnModel> Create(IEnumerable<ToDoItem> toDoItem) {
+        public IEnumerable<ToDoItemReturnModel> Create(IEnumerable<ToDoItem> toDoItems) {
             ICollection<ToDoItemReturnModel> result = new List<ToDoItemReturnModel>();
 
-            foreach (var toDo in toDoItem)
+            foreach (var toDo in toDoItems)
                 result.Add(Create(toDo));
             return result;
         }

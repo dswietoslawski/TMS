@@ -61,7 +61,7 @@
                         <li ng-show="toDoItems.length==0">&nbsp;</li>
                     </ul>
                     <ul ui-sortable="sortableOptions" ng-model="inProgressItems" id="in-progress-column" class="connectedSortable col-md-4">
-                        <li ng-class="item.type" class="note col-md-6" ng-repeat="item in inProgressItems">
+                        <li ng-class="item.type" class="note col-md-12" ng-repeat="item in inProgressItems">
                             <div to-do-item></div>
                         </li>
                         <li ng-show="inProgressItems.length==0">&nbsp;</li>
@@ -111,7 +111,7 @@
             padding: 1em 1.5em;
             margin: 5px;
             color: #fff;
-            width: 300px;
+            width: 200px;
             height: 125px;
         }
 
@@ -121,10 +121,16 @@
 
         .connectedSortable {
             min-height: 100px;
+            background-color:white;
+            
         }
 
         .placeholder {
             background: #AEF;
+        }
+
+        body {
+            background-color:aqua
         }
     </style>
 </body>
