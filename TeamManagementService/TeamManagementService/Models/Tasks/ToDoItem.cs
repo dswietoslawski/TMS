@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text.RegularExpressions;
 using TeamManagementService.Models.Projects;
 
 namespace TeamManagementService.Models.Tasks {
@@ -18,5 +17,6 @@ namespace TeamManagementService.Models.Tasks {
         public virtual Project Team { get; set; }
         public virtual ApplicationUser User { get; set; }
         public virtual ToDoItemType Type { get; set; }
+        public virtual ToDoItemStatus Status { get; set; }
     }
 }

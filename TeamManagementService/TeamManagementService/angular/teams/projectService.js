@@ -27,7 +27,7 @@ app.service('projectService', ['$http', '$q', function ($http, $q) {
     }
 
     this.getById = function (id) {
-        var response = $http.get('http://localhost:63601/api/teams' + id, user, config)
+        var response = $http.get('http://localhost:63601/api/teams' + id, config)
         return response;
     }
 }]);

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using TeamManagementService.Extensions;
 using TeamManagementService.Models.Tasks;
 
 namespace TeamManagementService.Models {
@@ -15,7 +11,8 @@ namespace TeamManagementService.Models {
                 Name = toDoItem.Name,
                 Team = Create(toDoItem.Team),
                 User = Create(toDoItem.User),
-                Type = toDoItem.Type.ToString()
+                Type = toDoItem.Type.ToString(),
+                Status = toDoItem.Status.ToString()
             };
         }
 
@@ -23,7 +20,8 @@ namespace TeamManagementService.Models {
             return new ToDoItem() {
                 Description = toDoItem.Description,
                 Id = toDoItem.Id,
-                Name = toDoItem.Name
+                Name = toDoItem.Name,
+                Status = toDoItem.Status.ToEnum<ToDoItemStatus>()
             };
         }
 

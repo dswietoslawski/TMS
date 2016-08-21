@@ -15,9 +15,9 @@ namespace TeamManagementService.Models {
         public Project Create(ProjectBindingModel project) {
             if (project != null)
                 return new Project() {
-                Name = project.Name,
-                Id = project.Id
-            };
+                    Name = project.Name,
+                    Id = project.Id
+                };
             return null;
         }
     }

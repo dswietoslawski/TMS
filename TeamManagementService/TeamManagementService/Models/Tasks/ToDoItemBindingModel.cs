@@ -15,6 +15,7 @@ namespace TeamManagementService.Models.Tasks {
         public int TeamId { get; set; }
 
         public string UserId { get; set; }
-        public ToDoItemType Type { get; set; }
+        public string Type { get; set; }
+        public string Status { get; set; }
     }
 }

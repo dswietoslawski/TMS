@@ -19,6 +19,7 @@
     <script src="../toDoItems/toDoItemController.js"></script>
     <script src="../toDoItems/toDoItemService.js"></script>
     <script src="../services/httpService.js"></script>
+    <script src="../directives/toDoItemDirective.js"></script>
 
 
     <title>Team Management Service</title>
@@ -26,35 +27,84 @@
     <meta charset="utf-8" />
 </head>
 <body ng-app="tmsApp">
-    <user></user>
+    <div class="container">
+        <user></user>
 
+        <div ng-controller="projectController as projectCtrl">
+            <label>Team Name</label>
+            <input type="text" ng-model="newProject.name" required />
+            <input type="submit" value="Submit" ng-click="add(newProject)">
 
-    <div ng-controller="projectController as projectCtrl">
-        <label>Team Name</label>
-        <input type="text" ng-model="newProject.name" required />
-        <input type="submit" value="Submit" ng-click="add(newProject)">
+            <div class="btn-group" uib-dropdown>
+                <button id="single-button" style="min-width:100px" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
+                    {{selectedProject}}
+                </button>
+                <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                    <li ng-repeat="project in projects" ng-click="selectProject(project)">{{project.name}}</li>
+                </ul>
+            </div>
 
-        <div class="btn-group" uib-dropdown>
-            <button id="single-button" style="min-width:100px" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
-                {{selectedProject}}
-            </button>
-            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
-                <li ng-repeat="project in projects" ng-click="selectProject(project)">{{project.name}}</li>
-            </ul>
-        </div>
-
-        <div ng-controller="toDoItemController">
-                    <div ng-class="item.type" ng-repeat="item in toDoItems">{{item.name}}, {{item.user.userName}}</div>
+            <div ng-controller="toDoItemController">
+                <div class="row">
+                    <div class="col-md-4">
+                        <p class="column-title">To Do</p>
+                        <div ng-class="item.type" class="note col-md-6" ng-repeat="item in toDoItems">
+                            <div to-do-item></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="column-title">In Progress</p>
+                        <div ng-class="item.type" class="note col-md-6" ng-repeat="item in inProgressItems">
+                            <div to-do-item></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="column-title">Done</p>
+                        <div ng-class="item.type" class="note col-md-6" ng-repeat="item in doneItems">
+                            <div to-do-item></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
     <style>
+        .Bug:before {
+            border-color: #97010A #fff;
+        }
+
         .Bug {
-            color:red;
+            background: #C93213;
+        }
+
+        .ChangeRequest:before {
+            border-color: #658E15 #fff;
         }
 
         .ChangeRequest {
-            color:cyan;
+            background: #97C02F;
+        }
+
+        .note:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-width: 0 16px 16px 0;
+            border-style: solid;
+        }
+
+        .note {
+            position: relative;
+            padding: 1em 1.5em;
+            margin: 5px;
+            color: #fff;
+            width: 125px;
+            height: 125px;
+        }
+
+        .column-title {
+            margin: 10px;
         }
     </style>
 </body>
