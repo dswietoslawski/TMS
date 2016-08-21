@@ -31,6 +31,15 @@ app.controller('toDoItemController', ['$scope', '$rootScope', 'toDoItemService',
         getByTeam(args);
     });
 
+    var init = function () {
+        toDoItemService.getByTeam(1).then(function (items) {
+            initializeToDoItems(items);
+        });
+    };
+
+    init();
+
+
     var getByTeamUser = function (project) {
         toDoItemService.getByTeamUser(project.id, appService.getLoginInfo().id)
         .then(function (items) {
