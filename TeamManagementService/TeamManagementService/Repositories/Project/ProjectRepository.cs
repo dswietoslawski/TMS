@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 using TeamManagementService.Infrastructure;
+using TeamManagementService.Models;
 using TeamManagementService.Models.Projects;
 
 namespace TeamManagementService.Repositories {
@@ -19,6 +22,11 @@ namespace TeamManagementService.Repositories {
 
         public Project Get(int id) {
             return context.Teams.Find(id);
+        }
+
+        public void AddUserToTeam(int teamId, ApplicationUser user) {
+            var team = context.Teams.Where(t => t.Id == teamId).Include(t => t.Members).Single();
+            team.Members.Add(user);
         }
     }
 }

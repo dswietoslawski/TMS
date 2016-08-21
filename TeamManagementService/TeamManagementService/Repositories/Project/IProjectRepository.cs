@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TeamManagementService.Models;
 using TeamManagementService.Models.Projects;
 
 namespace TeamManagementService.Repositories {
@@ -6,5 +7,6 @@ namespace TeamManagementService.Repositories {
         IEnumerable<Project> Get();
         Project Get(int id);
         Project Add(Project team);
+        void AddUserToTeam(int teamId, ApplicationUser user);
     }
 }
