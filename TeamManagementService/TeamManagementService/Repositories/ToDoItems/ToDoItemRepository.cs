@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using TeamManagementService.Infrastructure;
 using TeamManagementService.Models.Tasks;
@@ -30,7 +31,7 @@ namespace TeamManagementService.Repositories.ToDoItems {
         }
 
         public IEnumerable<ToDoItem> GetByTeam(int teamId) {
-            return context.Tasks.Where(t => t.Team.Id == teamId).ToList();
+            return context.Tasks.Where(t => t.Team.Id == teamId).Include(t => t.User).ToList();
         }
     }
 }

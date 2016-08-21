@@ -36,25 +36,25 @@ namespace TeamManagementService.Controllers {
         [Route("teams/{teamId}/todoitems")]
         [Authorize]
         public IHttpActionResult GetByTeam(int teamId) {
-            return Ok(UnitOfWork.ToDoItemRepository.GetByTeam(teamId));
+            return Ok(ModelFactory.Create(UnitOfWork.ToDoItemRepository.GetByTeam(teamId)));
         }
 
         [HttpGet]
         [Route("todoitems/{id}")]
         public IHttpActionResult Get(int id) {
-            return Ok(UnitOfWork.ToDoItemRepository.Get(id));
+            return Ok(ModelFactory.Create(UnitOfWork.ToDoItemRepository.Get(id)));
         }
 
         [HttpGet]
         [Route("teams/{teamId}/users/{userId}/todoItems")]
         public IHttpActionResult Get(int teamId, string userId) {
-            return Ok(UnitOfWork.ToDoItemRepository.Get(teamId, userId));
+            return Ok(ModelFactory.Create(UnitOfWork.ToDoItemRepository.Get(teamId, userId)));
         }
 
         [HttpGet]
         [Route("users/{userId}/todoitems")]
         public IHttpActionResult GetByUser(string userId) {
-            return Ok(UnitOfWork.ToDoItemRepository.GetByUser(userId));
+            return Ok(ModelFactory.Create(UnitOfWork.ToDoItemRepository.GetByUser(userId)));
         }
     }
 }

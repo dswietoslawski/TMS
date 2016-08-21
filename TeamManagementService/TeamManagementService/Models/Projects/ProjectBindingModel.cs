@@ -14,6 +14,9 @@ namespace TeamManagementService.Models.Projects {
         public string Name { get; set; }
 
         [Required]
+        public int Id { get; set; }
+
+        [Required]
         public string AdminId { get; set; }
     }
 }

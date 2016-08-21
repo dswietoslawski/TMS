@@ -14,10 +14,11 @@
     <script src="../users/userService.js"></script>
     <script src="../teams/projectController.js"></script>
     <script src="../teams/projectService.js"></script>
-    <script src="../appService.js"></script>
+    <script src="../services/appService.js"></script>
     <script src="../users/userDirective.js"></script>
     <script src="../toDoItems/toDoItemController.js"></script>
     <script src="../toDoItems/toDoItemService.js"></script>
+    <script src="../services/httpService.js"></script>
 
 
     <title>Team Management Service</title>
@@ -43,10 +44,18 @@
         </div>
 
         <div ng-controller="toDoItemController">
-                    <div ng-repeat="item in toDoItems">{{item.name}}</div>
+                    <div ng-class="item.type" ng-repeat="item in toDoItems">{{item.name}}, {{item.user.userName}}</div>
         </div>
-
     </div>
 
+    <style>
+        .Bug {
+            color:red;
+        }
+
+        .ChangeRequest {
+            color:cyan;
+        }
+    </style>
 </body>
 </html>

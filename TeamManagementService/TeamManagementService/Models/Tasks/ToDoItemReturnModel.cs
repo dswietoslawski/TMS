@@ -13,8 +13,8 @@ namespace TeamManagementService.Models.Tasks
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public virtual ProjectReturnModel Team { get; set; }
-        public virtual UserReturnModel User { get; set; }
-        public virtual ToDoItemType Type { get; set; }
+        public ProjectReturnModel Team { get; set; }
+        public UserReturnModel User { get; set; }
+        public string Type { get; set; }
     }
 }
