@@ -48,6 +48,7 @@ namespace TeamManagementService.Controllers {
                 return GetErrorResult(registerUserResult);
 
             Uri locationHeader = new Uri(Url.Link("GetUserById", new { id = appUser.Id }));
+
             return Created(locationHeader, ModelFactory.Create(appUser));
         }
 
@@ -95,6 +96,25 @@ namespace TeamManagementService.Controllers {
             AuthenticationManager.SignIn(new Microsoft.Owin.Security.AuthenticationProperties() {
                 IsPersistent = rememberMe
             }, identity);
+        }
+
+        [Route("editpassword")]
+        public async Task<IHttpActionResult> ChangePassword([FromBody] EditUserPasswordBindingModel user) {
+
+            if (ModelState.IsValid) {
+                await AppUserManager.ChangePasswordAsync(user.UserId, user.OldPassword, user.Password);
+                return Ok();
+            }
+            return BadRequest();
+        }
+
+        [Route("editemail")]
+        public async Task<IHttpActionResult> EditEmail([FromBody] EditUserEmailBindingModel user) {
+            if (ModelState.IsValid) {
+                await AppUserManager.SetEmailAsync(user.UserId, user.Email);
+                return Ok();
+            }
+            return BadRequest();
         }
 
     }

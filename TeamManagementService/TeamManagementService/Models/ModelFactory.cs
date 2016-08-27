@@ -37,5 +37,20 @@ namespace TeamManagementService.Models {
                 JoinTime = DateTime.Now.Date,
             };
         }
+
+        public ApplicationUser Create(EditUserEmailBindingModel userModel) {
+            return new ApplicationUser() {
+                Email = userModel.Email,
+                Id = userModel.UserId,
+                UserName = userModel.UserId
+            };
+        }
+
+        public ApplicationUser Create(EditUserPasswordBindingModel userModel) {
+            return new ApplicationUser() {
+                UserName = userModel.UserName,
+                Id = userModel.UserId
+            };
+        }
     }
 }

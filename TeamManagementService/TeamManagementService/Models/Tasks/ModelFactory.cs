@@ -21,7 +21,8 @@ namespace TeamManagementService.Models {
                 Description = toDoItem.Description,
                 Id = toDoItem.Id,
                 Name = toDoItem.Name,
-                Status = toDoItem.Status.ToEnum<ToDoItemStatus>()
+                Status = toDoItem.Status.ToEnum<ToDoItemStatus>(),
+                Type = toDoItem.Type.ToEnum<ToDoItemType>()
             };
         }
 

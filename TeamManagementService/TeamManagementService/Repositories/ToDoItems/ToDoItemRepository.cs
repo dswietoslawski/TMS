@@ -10,8 +10,8 @@ namespace TeamManagementService.Repositories.ToDoItems {
         public ToDoItemRepository(ApplicationDbContext context) : base(context) {
         }
 
-        public ToDoItem Add(ToDoItem team) {
-            return context.Tasks.Add(team);
+        public ToDoItem Add(ToDoItem item) {
+            return context.Tasks.Add(item);
         }
 
         public IEnumerable<ToDoItem> Get() {
