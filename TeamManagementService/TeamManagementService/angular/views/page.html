@@ -276,41 +276,47 @@
 
                 <!-- /.col-lg-12 -->
             </div>
-            <!-- first column -->
-            <div class="panel panel-default col-lg-4 columnSortable">
-                <div class="panel-heading">
-                    <i class="fa fa-bell fa-fw"></i> Kolejka
+            <!-- first column to-do-column -->
+            <div class="col-lg-4">
+                <div class="panel panel-info columnSortable">
+                    <div class="panel-heading">
+                        <i class="fa fa-bell fa-fw"></i> Kolejka
+                    </div>
+                    <ul ui-sortable="sortableOptions" ng-model="toDoItems" id="to-do-column" class="connectedSortable">
+                        <li ng-repeat="item in toDoItems">
+                            <div to-do-item></div>
+                        </li>
+                    </ul>
+                    <div ng-show="toDoItems.length == 0" class="emptyList">Empty</div>
                 </div>
-                <ul ui-sortable="sortableOptions" ng-model="toDoItems" id="to-do-column" class="connectedSortable">
-                    <li ng-repeat="item in toDoItems">
-                        <div to-do-item></div>
-                    </li>
-                </ul>
-                <div ng-show="toDoItems.length == 0" class="emptyList">Pusto</div>
             </div>
-            <!-- second column -->
-            <div class="panel panel-default col-lg-4 columnSortable">
-                <div class="panel-heading">
-                    <i class="fa fa-bell fa-fw"></i> Kolejka
+            <!-- second column in-progress-columnn -->
+            <div class="col-lg-4">
+                <div class="panel panel-success columnSortable">
+                    <div class="panel-heading">
+                        <i class="fa fa-bell fa-fw"></i> Realizowane
+                    </div>
+                    <ul ui-sortable="sortableOptions" ng-model="inProgressItems" id="in-progress-columnn" class="connectedSortable">
+                        <li ng-repeat="item in inProgressItems">
+                            <div to-do-item></div>
+                        </li>
+                    </ul>
+                    <div ng-show="inProgressItems.length == 0" class="emptyList">Empty</div>
                 </div>
-                <ul ui-sortable="sortableOptions" ng-model="inProgressItems" id="in-progress-columnn" class="connectedSortable">
-                    <li ng-repeat="item in inProgressItems">
-                        <div to-do-item></div>
-                    </li>
-                </ul>
-                <div ng-show="inProgressItems.length == 0" class="emptyList">Pusto</div>
             </div>
-            <!-- third column -->
-            <div class="panel panel-default col-lg-4 columnSortable">
-                <div class="panel-heading">
-                    <i class="fa fa-bell fa-fw"></i> Kolejka
+            <!-- third column done-column -->
+            <div class="col-lg-4">
+                <div class="panel panel-green columnSortable">
+                    <div class="panel-heading">
+                        <i class="fa fa-bell fa-fw"></i> Zrealizowane
+                    </div>
+                    <ul ui-sortable="sortableOptions" ng-model="doneItems" id="done-column" class="connectedSortable">
+                        <li ng-repeat="item in doneItems">
+                            <div to-do-item></div>
+                        </li>
+                    </ul>
+                    <div ng-show="doneItems.length == 0" class="emptyList">Empty</div>
                 </div>
-                <ul ui-sortable="sortableOptions" ng-model="doneItems" id="done-column" class="connectedSortable">
-                    <li ng-repeat="item in doneItems">
-                        <div to-do-item></div>
-                    </li>
-                </ul>
-                <div ng-show="doneItems.length == 0" class="emptyList">Pusto</div>
             </div>
         </div>
     </div>
