@@ -291,6 +291,11 @@
     <Content Include="angular\users\logout\logoutController.js" />
     <Content Include="angular\users\logout\logoutDirective.js" />
     <Content Include="angular\users\logout\logoutView.html" />
+    <Content Include="angular\users\register\registerModal.html" />
+    <Content Include="angular\users\register\registerController.js" />
+    <Content Include="angular\users\register\registerDirective.js" />
+    <Content Include="angular\users\register\registerModalController.js" />
+    <Content Include="angular\users\register\registerView.html" />
     <Content Include="angular\users\userController.js" />
     <Content Include="angular\users\userDirective.js" />
     <Content Include="angular\users\userService.js" />

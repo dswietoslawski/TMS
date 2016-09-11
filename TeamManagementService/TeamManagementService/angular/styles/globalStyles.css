@@ -10,29 +10,30 @@
     -webkit-border-radius: 0 20px 0 50px;
     border-radius: 0 30px 0 30px;
 }
+
 .navbar-top-links li {
     display: inline-block;
 }
 
-.navbar-top-links li:last-child {
-    margin-right: 15px;
-}
+    .navbar-top-links li:last-child {
+        margin-right: 15px;
+    }
 
-.navbar-top-links li a {
-    padding: 15px;
-    min-height: 50px;
+    .navbar-top-links li a {
+        padding: 15px;
+        min-height: 50px;
+    }
+    
+
+.navbar-top-links .popover-user {
+    right: 0;
+    left: auto;
 }
 
 .wrapper {
     background-image: url("../images/background/tlo2.jpg");
     background-repeat: repeat;
     background-size: 100%;
-}
-
-
-.navbar-top-links .popover-user {
-    right: 0;
-    left: auto;
 }
 
 .page-header {
@@ -61,14 +62,15 @@
     }
 
 .popover-content {
-    width:200px;
+    width: 200px;
 }
 
 
 
-
-/*.connectedSortable > li {
+.connectedSortable > li {
     list-style-type: none;
+}
+
 .emptyList {
     width: 100%;
     font-size: 20px;
@@ -79,7 +81,7 @@
 }
 
 /*#region Task 
-    ---------------------------------------------------- */
+    ---------------------------------------------------- 
 .note {
 }
 /*#endregion Task*/
