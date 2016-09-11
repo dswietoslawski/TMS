@@ -1,0 +1,111 @@
+﻿body {
+    background-image: url("../images/background/tlo5.jpg") ;
+    background-repeat:no-repeat;
+    
+}
+
+.page-header {
+color:white;
+}
+
+.page-body {
+}
+
+.columnSortable {
+    background-color: none;
+    padding-right: 13px;
+    border-color: none;
+    padding: 0px;
+    min-height: 150px;
+}
+
+.note {
+}
+
+.borderRadiusTopRight {
+    -webkit-border-radius: 0 20px 0 50px;
+    border-radius: 0 30px 0 30px;
+}
+
+
+.Bug {
+    -webkit-box-shadow: 4px 5px 10px 2px #d9534f;
+    box-shadow: 1px 5px 10px 2px #d9534f;
+}
+
+.ChangeRequest {
+    -webkit-box-shadow: 4px 5px 10px 2px #428bca;
+    box-shadow: 1px 5px 10px 2px #428bca;
+}
+.connectedSortable {
+        min-height: 100px;
+}
+
+.connectedSortable > li {
+    list-style-type: none;
+}
+
+
+
+
+
+
+
+/*.connectedSortable > li {
+    list-style-type: none;
+}
+
+.note {
+    border: 1px solid red;
+    background-color:white;
+    position: relative;
+    margin: 15px 0px 15px 0px;
+    color: black;
+    width: 350px;
+    height: 70px;
+    -webkit-box-shadow: 4px 5px 10px 2px red;
+    box-shadow: 1px 5px 10px 2px red;
+    -webkit-border-radius: 0 20px 0 0;
+    border-radius: 0 20px 0 0;
+}
+
+.glyph {
+    padding: 4px;
+}
+.btn-red{
+    background-color:red;
+    color:white;
+    opacity:0.89;
+    float: left;
+    width: 10%;
+    height:inherit;
+    text-align:center;
+}
+.main {
+    float: right;
+    width: 80%;
+
+}
+
+.prawa {
+    float:right;
+    text-align:right;
+}
+
+.column-title {
+    margin: 10px;
+}
+
+.connectedSortable {
+    background-color: #AEAEAE;
+    border-right: 13px solid #191919;
+    border-color: #191919;
+}
+
+.placeholder {
+    background: #AEF;
+}
+
+body {
+    background-color: #191919;
+}*/

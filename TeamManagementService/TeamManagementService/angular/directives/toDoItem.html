@@ -1,16 +1,17 @@
-﻿<label class="task-name">{{item.name}}</label>
-<label class="task-user">{{item.user.userName}}</label>
+﻿<link href="../styles/globalStyles.css" rel="stylesheet" />
 
-<style>
-    .task-name {
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-
-    .task-user {
-        position: absolute;
-        top: 100px;
-        left: 70px;
-    }
-</style>
+<div class="panel-body">
+        <div class="borderRadiusTopRight" ng-class="{'panel panel-danger Bug' : item.type == 'Bug', 'panel panel-info ChangeRequest' : item.type == 'ChangeRequest',}">
+            <div class="panel-heading borderRadiusTopRight">
+                <div class="row">
+                    <div class="col-xs-9">
+                        <div>26</div>
+                        <div>New Comments!</div>
+                    </div>
+                    <div class="col-xs-3 text-right">
+                        <i class="fa fa-warning fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

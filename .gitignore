@@ -265,3 +265,4 @@ __pycache__/
 *.md
 /TeamManagementService/TeamManagementService/angular/lib/jquery-ui
 /TeamManagementService/TeamManagementService/angular/lib/jquery
+/TeamManagementService/TeamManagementService/connectionstrings.config

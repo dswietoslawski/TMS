@@ -1,0 +1,49 @@
+﻿<style>
+    .x {
+        top:0px;
+        right:0px;
+        width:300px;
+        height:300px;
+        background-color:aliceblue;
+        position:absolute;
+
+    }
+    .contener {
+        top:20px;
+        width: 100px;
+        height: 100px;
+        border: 3px  solid black;
+        z-index:1;
+    }
+
+    #div1 {
+        background: red;
+        z-index: 2;
+    }
+
+    #div2 {
+        width: 50px;
+        background: blue;
+        text-align: right;
+        z-index: 1;
+        top: 0px;
+        right: 0px;
+        position:absolute;
+        color: #fff;
+        font-size: 13px;
+        font-weight: bold;
+        -ms-transform: rotate(30deg); /* IE 9 */
+        -o-transform: rotate(360deg); /* Opera 10.5 */
+        -webkit-transform: rotate(30deg); /* Safari and Chrome */
+        transform: rotate(30deg);
+
+    }
+</style>
+Zaś HTML to jedynie dwa znaczniki div:
+
+<div class="x">
+    <div class="contener">
+        <div id="div1">1</div>
+        <div id="div2">2</div>
+    </div>
+</div>
