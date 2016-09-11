@@ -3,6 +3,24 @@
     background-repeat:no-repeat;
     
 }
+.navbar-top-links li {
+    display: inline-block;
+}
+
+.navbar-top-links li:last-child {
+    margin-right: 15px;
+}
+
+.navbar-top-links li a {
+    padding: 15px;
+    min-height: 50px;
+}
+
+
+.navbar-top-links .popover-user {
+    right: 0;
+    left: auto;
+}
 
 .page-header {
 color:white;
@@ -45,8 +63,9 @@ color:white;
     list-style-type: none;
 }
 
-
-
+.popover-content {
+    width:200px;
+}
 
 
 

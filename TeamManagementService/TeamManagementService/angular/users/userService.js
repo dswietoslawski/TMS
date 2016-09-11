@@ -41,7 +41,7 @@ app.service('userService', ['$http', 'appService', '$q', function ($http, appSer
 
         $http.post('http://localhost:63601/api/accounts/logout', user, config)
             .success(function (response) {
-                appService.currentUser = {};
+                appService.setLoginInfo(null);
                 def.resolve(response);
             }).error(function (data) {
                 def.reject("Failed to logout");
