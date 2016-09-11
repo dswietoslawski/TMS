@@ -42,7 +42,7 @@
     <meta charset="utf-8" />
 </head>
 <body ng-app="tmsApp">
-    <div id="wrapper" ng-controller="projectController as projectCtrl">
+    <div ng-controller="projectController as projectCtrl" class="wrapper" id="fullheightAndWidth">
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -286,6 +286,7 @@
                         <div to-do-item></div>
                     </li>
                 </ul>
+                <div ng-show="toDoItems.length == 0" class="emptyList">Pusto</div>
             </div>
             <!-- second column -->
             <div class="panel panel-default col-lg-4 columnSortable">
@@ -297,6 +298,7 @@
                         <div to-do-item></div>
                     </li>
                 </ul>
+                <div ng-show="inProgressItems.length == 0" class="emptyList">Pusto</div>
             </div>
             <!-- third column -->
             <div class="panel panel-default col-lg-4 columnSortable">
@@ -308,6 +310,7 @@
                         <div to-do-item></div>
                     </li>
                 </ul>
+                <div ng-show="doneItems.length == 0" class="emptyList">Pusto</div>
             </div>
         </div>
     </div>
