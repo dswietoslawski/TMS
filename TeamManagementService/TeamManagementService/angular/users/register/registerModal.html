@@ -1,0 +1,25 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Register</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <form  name="registerForm">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" ng-model="registerUser.userName" id="username" class="form-control" required />
+            <label for="password">Password</label>
+            <input type="password" id="password" ng-model="registerUser.password" class="form-control" required  />
+            <label for="cfrmPassword">Confirm password</label>
+            <input type="password" ng-model="registerUser.confirmPassword" id="cfrmPassword" class="form-control" required />
+            <label for="email">E-Mail</label>
+            <input type="email" ng-model="registerUser.email" id="email" class="form-control" required />
+            <label for="firstName">First Name</label>
+            <input type="text" ng-model="registerUser.firstName" class="form-control" required />
+            <label for="firstName">Last Name</label>
+            <input type="text" ng-model="registerUser.lastName" class="form-control" required />
+        </div>
+        <button type="submit" ng-disabled="registerForm.$invalid" class="btn btn-primary" ng-click="register(registerUser)">Register</button>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

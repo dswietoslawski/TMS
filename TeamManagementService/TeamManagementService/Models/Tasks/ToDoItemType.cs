@@ -1,6 +1,7 @@
 ﻿namespace TeamManagementService.Models.Tasks {
     public enum ToDoItemType {
         Bug,
-        ChangeRequest
+        ChangeRequest,
+        Task
     }
 }

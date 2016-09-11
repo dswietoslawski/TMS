@@ -166,6 +166,7 @@
   <ItemGroup>
     <Content Include="angular\directives\toDoItem.html" />
     <Content Include="angular\directives\toDoItemDirective.js" />
+    <Content Include="angular\home\homeController.js" />
     <Content Include="angular\images\background\tlo1.jpg" />
     <Content Include="angular\images\background\tlo2.jpg" />
     <Content Include="angular\images\background\tlo3.jpg" />
@@ -283,6 +284,18 @@
     <Content Include="angular\teams\projectService.js" />
     <Content Include="angular\toDoItems\toDoItemController.js" />
     <Content Include="angular\toDoItems\toDoItemService.js" />
+    <Content Include="angular\users\login\loginController.js" />
+    <Content Include="angular\users\login\loginDirective.js" />
+    <Content Include="angular\users\login\loginPopoverTemplate.html" />
+    <Content Include="angular\users\login\loginView.html" />
+    <Content Include="angular\users\logout\logoutController.js" />
+    <Content Include="angular\users\logout\logoutDirective.js" />
+    <Content Include="angular\users\logout\logoutView.html" />
+    <Content Include="angular\users\register\registerModal.html" />
+    <Content Include="angular\users\register\registerController.js" />
+    <Content Include="angular\users\register\registerDirective.js" />
+    <Content Include="angular\users\register\registerModalController.js" />
+    <Content Include="angular\users\register\registerView.html" />
     <Content Include="angular\users\userController.js" />
     <Content Include="angular\users\userDirective.js" />
     <Content Include="angular\users\userService.js" />
