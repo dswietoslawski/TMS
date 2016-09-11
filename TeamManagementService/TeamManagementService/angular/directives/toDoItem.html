@@ -7,8 +7,9 @@
         <div class="panel-heading borderRadiusTopRight">
             <div class="row">
                 <div class="col-xs-9">
-                    <div>26</div>
-                    <div>New Comments!</div>
+                    <div>{{item.name}}</div>
+                    <div>{{item.user.userName}}</div>
+                    <div>{{item.description | limitTo: 25 }}<span ng-show="item.description.length > 25">(...)</span></div>
                 </div>
                 <div class="col-xs-3 text-right">
                     <i ng-class="{'fa fa-bug fa-2x BugIcon' : item.type == 'Bug',

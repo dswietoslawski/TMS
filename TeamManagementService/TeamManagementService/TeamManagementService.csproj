@@ -167,9 +167,9 @@
     <Content Include="angular\directives\toDoItem.html" />
     <Content Include="angular\directives\toDoItemDirective.js" />
     <Content Include="angular\home\homeController.js" />
-    <Content Include="angular\images\background\tlo1.jpg" />
     <Content Include="angular\images\background\tlo2.jpg" />
-    <Content Include="angular\images\background\tlo3.jpg" />
+    <Content Include="angular\images\background\tloList.jpg" />
+    <Content Include="angular\images\background\tloList2.jpg" />
     <Content Include="angular\lib\angular-dragdrop\karma.conf.js" />
     <Content Include="angular\lib\angular-dragdrop\src\angular-dragdrop.js" />
     <Content Include="angular\lib\angular-dragdrop\src\angular-dragdrop.min.js" />

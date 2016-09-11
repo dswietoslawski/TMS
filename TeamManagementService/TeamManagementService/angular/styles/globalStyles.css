@@ -11,25 +11,6 @@
     border-radius: 0 30px 0 30px;
 }
 
-.navbar-top-links li {
-    display: inline-block;
-}
-
-    .navbar-top-links li:last-child {
-        margin-right: 15px;
-    }
-
-    .navbar-top-links li a {
-        padding: 15px;
-        min-height: 50px;
-    }
-    
-
-.navbar-top-links .popover-user {
-    right: 0;
-    left: auto;
-}
-
 .wrapper {
     background-image: url("../images/background/tlo2.jpg");
     background-repeat: repeat;
@@ -43,18 +24,111 @@
 .page-body {
 }
 
+/*#region NavBar*/
+.navbar-top-links li {
+    display: inline-block;
+}
+
+    .navbar-top-links li:last-child {
+        margin-right: 15px;
+    }
+
+    .navbar-top-links li a {
+        padding: 15px;
+        min-height: 50px;
+    }
+
+.navbar-top-links .popover-user {
+    right: 0;
+    left: auto;
+}
+
+/*#endregion NavBar*/
+
+/*#region ScrollBar*/
+.scrollbar {
+    margin-left: 30px;
+    float: left;
+    height: 300px;
+    width: 65px;
+    background: #F5F5F5;
+    overflow-y: scroll;
+    margin-bottom: 25px;
+}
+
+.force-overflow {
+    padding-top: 10px;
+    min-height: 450px;
+}
+
+/*#region Scrollbar Style 1 FirstColumn toDoItems*/
+#style-1::-webkit-scrollbar-track {
+    background-color: none;
+    border-radius: 10px;
+}
+
+#style-1::-webkit-scrollbar {
+    width: 16px;
+    background-color: none;
+}
+
+#style-1::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background-color: #FFF;
+    background-image: -webkit-gradient(linear, 90% 90%, 50% 14%, from(#428bca), to(#428bca), color-stop(.6,#428bca));
+}
+/*#endregion Scrollbar Style 1*/
+/*#region Scrollbar Style 2 SecondColumn inProgressItems*/
+#style-2::-webkit-scrollbar-track {
+    background-color: none;
+    border-radius: 10px;
+}
+
+#style-2::-webkit-scrollbar {
+    width: 16px;
+    background-color: none;
+}
+
+#style-2::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background-color: #FFF;
+    background-image: -webkit-gradient(linear, 90% 90%, 50% 14%, from(#dff0d8), to(#dff0d8), color-stop(.6,#dff0d8));
+}
+/*#endregion Scrollbar Style 2*/
+/*#region Scrollbar Style 3 ThirdColumn doneItems */
+#style-3::-webkit-scrollbar-track {
+    background-color: none;
+    border-radius: 10px;
+}
+
+#style-3::-webkit-scrollbar {
+    width: 16px;
+    background-color: none;
+}
+
+#style-3::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background-color: #FFF;
+    background-image: -webkit-gradient(linear, 90% 90%, 50% 14%, from(#5cb85c), to(#5cb85c), color-stop(.6,#5cb85c));
+}
+/*#endregion Scrollbar Style 3*/
+/*#endregion ScrollBar*/
+
 /*#region Tasks List 
     ---------------------------------------------------- */
 .columnSortable {
     background-image: url("../images/background/tloList.jpg");
-    min-height: 150px;
-    max-height: 400px;
+    min-height: 700px;
+    max-height: 700px;
+    height: 100%;
+    overflow-y: scroll;
 }
 
 .connectedSortable {
     padding: 0px;
     margin: 0px;
     min-height: 100px;
+    height: inherit;
 }
 
     .connectedSortable > li {
@@ -65,66 +139,92 @@
     width: 200px;
 }
 
-
-
 .connectedSortable > li {
     list-style-type: none;
 }
 
 .emptyList {
     width: 91%;
-    color:whitesmoke;
+    color: whitesmoke;
     font-size: 30px;
     top: 75px;
     opacity: 0.4;
     text-align: center;
-    position:absolute;
+    position: absolute;
 }
 
 /*#region Task 
-    ---------------------------------------------------- 
+    ---------------------------------------------------- */
 .note {
     margin: 0px;
     padding: 5px;
+    opacity: 0.8;
 }
+
+    .note:hover {
+        opacity: 1;
+        cursor: pointer;
+    }
+
+    .note:focus {
+        color: red;
+    }
 /*#endregion Task*/
 
 /*#region Type of Task 
     ---------------------------------------------------- */
 .Bug {
     margin: 0px;
-background: rgba(231,56,39,1);
-background: -moz-linear-gradient(left, rgba(231,56,39,1) 0%, rgba(246,41,12,1) 0%, rgba(248,80,50,1) 0%, rgba(255,26,0,1) 2%, rgba(255,59,36,1) 16%, rgba(255,255,255,1) 100%);
-background: -webkit-gradient(left top, right top, color-stop(0%, rgba(231,56,39,1)), color-stop(0%, rgba(246,41,12,1)), color-stop(0%, rgba(248,80,50,1)), color-stop(2%, rgba(255,26,0,1)), color-stop(16%, rgba(255,59,36,1)), color-stop(100%, rgba(255,255,255,1)));
-background: -webkit-linear-gradient(left, rgba(231,56,39,1) 0%, rgba(246,41,12,1) 0%, rgba(248,80,50,1) 0%, rgba(255,26,0,1) 2%, rgba(255,59,36,1) 16%, rgba(255,255,255,1) 100%);
-background: -o-linear-gradient(left, rgba(231,56,39,1) 0%, rgba(246,41,12,1) 0%, rgba(248,80,50,1) 0%, rgba(255,26,0,1) 2%, rgba(255,59,36,1) 16%, rgba(255,255,255,1) 100%);
-background: -ms-linear-gradient(left, rgba(231,56,39,1) 0%, rgba(246,41,12,1) 0%, rgba(248,80,50,1) 0%, rgba(255,26,0,1) 2%, rgba(255,59,36,1) 16%, rgba(255,255,255,1) 100%);
-background: linear-gradient(to right, rgba(231,56,39,1) 0%, rgba(246,41,12,1) 0%, rgba(248,80,50,1) 0%, rgba(255,26,0,1) 2%, rgba(255,59,36,1) 16%, rgba(255,255,255,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e73827', endColorstr='#ffffff', GradientType=1 );
+    background: rgba(255,255,255,1);
+    background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(230,135,135,1) 97%, rgba(204,14,14,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(94%, rgba(255,255,255,1)), color-stop(97%, rgba(230,135,135,1)), color-stop(100%, rgba(204,14,14,1)));
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(230,135,135,1) 97%, rgba(204,14,14,1) 100%);
+    background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(230,135,135,1) 97%, rgba(204,14,14,1) 100%);
+    background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(230,135,135,1) 97%, rgba(204,14,14,1) 100%);
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(230,135,135,1) 97%, rgba(204,14,14,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cc0e0e', GradientType=1 );
     /*-webkit-box-shadow: 4px 5px 10px 2px #ff0000;
     box-shadow: 1px 5px 10px 2px #ff0000;*/
-
 }
+
 .BugIcon {
-       color:red;
+    color: red;
 }
 
 .ChangeRequest {
     margin: 0px;
     /*-webkit-box-shadow: 4px 5px 10px 2px #428bca;
     box-shadow: 1px 5px 10px 2px #428bca;*/
+    background: rgba(255,255,255,1);
+    background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(135,140,230,1) 97%, rgba(14,24,204,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(94%, rgba(255,255,255,1)), color-stop(97%, rgba(135,140,230,1)), color-stop(100%, rgba(14,24,204,1)));
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(135,140,230,1) 97%, rgba(14,24,204,1) 100%);
+    background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(135,140,230,1) 97%, rgba(14,24,204,1) 100%);
+    background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(135,140,230,1) 97%, rgba(14,24,204,1) 100%);
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(135,140,230,1) 97%, rgba(14,24,204,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#0e18cc', GradientType=1 );
 }
+
 .ChangeRequestIcon {
-       color:royalblue;
+    color: royalblue;
 }
 
 .Task {
     margin: 0px;
     /*-webkit-box-shadow: 4px 5px 10px 2px #428bca;
     box-shadow: 1px 5px 10px 2px #428bca;*/
+    background: rgba(255,255,255,1);
+    background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(46,204,14,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(94%, rgba(255,255,255,1)), color-stop(100%, rgba(46,204,14,1)));
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(46,204,14,1) 100%);
+    background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(46,204,14,1) 100%);
+    background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(46,204,14,1) 100%);
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(46,204,14,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#2ecc0e', GradientType=1 );
 }
+
 .TaskIcon {
-       color:darkseagreen;
+    color: darkseagreen;
 }
 
 /*#endregion Type of Task END */
