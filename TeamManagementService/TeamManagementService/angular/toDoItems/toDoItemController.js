@@ -1,13 +1,15 @@
 ﻿var app = angular.module('tmsApp');
 
-app.controller('toDoItemController', ['$scope', '$rootScope', 'toDoItemService', 'appService', function ($scope, $rootScope, toDoItemService, appService) {
+app.controller('toDoItemController', ['$scope', '$rootScope', 'toDoItemService', 'appService', '$uibModal', function ($scope, $rootScope, toDoItemService, appService, $uibModal) {
 
-    $scope.toDoItems = [];
-    $scope.inProgressItems = [];
-    $scope.doneItems = [];
+    var vm = this;
+
+    vm.toDoItems = [];
+    vm.inProgressItems = [];
+    vm.doneItems = [];
 
 
-    $scope.sortableOptions = {
+    vm.sortableOptions = {
         connectWith: '.connectedSortable',
         start: function (event, ui) {
             ui.item.toggleClass("note-highlight");
@@ -60,20 +62,36 @@ app.controller('toDoItemController', ['$scope', '$rootScope', 'toDoItemService',
         clearItems();
         angular.forEach(items, function (value) {
             if (value.status === 'ToDo') {
-                $scope.toDoItems.push(value);
+                vm.toDoItems.push(value);
             }
             if (value.status === 'InProgress') {
-                $scope.inProgressItems.push(value);
+                vm.inProgressItems.push(value);
             }
             if (value.status === 'Done') {
-                $scope.doneItems.push(value);
+                vm.doneItems.push(value);
             }
         });
     };
 
     var clearItems = function () {
-        $scope.toDoItems = [];
-        $scope.inProgressItems = [];
-        $scope.doneItems = [];
+        vm.toDoItems = [];
+        vm.inProgressItems = [];
+        vm.doneItems = [];
     }
+
+    vm.edit = function (item) {
+        var modalInstance = $uibModal.open({
+            animation: true,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            templateUrl: '../toDoItems/toDoItemModal.html',
+            controller: 'toDoItemEditController',
+            controllerAs: 'toDoItemEditCtrl',
+            resolve: {
+                toDoItem: function () {
+                    return item;
+                }
+            }
+        });
+    };
 }]);

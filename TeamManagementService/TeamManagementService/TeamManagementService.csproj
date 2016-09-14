@@ -283,6 +283,8 @@
     <Content Include="angular\teams\projectController.js" />
     <Content Include="angular\teams\projectService.js" />
     <Content Include="angular\toDoItems\toDoItemController.js" />
+    <Content Include="angular\toDoItems\toDoItemEditController.js" />
+    <Content Include="angular\toDoItems\toDoItemModal.html" />
     <Content Include="angular\toDoItems\toDoItemService.js" />
     <Content Include="angular\users\login\loginController.js" />
     <Content Include="angular\users\login\loginDirective.js" />
