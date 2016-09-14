@@ -125,10 +125,11 @@
 }
 
 .connectedSortable {
-    padding: 0px;
+    padding-left: 15px;
     margin: 0px;
     min-height: 100px;
     height: inherit;
+    width: 100%;
 }
 
     .connectedSortable > li {
@@ -155,10 +156,12 @@
 
 /*#region Task 
     ---------------------------------------------------- */
+
 .note {
     margin: 0px;
     padding: 5px;
     opacity: 0.8;
+    font-size: 10px;
 }
 
     .note:hover {
@@ -169,6 +172,27 @@
     .note:focus {
         color: red;
     }
+
+.note-placeholder {
+    height: 70px;
+    width: 300px;
+    margin-left:5px;
+    background: #ccc;
+    -webkit-border-radius: 0 20px 0 50px;
+    border-radius: 0 30px 0 30px;
+    opacity:0.7;
+}
+
+.note-highlight {
+    border: 1px solid red;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.icon {
+    height:100%;
+}
+
 /*#endregion Task*/
 
 /*#region Type of Task 

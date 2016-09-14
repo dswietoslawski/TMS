@@ -9,8 +9,11 @@ app.controller('toDoItemController', ['$scope', '$rootScope', 'toDoItemService',
 
     $scope.sortableOptions = {
         connectWith: '.connectedSortable',
-        placeholder: 'placeholder',
-        dropOnEmpty:true,
+        start: function (event, ui) {
+            ui.item.toggleClass("note-highlight");
+        },
+        placeholder: 'note-placeholder',
+        dropOnEmpty: true,
         receive: function (e, ui) {
             updateStatus(e.target.id, ui.item.sortable.model)
         },

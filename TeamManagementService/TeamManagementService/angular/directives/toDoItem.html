@@ -6,12 +6,12 @@
                                                  'Task' : item.type == 'Task',}">
         <div class="panel-heading borderRadiusTopRight">
             <div class="row">
-                <div class="col-xs-9">
+                <div class="col-xs-10">
                     <div>{{item.name}}</div>
                     <div>{{item.user.userName}}</div>
                     <div>{{item.description | limitTo: 25 }}<span ng-show="item.description.length > 25">(...)</span></div>
                 </div>
-                <div class="col-xs-3 text-right">
+                <div class="col-xs-2 icon">
                     <i ng-class="{'fa fa-bug fa-2x BugIcon' : item.type == 'Bug',
                                                    'fa fa-info fa-2x ChangeRequestIcon' : item.type == 'ChangeRequest',
                                                    'fa fa-tasks fa-2x TaskIcon' : item.type == 'Task'}" class="fa fa- fa-2x"></i>
