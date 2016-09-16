@@ -156,42 +156,81 @@
 
 /*#region Task 
     ---------------------------------------------------- */
-
-.note {
-    margin: 0px;
-    padding: 5px;
-    opacity: 0.8;
-    font-size: 10px;
+.x {
+    height: 50px;
 }
 
-    .note:hover {
+.note {
+    height: 50px;
+    width: 100%;
+    margin:auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 0px;
+    font-size: 10px;
+}
+.note:hover {
+        opacity: 1;
+        cursor: pointer;
+        height: 70px;
+        font-size: 12px;
+    }
+
+.note-left {
+    height: inherit;
+    opacity: 0.8;
+    background: rgba(255,255,255,1);
+    width: 80%;
+}
+.note-left:hover {
         opacity: 1;
         cursor: pointer;
     }
 
-    .note:focus {
-        color: red;
-    }
+.note-right {
+    background: rgba(255,255,255,1);
+    height: inherit;
+    width: 15%;
+    -webkit-border-radius: 0 20px 0 50px;
+    border-radius: 0 30px 0 0px;
+    padding: 0px;
+}
 
 .note-placeholder {
     height: 70px;
     width: 300px;
-    margin-left:5px;
+    margin-left: 5px;
     background: #ccc;
     -webkit-border-radius: 0 20px 0 50px;
     border-radius: 0 30px 0 30px;
-    opacity:0.7;
+    opacity: 0.7;
 }
 
 .note-highlight {
-    border: 1px solid red;
-    font-weight: bold;
-    font-size: 15px;
+
 }
 
 .icon {
-    height:100%;
+    display: flex;
+    align-items: center; /* Vertical center alignment */
+    justify-content: center; /* Horizontal center alignment */
 }
+
+.xx {
+    height: inherit;
+    -webkit-border-radius: 0 20px 0 50px;
+    border-radius: 0 30px 0 00px;
+    border-left: 4px solid;
+    display: flex;
+    align-items: center; /* Vertical center alignment */
+    justify-content: center; /* Horizontal center alignment */
+}
+
+.xx:hover {
+        opacity: 1;
+        font-size: 15px;
+        cursor: pointer;
+    }
 
 /*#endregion Task*/
 
@@ -199,16 +238,7 @@
     ---------------------------------------------------- */
 .Bug {
     margin: 0px;
-    background: rgba(255,255,255,1);
-    background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(230,135,135,1) 97%, rgba(204,14,14,1) 100%);
-    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(94%, rgba(255,255,255,1)), color-stop(97%, rgba(230,135,135,1)), color-stop(100%, rgba(204,14,14,1)));
-    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(230,135,135,1) 97%, rgba(204,14,14,1) 100%);
-    background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(230,135,135,1) 97%, rgba(204,14,14,1) 100%);
-    background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(230,135,135,1) 97%, rgba(204,14,14,1) 100%);
-    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(230,135,135,1) 97%, rgba(204,14,14,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cc0e0e', GradientType=1 );
-    /*-webkit-box-shadow: 4px 5px 10px 2px #ff0000;
-    box-shadow: 1px 5px 10px 2px #ff0000;*/
+    color:red;
 }
 
 .BugIcon {
@@ -217,16 +247,6 @@
 
 .ChangeRequest {
     margin: 0px;
-    /*-webkit-box-shadow: 4px 5px 10px 2px #428bca;
-    box-shadow: 1px 5px 10px 2px #428bca;*/
-    background: rgba(255,255,255,1);
-    background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(135,140,230,1) 97%, rgba(14,24,204,1) 100%);
-    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(94%, rgba(255,255,255,1)), color-stop(97%, rgba(135,140,230,1)), color-stop(100%, rgba(14,24,204,1)));
-    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(135,140,230,1) 97%, rgba(14,24,204,1) 100%);
-    background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(135,140,230,1) 97%, rgba(14,24,204,1) 100%);
-    background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(135,140,230,1) 97%, rgba(14,24,204,1) 100%);
-    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(135,140,230,1) 97%, rgba(14,24,204,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#0e18cc', GradientType=1 );
 }
 
 .ChangeRequestIcon {
@@ -235,16 +255,6 @@
 
 .Task {
     margin: 0px;
-    /*-webkit-box-shadow: 4px 5px 10px 2px #428bca;
-    box-shadow: 1px 5px 10px 2px #428bca;*/
-    background: rgba(255,255,255,1);
-    background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(46,204,14,1) 100%);
-    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(94%, rgba(255,255,255,1)), color-stop(100%, rgba(46,204,14,1)));
-    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(46,204,14,1) 100%);
-    background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(46,204,14,1) 100%);
-    background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(46,204,14,1) 100%);
-    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 94%, rgba(46,204,14,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#2ecc0e', GradientType=1 );
 }
 
 .TaskIcon {

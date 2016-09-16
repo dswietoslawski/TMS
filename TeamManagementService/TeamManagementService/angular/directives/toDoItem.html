@@ -1,22 +1,19 @@
 ﻿<link href="../styles/globalStyles.css" rel="stylesheet" />
 
-<div class="panel-body note">
-    <div class="borderRadiusTopRight" ng-class="{'Bug' : item.type == 'Bug', 
-                                                 'ChangeRequest' : item.type == 'ChangeRequest',
-                                                 'Task' : item.type == 'Task',}">
-        <div class="panel-heading borderRadiusTopRight">
-            <div class="row">
-                <div class="col-xs-10">
-                    <div>{{item.name}}</div>
-                    <div>{{item.user.userName}}</div>
-                    <div>{{item.description | limitTo: 25 }}<span ng-show="item.description.length > 25">(...)</span></div>
-                </div>
-                <div class="col-xs-2 icon">
-                    <i ng-class="{'fa fa-bug fa-2x BugIcon' : item.type == 'Bug',
+<div class="row note">
+        <div class="col-xs-10 note-left">
+            <div>{{item.name}}</div>
+            <div>{{item.user.userName}}</div>
+            <div>{{item.description | limitTo: 25 }}<span ng-show="item.description.length > 25">(...)</span></div>
+        </div>
+
+        <div class="col-xs-2 note-right" ng-class="{'Bug' : item.type == 'Bug',
+                                                   'ChangeRequestIcon' : item.type == 'ChangeRequest',
+                                                   'TaskIcon' : item.type == 'Task'}">
+            <div class="xx">
+                <i ng-class="{'fa fa-bug fa-2x' : item.type == 'Bug',
                                                    'fa fa-info fa-2x ChangeRequestIcon' : item.type == 'ChangeRequest',
                                                    'fa fa-tasks fa-2x TaskIcon' : item.type == 'Task'}" class="fa fa- fa-2x"></i>
-                </div>
             </div>
         </div>
     </div>
-</div>
