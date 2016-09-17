@@ -36,13 +36,15 @@ namespace TeamManagementService.Controllers {
         [Route("teams/{teamId}/todoitems")]
         [Authorize]
         public IHttpActionResult GetByTeam(int teamId) {
-            return Ok(ModelFactory.Create(UnitOfWork.ToDoItemRepository.GetByTeam(teamId)));
+            var response = ModelFactory.Create(UnitOfWork.ToDoItemRepository.GetByTeam(teamId));
+            return Ok(response);
         }
 
         [HttpGet]
         [Route("todoitems/{id}")]
         public IHttpActionResult Get(int id) {
-            return Ok(ModelFactory.Create(UnitOfWork.ToDoItemRepository.Get(id)));
+            var response = ModelFactory.Create(UnitOfWork.ToDoItemRepository.Get(id));
+            return Ok(response);
         }
 
         [HttpGet]
@@ -61,9 +63,13 @@ namespace TeamManagementService.Controllers {
         [Route("todoitems")]
         public IHttpActionResult Update(ToDoItemBindingModel model) {
             if (ModelState.IsValid) {
-                UnitOfWork.ToDoItemRepository.Update(ModelFactory.Create(model));
+                var entity = ModelFactory.Create(model);
+                entity.User = UnitOfWork.UserRepository.Get(model.UserId);
+                entity.Team = UnitOfWork.TeamRepository.Get(model.TeamId);
+
+                var response = ModelFactory.Create(UnitOfWork.ToDoItemRepository.Update(entity));
                 UnitOfWork.Save();
-                return Ok();
+                return Ok(response);
             };
             return BadRequest();
         }

@@ -6,6 +6,7 @@ app.directive('logoutButton', function () {
             return '../users/logout/logoutView.html';
         },
         restrict: 'A',
-        controller: 'logoutController'
+        controller: 'logoutController',
+        controllerAs: 'logoutCtrl'
     }
 });

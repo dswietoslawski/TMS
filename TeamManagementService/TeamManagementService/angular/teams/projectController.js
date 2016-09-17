@@ -1,14 +1,17 @@
 ﻿var app = angular.module('tmsApp');
 
 app.controller('projectController', ['$scope', '$rootScope', 'projectService', 'appService', function ($scope, $rootScope, projectService, appService) {
-    $scope.newProject = {
+
+    vm = this;
+
+    vm.newProject = {
         name: "",
         adminId: 0
     }
 
-    $scope.selectedProject = "select a project";
+    vm.selectedProject = "select a project";
 
-    $scope.projects = [];
+    vm.projects = [];
 
     var init = function () {
         projectService.get().then(function (response) {
@@ -18,13 +21,13 @@ app.controller('projectController', ['$scope', '$rootScope', 'projectService', '
 
     init();
 
-    $scope.add = function (project) {
+    vm.add = function (project) {
         project.adminId = appService.getLoginInfo().id;
         projectService.add(project);
     };
 
-    $scope.selectProject = function (project) {
-        $scope.selectedProject = project.name;
+    vm.selectProject = function (project) {
+        vm.selectedProject = project.name;
         $scope.$broadcast('selected-project-changed', project);
     }
 }]);

@@ -59,13 +59,16 @@ namespace TeamManagementService.Controllers {
                 return BadRequest(ModelState);
             }
 
-            var appUser = await this.AppUserManager.FindAsync(user.UserName, user.Password);
+            try {
+                var appUser = await this.AppUserManager.FindAsync(user.UserName, user.Password);
+                if (appUser != null) {
+                    await SignInAsync(appUser, user.RememberMe);
+                    return Ok(this.ModelFactory.Create(appUser));
+                } else {
+                    ModelState.AddModelError("", "Invalid username or password.");
+                }
+            } catch (Exception ex) {
 
-            if (appUser != null) {
-                await SignInAsync(appUser, user.RememberMe);
-                return Ok(this.ModelFactory.Create(appUser));
-            } else {
-                ModelState.AddModelError("", "Invalid username or password.");
             }
             return BadRequest(ModelState);
         }

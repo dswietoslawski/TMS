@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Web.Http.Routing;
 using TeamManagementService.Infrastructure;
@@ -24,6 +25,14 @@ namespace TeamManagementService.Models {
                 EmailConfirmed = appUser.EmailConfirmed,
                 JoinDate = appUser.JoinTime,
             };
+        }
+
+
+        public IEnumerable<UserReturnModel> Create(IEnumerable<ApplicationUser> appUsers) {
+            ICollection<UserReturnModel> users = new List<UserReturnModel>();
+            foreach (var appUser in appUsers)
+                users.Add(Create(appUser));
+            return users;
         }
 
         public ApplicationUser Create(RegisterUserBindingModel userModel) {

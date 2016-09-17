@@ -8,7 +8,6 @@ app.controller('toDoItemController', ['$scope', '$rootScope', 'toDoItemService',
     vm.inProgressItems = [];
     vm.doneItems = [];
 
-
     vm.sortableOptions = {
         connectWith: '.connectedSortable',
         start: function (event, ui) {
@@ -16,12 +15,14 @@ app.controller('toDoItemController', ['$scope', '$rootScope', 'toDoItemService',
         },
         placeholder: 'note-placeholder',
         dropOnEmpty: true,
-        receive: function (e, ui) {
-            updateStatus(e.target.id, ui.item.sortable.model)
+        update: function (e, ui) {
+            if(ui.item.sortable.received && ui.item.sortable.source[0] !== ui.item.sortable.droptarget[0]){
+                updateStatus(ui.item.sortable.droptarget[0].id, ui.item.sortable.model, ui.item.sortable.sourceModel)
+            }
         },
     };
 
-    var updateStatus = function (id, item) {
+    var updateStatus = function (id, item, sourceTable) {
         if (id === 'to-do-column') {
             item.status = 'ToDo'
         } else if (id === 'in-progress-column') {
@@ -29,7 +30,8 @@ app.controller('toDoItemController', ['$scope', '$rootScope', 'toDoItemService',
         } else if (id === 'done-column') {
             item.status = 'Done'
         }
-        toDoItemService.update(item);
+        toDoItemService.update(toDoItemCopy(item));
+        $scope.$apply();
     };
 
     $scope.$on('selected-project-changed', function (event, args) {
@@ -87,11 +89,40 @@ app.controller('toDoItemController', ['$scope', '$rootScope', 'toDoItemService',
             templateUrl: '../toDoItems/toDoItemModal.html',
             controller: 'toDoItemEditController',
             controllerAs: 'toDoItemEditCtrl',
+            backdrop: 'static',
             resolve: {
                 toDoItem: function () {
                     return item;
                 }
             }
         });
+
+        modalInstance.result.then(function (toDoItem) {
+            update(item, toDoItem);
+        });
     };
+
+    function update(to, from) {
+        to.description = from.description;
+        to.id = from.id;
+        to.team = from.team;
+        to.name = from.name;
+        to.type = from.type;
+        to.status = from.status;
+        to.user = from.user;
+    };
+
+    function toDoItemCopy(from) {
+        var newItem = {};
+        newItem.description = from.description;
+        newItem.id = from.id;
+        newItem.teamId = from.team.id;
+        newItem.name = from.name;
+        newItem.type = from.type;
+        newItem.status = from.status;
+        newItem.userId = from.user.id;
+
+        return newItem;
+    }
+
 }]);

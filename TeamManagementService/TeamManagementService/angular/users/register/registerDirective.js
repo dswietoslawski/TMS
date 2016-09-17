@@ -6,6 +6,7 @@ app.directive('registerButton', function () {
             return '../users/register/registerView.html';
         },
         restrict: 'A',
-        controller: 'registerController'
+        controller: 'registerController',
+        controllerAs:'registerCtrl'
     }
 });

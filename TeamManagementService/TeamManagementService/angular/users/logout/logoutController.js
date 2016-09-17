@@ -6,7 +6,7 @@ app.controller('logoutController', ['$scope', 'userService', '$window', 'appServ
 
     vm.currentUser = $scope.hmCtrl.currentUser;
 
-    $scope.logout = function () {
+    vm.logout = function () {
         userService.logout(vm.currentUser)
         .then(function () {
             appService.setLoginInfo(null);

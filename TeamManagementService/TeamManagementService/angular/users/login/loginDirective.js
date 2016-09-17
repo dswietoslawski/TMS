@@ -6,6 +6,7 @@ app.directive('loginButton', function () {
             return '../users/login/loginView.html';
         },
         restrict: 'A',
-        controller: 'loginController'
+        controller: 'loginController',
+        controllerAs: 'loginCtrl'
     }
 });

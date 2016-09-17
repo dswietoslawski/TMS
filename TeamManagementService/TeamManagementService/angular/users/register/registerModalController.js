@@ -3,7 +3,7 @@
 app.controller('registerModalController', ['$scope', '$window', 'userService', 'appService', '$uibModalInstance', function ($scope, $window, userService, appService, $uibModalInstance) {
     var vm = this;
 
-    $scope.registerUser = {
+    vm.registerUser = {
         userName: "",
         password: "",
         confirmPassword: "",
@@ -12,17 +12,17 @@ app.controller('registerModalController', ['$scope', '$window', 'userService', '
         lastName: ""
     };
 
-    $scope.register = function (user) {
+    vm.register = function (user) {
         userService.register(user)
             .then(function (response) {
                 $uibModalInstance.dismiss({ $value: 'cancel' });
             },
             function (error) {
-                $scope.userMsg = error;
+                vm.userMsg = error;
             });// get a promise use login function if SUCCESS
     };
 
-    $scope.cancel = function () {
+    vm.cancel = function () {
         $uibModalInstance.dismiss({ $value: 'cancel' });
     };
 }]);
