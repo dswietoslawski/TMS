@@ -85,7 +85,7 @@
                     </div>
                     <div class="columnSortable" id="style-1">
                         <ul ui-sortable="toDoCtrl.sortableOptions" ng-model="toDoCtrl.toDoItems.items" id="to-do-column" class="connectedSortable">
-                            <li ng-repeat="item in toDoCtrl.toDoItems.items" ng-click="toDoCtrl.edit(item)">
+                            <li ng-repeat="item in toDoCtrl.toDoItems.items">
                                 <div to-do-item></div>
                             </li>
                         </ul>
@@ -101,7 +101,7 @@
                     </div>
                     <div class="columnSortable" id="style-2">
                         <ul ui-sortable="toDoCtrl.sortableOptions" ng-model="toDoCtrl.inProgressItems.items" id="in-progress-column" class="connectedSortable">
-                            <li ng-repeat="item in toDoCtrl.inProgressItems.items" ng-click="toDoCtrl.edit(item)">
+                            <li ng-repeat="item in toDoCtrl.inProgressItems.items" >
                                 <div to-do-item></div>
                             </li>
                         </ul>
@@ -117,7 +117,7 @@
                     </div>
                     <div class="columnSortable" id="style-3">
                         <ul ui-sortable="toDoCtrl.sortableOptions" ng-model="toDoCtrl.doneItems.items" id="done-column" class="connectedSortable">
-                            <li ng-repeat="item in toDoCtrl.doneItems.items" ng-click="toDoCtrl.edit(item)">
+                            <li ng-repeat="item in toDoCtrl.doneItems.items">
                                 <div to-do-item></div>
                             </li>
                         </ul>
