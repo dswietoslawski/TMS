@@ -284,6 +284,7 @@
     <Content Include="angular\teams\projectService.js" />
     <Content Include="angular\toDoItems\toDoItemController.js" />
     <Content Include="angular\toDoItems\toDoItemEditController.js" />
+    <Content Include="angular\toDoItems\toDoItemColumnFactory.js" />
     <Content Include="angular\toDoItems\toDoItemFactory.js" />
     <Content Include="angular\toDoItems\toDoItemModal.html" />
     <Content Include="angular\toDoItems\toDoItemService.js" />

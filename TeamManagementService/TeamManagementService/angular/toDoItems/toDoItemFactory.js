@@ -1,8 +1,72 @@
 ﻿var app = angular.module('tmsApp');
 
-app.factory('itemColumn', function () {
-    
-    var ItemColumn = function (items) {
+app.factory('ToDoItem', ['$uibModal', function ($uibModal) {
 
+    this.description = [];
+    this.id = [];
+    this.name = [];
+    this.type = [];
+    this.status = [];
+    this.team = {};
+    this.user = {};
+
+    var ToDoItem = function (item) {
+        this.status = item.status;
+        this.description = item.description;
+        this.id = item.id;
+        this.team = item.team;
+        this.name = item.name;
+        this.type = item.type;
+        this.status = item.status;
+        this.user = item.user;
     }
-});
+
+    ToDoItem.prototype.setValues = function (from) {
+        this.description = from.description;
+        this.id = from.id;
+        this.team = from.team;
+        this.name = from.name;
+        this.type = from.type;
+        this.status = from.status;
+        this.user = from.user;
+    };
+
+
+    ToDoItem.prototype.copy = function () {
+        var newItem = this;
+        newItem.description = this.description;
+        newItem.id = this.id;
+        newItem.teamId = this.team.id;
+        newItem.name = this.name;
+        newItem.type = this.type;
+        newItem.status = this.status;
+        newItem.userId = this.user.id;
+
+        return newItem;
+    }
+
+    ToDoItem.prototype.edit = function () {
+        var instance = this;
+        var modalInstance = $uibModal.open({
+            animation: true,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            templateUrl: '../toDoItems/toDoItemModal.html',
+            controller: 'toDoItemEditController',
+            controllerAs: 'toDoItemEditCtrl',
+            backdrop: 'static',
+            resolve: {
+                itemForEdit: function () {
+                    return instance;
+                }
+            }
+        });
+
+
+        modalInstance.result.then(function (toDoItem) {
+            instance.setValues(toDoItem);
+        });
+    };
+
+    return ToDoItem;
+}]);

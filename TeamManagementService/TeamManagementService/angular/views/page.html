@@ -41,6 +41,8 @@
     <script src="../users/register/registerDirective.js"></script>
     <script src="../users/register/registerModalController.js"></script>
     <script src="../toDoItems/toDoItemEditController.js"></script>
+    <script src="../toDoItems/toDoItemFactory.js"></script>
+    <script src="../toDoItems/toDoItemColumnFactory.js"></script>
     <!-- sb-admin-2 -->
     <script src="../lib/sb-admin-2/js/plugins/metisMenu/metisMenu.min.js"></script>
 
@@ -82,12 +84,12 @@
                         <i class="fa fa-bell fa-fw"></i> Kolejka
                     </div>
                     <div class="columnSortable" id="style-1">
-                        <ul ui-sortable="toDoCtrl.sortableOptions" ng-model="toDoCtrl.toDoItems" id="to-do-column" class="connectedSortable">
-                            <li ng-repeat="item in toDoCtrl.toDoItems" ng-click="toDoCtrl.edit(item)">
+                        <ul ui-sortable="toDoCtrl.sortableOptions" ng-model="toDoCtrl.toDoItems.items" id="to-do-column" class="connectedSortable">
+                            <li ng-repeat="item in toDoCtrl.toDoItems.items" ng-click="toDoCtrl.edit(item)">
                                 <div to-do-item></div>
                             </li>
                         </ul>
-                        <div ng-show="toDoCtrl.toDoItems.length == 0" class="emptyList">Empty</div>
+                        <div ng-show="toDoCtrl.toDoItems.items.length == 0" class="emptyList">Empty</div>
                     </div>
                 </div>
             </div>
@@ -98,12 +100,12 @@
                         <i class="fa fa-bell fa-fw"></i> Realizowane
                     </div>
                     <div class="columnSortable" id="style-2">
-                        <ul ui-sortable="toDoCtrl.sortableOptions" ng-model="toDoCtrl.inProgressItems" id="in-progress-column" class="connectedSortable">
-                            <li ng-repeat="item in toDoCtrl.inProgressItems" ng-click="toDoCtrl.edit(item)">
+                        <ul ui-sortable="toDoCtrl.sortableOptions" ng-model="toDoCtrl.inProgressItems.items" id="in-progress-column" class="connectedSortable">
+                            <li ng-repeat="item in toDoCtrl.inProgressItems.items" ng-click="toDoCtrl.edit(item)">
                                 <div to-do-item></div>
                             </li>
                         </ul>
-                        <div ng-show="toDoCtrl.inProgressItems.length == 0" class="emptyList">Empty</div>
+                        <div ng-show="toDoCtrl.inProgressItems.items.length == 0" class="emptyList">Empty</div>
                     </div>
                 </div>
             </div>
@@ -114,12 +116,12 @@
                         <i class="fa fa-bell fa-fw"></i> Zrealizowane
                     </div>
                     <div class="columnSortable" id="style-3">
-                        <ul ui-sortable="toDoCtrl.sortableOptions" ng-model="toDoCtrl.doneItems" id="done-column" class="connectedSortable">
-                            <li ng-repeat="item in toDoCtrl.doneItems" ng-click="toDoCtrl.edit(item)">
+                        <ul ui-sortable="toDoCtrl.sortableOptions" ng-model="toDoCtrl.doneItems.items" id="done-column" class="connectedSortable">
+                            <li ng-repeat="item in toDoCtrl.doneItems.items" ng-click="toDoCtrl.edit(item)">
                                 <div to-do-item></div>
                             </li>
                         </ul>
-                        <div ng-show="toDoCtrl.doneItems.length == 0" class="emptyList">Empty</div>
+                        <div ng-show="toDoCtrl.doneItems.items.length == 0" class="emptyList">Empty</div>
                     </div>
                 </div>
             </div>
