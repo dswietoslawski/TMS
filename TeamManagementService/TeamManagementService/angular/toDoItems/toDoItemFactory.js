@@ -1,6 +1,6 @@
 ﻿var app = angular.module('tmsApp');
 
-app.factory('ToDoItem', ['$uibModal', function ($uibModal) {
+app.factory('ToDoItem', ['$uibModal', 'toDoItemService', function ($uibModal, toDoItemService) {
 
     this.description = [];
     this.id = [];
@@ -67,6 +67,18 @@ app.factory('ToDoItem', ['$uibModal', function ($uibModal) {
             instance.setValues(toDoItem);
         });
     };
+
+    ToDoItem.prototype.update = function (id) {
+        if (id === 'column-1') {
+            this.status = 'ToDo'
+        } else if (id === 'column-2') {
+            this.status = 'InProgress'
+        } else if (id === 'column-3') {
+            this.status = 'Done'
+        }
+        toDoItemService.update(this.copy());
+    };
+
 
     return ToDoItem;
 }]);

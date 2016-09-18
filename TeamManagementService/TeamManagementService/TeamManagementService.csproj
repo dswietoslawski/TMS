@@ -164,12 +164,17 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="angular\directives\disableAnimate.js" />
+    <Content Include="angular\directives\sortable.js" />
     <Content Include="angular\directives\toDoItem.html" />
     <Content Include="angular\directives\toDoItemDirective.js" />
     <Content Include="angular\home\homeController.js" />
     <Content Include="angular\images\background\tlo2.jpg" />
     <Content Include="angular\images\background\tloList.jpg" />
     <Content Include="angular\images\background\tloList2.jpg" />
+    <Content Include="angular\lib\angular-animate\angular-animate.js" />
+    <Content Include="angular\lib\angular-animate\angular-animate.min.js" />
+    <Content Include="angular\lib\angular-animate\index.js" />
     <Content Include="angular\lib\angular-dragdrop\karma.conf.js" />
     <Content Include="angular\lib\angular-dragdrop\src\angular-dragdrop.js" />
     <Content Include="angular\lib\angular-dragdrop\src\angular-dragdrop.min.js" />
@@ -195,6 +200,9 @@
     <Content Include="angular\lib\angular-local-storage\dist\angular-local-storage.js" />
     <Content Include="angular\lib\angular-local-storage\dist\angular-local-storage.min.js" />
     <Content Include="angular\lib\angular-local-storage\index.js" />
+    <Content Include="angular\lib\angular-sanitize\angular-sanitize.js" />
+    <Content Include="angular\lib\angular-sanitize\angular-sanitize.min.js" />
+    <Content Include="angular\lib\angular-sanitize\index.js" />
     <Content Include="angular\lib\angular-ui-sortable\sortable.js" />
     <Content Include="angular\lib\angular-ui-sortable\sortable.min.js" />
     <Content Include="angular\lib\angular\angular-csp.css" />
@@ -279,8 +287,14 @@
     <Content Include="angular\lib\sb-admin-2\typography.html" />
     <Content Include="angular\lib\ui-bootstrap\ui-bootstrap-tpls-2.0.1.min.js" />
     <Content Include="angular\services\httpService.js" />
+    <Content Include="angular\sidebarMenu\sidebarController.js" />
+    <Content Include="angular\sidebarMenu\sidebarMenu.html" />
+    <Content Include="angular\sidebarMenu\sidebarMenuDirective.js" />
+    <Content Include="angular\styles\animate.css" />
     <Content Include="angular\styles\globalStyles.css" />
     <Content Include="angular\teams\projectController.js" />
+    <Content Include="angular\teams\projectDirective.js" />
+    <Content Include="angular\teams\projectSelection.html" />
     <Content Include="angular\teams\projectService.js" />
     <Content Include="angular\toDoItems\toDoItemController.js" />
     <Content Include="angular\toDoItems\toDoItemEditController.js" />
@@ -302,6 +316,8 @@
     <Content Include="angular\users\register\registerView.html" />
     <Content Include="angular\users\userService.js" />
     <Content Include="angular\views\page.html" />
+    <Content Include="est\example.js" />
+    <Content Include="est\index.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -535,6 +551,18 @@
     <Content Include="angular\lib\sb-admin-2\less\variables.less" />
     <Content Include="angular\lib\sb-admin-2\README.md" />
     <Content Include="connectionstrings.config" />
+    <Content Include="angular\lib\angular-animate\.bower.json" />
+    <Content Include="angular\lib\angular-animate\angular-animate.min.js.map" />
+    <Content Include="angular\lib\angular-animate\bower.json" />
+    <Content Include="angular\lib\angular-animate\LICENSE.md" />
+    <Content Include="angular\lib\angular-animate\package.json" />
+    <Content Include="angular\lib\angular-animate\README.md" />
+    <Content Include="angular\lib\angular-sanitize\.bower.json" />
+    <Content Include="angular\lib\angular-sanitize\angular-sanitize.min.js.map" />
+    <Content Include="angular\lib\angular-sanitize\bower.json" />
+    <Content Include="angular\lib\angular-sanitize\LICENSE.md" />
+    <Content Include="angular\lib\angular-sanitize\package.json" />
+    <Content Include="angular\lib\angular-sanitize\README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

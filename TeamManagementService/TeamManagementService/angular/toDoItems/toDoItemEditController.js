@@ -19,9 +19,10 @@ app.controller('toDoItemEditController', ['$scope', '$rootScope', 'toDoItemServi
         };
 
         vm.save = function () {
+            vm.editedToDoItem.user = vm.userSelection.selectedOption;
             var promise = toDoItemService.update(vm.editedToDoItem.copy());
             promise.then(function () {
-                vm.editedToDoItem = promise.$$state.value;
+                vm.editedToDoItem = new ToDoItem(promise.$$state.value);
             }, function (error) {
                 vm.errorMessage = "Couldn't update item";
             })// get a promise use login function if SUCCESS
@@ -36,5 +37,7 @@ app.controller('toDoItemEditController', ['$scope', '$rootScope', 'toDoItemServi
         }
 
         init();
+
+        $scope.on
 
     }]);

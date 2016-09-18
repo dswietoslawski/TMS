@@ -1,32 +1,27 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="tmsApp">
 <head>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link href="../styles/globalStyles.css" rel="stylesheet" />
-    <!-- sb-admin-2 -->
-    <link href="../lib/sb-admin-2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../lib/sb-admin-2/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
-    <link href="../lib/sb-admin-2/css/plugins/timeline.css" rel="stylesheet">
-    <link href="../lib/sb-admin-2/css/plugins/morris.css" rel="stylesheet">
-    <link href="../lib/sb-admin-2/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="../lib/sb-admin-2/css/sb-admin-2.css" rel="stylesheet" />
-
-    <!-- Java Script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    <script src="../lib/ui-bootstrap/ui-bootstrap-tpls-2.0.1.min.js"></script>
-
-    <script src="../lib/angular-ui-sortable/sortable.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.1.3.js"></script>
     <script src="../lib/angular-local-storage/dist/angular-local-storage.min.js"></script>
+    <script src="../lib/angular-ui-sortable/sortable.min.js"></script>
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../styles/globalStyles.css" rel="stylesheet" />
+    <link href="../lib/sb-admin-2/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../lib/sb-admin-2/css/sb-admin-2.css" rel="stylesheet" />
 
     <script src="../app.js"></script>
     <script src="../users/userService.js"></script>
     <script src="../teams/projectController.js"></script>
     <script src="../teams/projectService.js"></script>
+    <script src="../directives/disableAnimate.js"></script>
     <script src="../services/appService.js"></script>
     <script src="../toDoItems/toDoItemController.js"></script>
     <script src="../toDoItems/toDoItemService.js"></script>
@@ -43,85 +38,57 @@
     <script src="../toDoItems/toDoItemEditController.js"></script>
     <script src="../toDoItems/toDoItemFactory.js"></script>
     <script src="../toDoItems/toDoItemColumnFactory.js"></script>
-    <!-- sb-admin-2 -->
-    <script src="../lib/sb-admin-2/js/plugins/metisMenu/metisMenu.min.js"></script>
-
-    <title>Team Management Service</title>
-
-    <meta charset="utf-8" />
+    <script src="../directives/sortable.js"></script>
+    <script src="../teams/projectDirective.js"></script>
+    <script src="../sidebarMenu/sidebarController.js"></script>
+    <script src="../sidebarMenu/sidebarMenuDirective.js"></script>
 </head>
-<body ng-app="tmsApp" ng-controller="homeController as hmCtrl" ng-init="hmCtrl.onInit()">
+<body ng-controller="homeController as hmCtrl" ng-init="hmCtrl.onInit()">
     <div id="fullheightAndWidth" class="wrapper" ng-controller="projectController as projectCtrl">
-            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html">{{hmCtrl.currentUser.userName}}</a>
-                </div>
-                <ul class="nav navbar-top-links navbar-right">
-                    <li ng-show="hmCtrl.isLoggedIn" logout-button></li>
-                    <li ng-show="!hmCtrl.isLoggedIn" register-button></li>
-                    <li ng-show="!hmCtrl.isLoggedIn" login-button></li>
-                </ul>
-
-            </nav>
+        <nav class="navbar" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html"></a>
+            </div>
+            <ul class="nav navbar-top-links navbar-right">
+                <li ng-show="!hmCtrl.isLoggedIn" register-button></li>
+                <li ng-show="!hmCtrl.isLoggedIn" login-button></li>
+                <li>
+                    <a class="dropdown-toggle" ng-click="hmCtrl.toggleSidebar()">
+                        <i class="fa fa-bars fa-fw"></i>{{hmCtrl.currentUser.userName}}
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div ng-show="hmCtrl.isLoggedIn" class="container-fluid" ng-controller="toDoItemController as toDoCtrl">
+        <div uib-collapse="!hmCtrl.sidebarOpened" class="col-lg-offset-10 col-lg-3 sidebar-nav">
+            <sidebar-menu></sidebar-menu>
         </div>
-
-        <div class="container" ng-controller="toDoItemController as toDoCtrl">
-            <div class="row">
-                <div class="col-lg-12">
+        <div class="content">
+            <row>
+                <div class="col-lg-offset-3 col-lg-6">
                     <h1 class="page-header">Dashboard</h1>
+                    <project-selection></project-selection>
                 </div>
-            </div>
-            <!-- first column to-do-column -->
-            <div class="col-lg-4">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <i class="fa fa-bell fa-fw"></i> Kolejka
-                    </div>
-                    <div class="columnSortable" id="style-1">
-                        <ul ui-sortable="toDoCtrl.sortableOptions" ng-model="toDoCtrl.toDoItems.items" id="to-do-column" class="connectedSortable">
-                            <li ng-repeat="item in toDoCtrl.toDoItems.items">
-                                <div to-do-item></div>
-                            </li>
-                        </ul>
-                        <div ng-show="toDoCtrl.toDoItems.items.length == 0" class="emptyList">Empty</div>
-                    </div>
-                </div>
-            </div>
-            <!-- second column in-progress-columnn -->
-            <div class="col-lg-4">
-                <div class="panel panel-success">
-                    <div class="panel-heading">
-                        <i class="fa fa-bell fa-fw"></i> Realizowane
-                    </div>
-                    <div class="columnSortable" id="style-2">
-                        <ul ui-sortable="toDoCtrl.sortableOptions" ng-model="toDoCtrl.inProgressItems.items" id="in-progress-column" class="connectedSortable">
-                            <li ng-repeat="item in toDoCtrl.inProgressItems.items" >
-                                <div to-do-item></div>
-                            </li>
-                        </ul>
-                        <div ng-show="toDoCtrl.inProgressItems.items.length == 0" class="emptyList">Empty</div>
-                    </div>
-                </div>
-            </div>
-            <!-- third column done-column -->
-            <div class="col-lg-4">
-                <div class="panel panel-green">
-                    <div class="panel-heading">
-                        <i class="fa fa-bell fa-fw"></i> Zrealizowane
-                    </div>
-                    <div class="columnSortable" id="style-3">
-                        <ul ui-sortable="toDoCtrl.sortableOptions" ng-model="toDoCtrl.doneItems.items" id="done-column" class="connectedSortable">
-                            <li ng-repeat="item in toDoCtrl.doneItems.items">
-                                <div to-do-item></div>
-                            </li>
-                        </ul>
-                        <div ng-show="toDoCtrl.doneItems.items.length == 0" class="emptyList">Empty</div>
+            </row>
+            <div class="col-lg-offset-3 col-lg-6">
+                <div ng-repeat="column in toDoCtrl.columns">
+                    <div class="col-lg-4">
+                        <div class="panel panel-primary" ng-class="{'panel-primary' : column.title == 'To Do',
+                                                   'panel-success' : column.title == 'In Progress',
+                                                   'panel-green' : column.title == 'Done'}">
+                            <div class="panel-heading">
+                                <i class="fa fa-bell fa-fw"></i> {{column.title}}
+                            </div>
+                            <div class="columnSortable" id="style-{{$index}}">
+                                <div id="column-{{$index+1}}" ng-model="column.items" class="column connectedSortable" ui-sortable="toDoCtrl.sortableOpt">
+                                    <div ng-repeat="item in column.items" class="ng-animate-disabled">
+                                        <to-do-item></to-do-item>
+                                    </div>
+                                </div>
+                                <div ng-show="toDoCtrl.toDoItems.items.length == 0" class="emptyList">Empty</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

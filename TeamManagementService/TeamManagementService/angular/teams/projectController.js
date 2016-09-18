@@ -8,14 +8,15 @@ app.controller('projectController', ['$scope', '$rootScope', 'projectService', '
         name: "",
         adminId: 0
     }
+    vm.projects = {};
 
-    vm.selectedProject = "select a project";
+    vm.projects.selected = {};
 
-    vm.projects = [];
+    vm.projects.items = [];
 
     var init = function () {
         projectService.get().then(function (response) {
-            $scope.projects = response;
+            vm.projects.items = response;
         });
     }
 
@@ -26,8 +27,7 @@ app.controller('projectController', ['$scope', '$rootScope', 'projectService', '
         projectService.add(project);
     };
 
-    vm.selectProject = function (project) {
-        vm.selectedProject = project.name;
-        $scope.$broadcast('selected-project-changed', project);
+    vm.update = function () {
+        $rootScope.$broadcast('selected-project-changed', vm.projects.selected);
     }
 }]);

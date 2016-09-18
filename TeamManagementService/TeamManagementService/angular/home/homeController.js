@@ -5,10 +5,18 @@ app.controller('homeController', ['$scope', '$rootScope', 'projectService', 'app
     var vm = this;
     vm.currentUser = {};
 
+    vm.sidebarOpened = false;
+
     vm.isLoggedIn = false;
 
     vm.onInit = function () {
         vm.currentUser = appService.getLoginInfo();
         vm.isLoggedIn = vm.currentUser !== null;
     };
+
+
+    vm.toggleSidebar = function () {
+        vm.sidebarOpened = !vm.sidebarOpened;
+    }
+    
 }]);

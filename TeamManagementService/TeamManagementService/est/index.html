@@ -1,0 +1,89 @@
+<!doctype html>
+<html ng-app="tmsApp">
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.1.3.js"></script>
+    <script src="../angular/lib/angular-local-storage/dist/angular-local-storage.min.js"></script>
+    <script src="../angular/lib/angular-ui-sortable/sortable.min.js"></script>
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../angular/styles/globalStyles.css" rel="stylesheet" />
+    <link href="../angular/lib/sb-admin-2/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../angular/lib/sb-admin-2/css/sb-admin-2.css" rel="stylesheet" />
+
+    <script src="../angular/app.js"></script>
+    <script src="example.js"></script>
+
+    <script src="../angular/users/userService.js"></script>
+    <script src="../angular/teams/projectController.js"></script>
+    <script src="../angular/teams/projectService.js"></script>
+    <script src="../angular/directives/disableAnimate.js"></script>
+    <script src="../angular/services/appService.js"></script>
+    <script src="../angular/toDoItems/toDoItemController.js"></script>
+    <script src="../angular/toDoItems/toDoItemService.js"></script>
+
+    <script src="../angular/services/httpService.js"></script>
+    <script src="../angular/directives/toDoItemDirective.js"></script>
+    <script src="../angular/users/login/loginController.js"></script>
+
+    <script src="../angular/users/login/loginDirective.js"></script>
+    <script src="../angular/home/homeController.js"></script>
+    <script src="../angular/users/logout/logoutController.js"></script>
+
+    <script src="../angular/users/logout/logoutDirective.js"></script>
+    <script src="../angular/users/register/registerController.js"></script>
+    <script src="../angular/users/register/registerDirective.js"></script>
+
+    <script src="../angular/users/register/registerModalController.js"></script>
+    <script src="../angular/toDoItems/toDoItemEditController.js"></script>
+    <script src="../angular/toDoItems/toDoItemFactory.js"></script>
+
+    <script src="../angular/toDoItems/toDoItemColumnFactory.js"></script>
+    <script src="../angular/directives/sortable.js"></script>
+    <script src="../angular/teams/projectDirective.js"></script>
+
+    <script src="../angular/sidebarMenu/sidebarController.js"></script>
+    <script src="../angular/sidebarMenu/sidebarMenuDirective.js"></script>
+</head>
+<body ng-controller="homeController as hmCtrl" ng-init="hmCtrl.onInit()">
+    <div ng-controller="CollapseDemoCtrl">
+        <button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Toggle collapse Vertically</button>
+        <hr>
+        <div uib-collapse="isCollapsed">
+            <div class="well well-lg">Some content</div>
+        </div>
+        <button type="button" class="btn btn-default" ng-click="isCollapsedHorizontal = !isCollapsedHorizontal">Toggle collapse Horizontally</button>
+        <hr>
+        <div class="horizontal-collapse" uib-collapse="isCollapsedHorizontal" horizontal>
+            <div class="well well-lg">Some content</div>
+        </div>
+    </div>
+    <row>
+        <div id="fullheightAndWidth" class="wrapper" ng-controller="projectController as projectCtrl">
+            <nav class="navbar" role="navigation">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html"></a>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <a class="dropdown-toggle" ng-click="hmCtrl.toggleSidebar()">
+                            <i class="fa fa-bars fa-fw"></i>{{hmCtrl.currentUser.userName}}
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <row>
+            <div uib-collapse="hmCtrl.sidebarOpened" class="col-lg-offset-10 col-lg-2">
+                <sidebar-menu></sidebar-menu>
+            </div>
+        </row>
+    </row>
+</body>
+</html>
