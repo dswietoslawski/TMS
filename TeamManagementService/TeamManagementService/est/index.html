@@ -1,89 +1,62 @@
-<!doctype html>
-<html ng-app="tmsApp">
+<html lang="en">
 <head>
-
+    <!--
+      Your HTML content here
+    -->
+    <!-- Angular Material requires Angular.js Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
-    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.1.3.js"></script>
-    <script src="../angular/lib/angular-local-storage/dist/angular-local-storage.min.js"></script>
-    <script src="../angular/lib/angular-ui-sortable/sortable.min.js"></script>
 
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../angular/styles/globalStyles.css" rel="stylesheet" />
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.1.3.js"></script>
+    <script src="example.js"></script>
+    <script src="../angular/lib/angular-local-storage/dist/angular-local-storage.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
     <link href="../angular/lib/sb-admin-2/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script src="../angular/lib/angular-ui-sortable/sortable.min.js"></script>
     <link href="../angular/lib/sb-admin-2/css/sb-admin-2.css" rel="stylesheet" />
 
-    <script src="../angular/app.js"></script>
-    <script src="example.js"></script>
-
-    <script src="../angular/users/userService.js"></script>
-    <script src="../angular/teams/projectController.js"></script>
-    <script src="../angular/teams/projectService.js"></script>
-    <script src="../angular/directives/disableAnimate.js"></script>
-    <script src="../angular/services/appService.js"></script>
-    <script src="../angular/toDoItems/toDoItemController.js"></script>
-    <script src="../angular/toDoItems/toDoItemService.js"></script>
-
-    <script src="../angular/services/httpService.js"></script>
-    <script src="../angular/directives/toDoItemDirective.js"></script>
-    <script src="../angular/users/login/loginController.js"></script>
-
-    <script src="../angular/users/login/loginDirective.js"></script>
-    <script src="../angular/home/homeController.js"></script>
-    <script src="../angular/users/logout/logoutController.js"></script>
-
-    <script src="../angular/users/logout/logoutDirective.js"></script>
-    <script src="../angular/users/register/registerController.js"></script>
-    <script src="../angular/users/register/registerDirective.js"></script>
-
-    <script src="../angular/users/register/registerModalController.js"></script>
-    <script src="../angular/toDoItems/toDoItemEditController.js"></script>
-    <script src="../angular/toDoItems/toDoItemFactory.js"></script>
-
-    <script src="../angular/toDoItems/toDoItemColumnFactory.js"></script>
-    <script src="../angular/directives/sortable.js"></script>
-    <script src="../angular/teams/projectDirective.js"></script>
-
-    <script src="../angular/sidebarMenu/sidebarController.js"></script>
-    <script src="../angular/sidebarMenu/sidebarMenuDirective.js"></script>
+    <link href="../angular/styles/globalStyles.css" rel="stylesheet" />
 </head>
-<body ng-controller="homeController as hmCtrl" ng-init="hmCtrl.onInit()">
-    <div ng-controller="CollapseDemoCtrl">
-        <button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Toggle collapse Vertically</button>
-        <hr>
-        <div uib-collapse="isCollapsed">
-            <div class="well well-lg">Some content</div>
-        </div>
-        <button type="button" class="btn btn-default" ng-click="isCollapsedHorizontal = !isCollapsedHorizontal">Toggle collapse Horizontally</button>
-        <hr>
-        <div class="horizontal-collapse" uib-collapse="isCollapsedHorizontal" horizontal>
-            <div class="well well-lg">Some content</div>
-        </div>
-    </div>
-    <row>
-        <div id="fullheightAndWidth" class="wrapper" ng-controller="projectController as projectCtrl">
-            <nav class="navbar" role="navigation">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html"></a>
+<body ng-cloak ng-app="MyApp">
+    <!-- Your application bootstrap  -->
+
+    <div ng-controller="DemoCtrl as ctrl" layout="column" ng-cloak="" class="autocompletedemoFloatingLabel" >
+        <md-content class="md-padding">
+            <form ng-submit="$event.preventDefault()" name="searchForm">
+                <p>The following example demonstrates floating labels being used as a normal form element.</p>
+                <div layout-gt-sm="row">
+                    <md-input-container flex="">
+                        <label>Name</label>
+                        <input type="text">
+                    </md-input-container>
+                    <md-autocomplete flex="" required="" md-input-name="autocompleteField" md-input-minlength="2" md-input-maxlength="18" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text="ctrl.searchText" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.display" md-require-match="" md-floating-label="Favorite state">
+                        <md-item-template>
+                            <span md-highlight-text="ctrl.searchText">{{item.display}}</span>
+                        </md-item-template>
+                        <div ng-messages="searchForm.autocompleteField.$error" ng-if="searchForm.autocompleteField.$touched">
+                            <div ng-message="required">You <b>must</b> have a favorite state.</div>
+                            <div ng-message="md-require-match">Please select an existing state.</div>
+                            <div ng-message="minlength">Your entry is not long enough.</div>
+                            <div ng-message="maxlength">Your entry is too long.</div>
+                        </div>
+                    </md-autocomplete>
                 </div>
-                <ul class="nav navbar-top-links navbar-right">
-                    <li>
-                        <a class="dropdown-toggle" ng-click="hmCtrl.toggleSidebar()">
-                            <i class="fa fa-bars fa-fw"></i>{{hmCtrl.currentUser.userName}}
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        <row>
-            <div uib-collapse="hmCtrl.sidebarOpened" class="col-lg-offset-10 col-lg-2">
-                <sidebar-menu></sidebar-menu>
-            </div>
-        </row>
-    </row>
+            </form>
+        </md-content>
+    </div>
+    <!--
+    Copyright 2016 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that can be foundin the LICENSE file at http://material.angularjs.org/HEAD/license.
+    -->
 </body>
 </html>

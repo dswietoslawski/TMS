@@ -21,7 +21,7 @@ app.service('toDoItemService', ['httpService', function (httpService) {
         return httpService.get(url);
     }
 
-    this.update = function (toDoItem) {
+    this.update = function (toDoItem) { 
         var url = 'http://localhost:63601/api/todoitems';
         return httpService.put(url, toDoItem);
     }

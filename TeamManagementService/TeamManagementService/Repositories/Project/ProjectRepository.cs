@@ -17,16 +17,21 @@ namespace TeamManagementService.Repositories {
         }
 
         public IEnumerable<Project> Get() {
-            return context.Teams;
+            return context.Teams.Include(t => t.Admin);
         }
 
         public Project Get(int id) {
-            return context.Teams.Find(id);
+            return context.Teams.Include(t => t.Admin).Where(t => t.Id == id).FirstOrDefault();
         }
 
         public void AddUserToTeam(int teamId, ApplicationUser user) {
             var team = context.Teams.Where(t => t.Id == teamId).Include(t => t.Members).Single();
             team.Members.Add(user);
+        }
+
+        public bool DeleteUserFromTeam(int teamId, ApplicationUser user) {
+            var team = context.Teams.Where(t => t.Id == teamId).Include(t => t.Members).Single();
+            return team.Members.Remove(user);
         }
     }
 }

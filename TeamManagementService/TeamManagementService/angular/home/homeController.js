@@ -4,6 +4,7 @@ app.controller('homeController', ['$scope', '$rootScope', 'projectService', 'app
 
     var vm = this;
     vm.currentUser = {};
+    vm.currentProject = {};
 
     vm.sidebarOpened = false;
 
@@ -18,5 +19,8 @@ app.controller('homeController', ['$scope', '$rootScope', 'projectService', 'app
     vm.toggleSidebar = function () {
         vm.sidebarOpened = !vm.sidebarOpened;
     }
-    
+
+    $rootScope.$on('selected-project-changed', function (event, args) {
+        vm.currentProject = args;
+    });
 }]);

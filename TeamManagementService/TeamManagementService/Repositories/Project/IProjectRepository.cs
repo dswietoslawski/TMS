@@ -8,5 +8,6 @@ namespace TeamManagementService.Repositories {
         Project Get(int id);
         Project Add(Project team);
         void AddUserToTeam(int teamId, ApplicationUser user);
+        bool DeleteUserFromTeam(int teamId, ApplicationUser user);
     }
 }

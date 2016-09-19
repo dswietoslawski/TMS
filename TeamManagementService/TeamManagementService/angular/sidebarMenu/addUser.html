@@ -1,0 +1,24 @@
+﻿<div ng-cloak="">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <input type="text" ng-model="addUser.filterText" ng-change="addUser.filterUsers()"/>
+        <select ng-change="addUser.filterUsers()" ng-model="addUser.filterOptions.selected" ng-options="option.value for option in addUser.filterOptions.options track by option.id">
+            <option ng-repeat="option in addUser.filterOptions.options" value="{{option.value}}">{{option.value}}</option>
+        </select>
+
+        <table>
+            <tr ng-repeat="user in addUser.shownUsers">
+                <td>{{user.userName}}</td><td><button ng-disabled="addUser.editedProject.admin.id == user.id" ng-class="{'fa fa-minus' : user.isInTeam, 'fa fa-plus' : !user.isInTeam}" ng-click="addUser.edit(user)"></button></td>
+            </tr>
+        </table>
+        <ul uib-pagination boundary-links="true" ng-change="addUser.changePage()"
+            items-per-page="addUser.itemsPerPage" total-items="addUser.totalItems"
+            ng-model="addUser.currentPage" class="pagination-sm"
+            previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-warning" type="button" ng-click="addUser.close()">Cancel</button>
+    </div>
+</div>

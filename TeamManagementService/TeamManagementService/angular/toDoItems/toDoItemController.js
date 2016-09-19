@@ -4,7 +4,6 @@ app.controller('toDoItemController', ['$scope', '$rootScope', 'toDoItemService',
     function ($scope, $rootScope, toDoItemService, appService, ItemColumn, ToDoItem, $filter) {
 
         var vm = this;
-        init();
         vm.columns = [];
 
         vm.sortableOpt = {
@@ -20,12 +19,6 @@ app.controller('toDoItemController', ['$scope', '$rootScope', 'toDoItemService',
         }
 
         //-- init
-        function init() {
-
-            toDoItemService.getByTeam(1).then(function (items) {
-                initializeToDoItems(items);
-            });
-        };
 
         var getByTeam = function (project) {
             toDoItemService.getByTeam(project.id).then(function (items) {

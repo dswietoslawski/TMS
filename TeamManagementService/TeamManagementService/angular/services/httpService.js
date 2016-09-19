@@ -38,6 +38,19 @@ app.service('httpService', ['$http', '$q', function ($http, $q) {
         return def.promise;
     }
 
+    this.delete = function (url, data) {
+        var def = $q.defer();
+
+        var response = $http.delete(url, data, config)
+        .success(function (response) {
+            def.resolve(response);
+        }).error(function (error) {
+            def.reject(parseErrors(error));
+        });
+
+        return def.promise;
+    }
+
     function parseErrors(response) {
         var errors = [];
         for (var key in response.modelState) {
