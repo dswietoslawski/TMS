@@ -62,7 +62,7 @@
             <ul class="nav navbar-top-links navbar-right">
                 <li ng-show="!hmCtrl.isLoggedIn" register-button></li>
                 <li ng-show="!hmCtrl.isLoggedIn" login-button></li>
-                <li>
+                <li ng-show="hmCtrl.isLoggedIn">
                     <a class="dropdown-toggle" ng-click="hmCtrl.toggleSidebar()">
                         <i class="fa fa-bars fa-fw"></i>{{hmCtrl.currentUser.userName}}
                     </a>
@@ -70,35 +70,42 @@
             </ul>
         </nav>
     </div>
-
-    <div ng-show="hmCtrl.isLoggedIn" class="container-fluid" ng-controller="toDoItemController as toDoCtrl">
-
+    <div class="container-fluid" ng-controller="toDoItemController as toDoCtrl">
+        <row>
+            <div class="col-lg-offset-3 col-lg-6">
+                <h1 class="page-header" ng-show="!hmCtrl.isLoggedIn">
+                    Tutaj by był spoko jakiś taki kwadrat z login/password + button sign in ( coś jak u Cb na stronce) i do tego register button który wywoła modal który jest na górze , wtedy można ukryć navbar jak się nie jest zalogowanym
+                </h1>
+            </div>
+        </row>
         <div uib-collapse="!hmCtrl.sidebarOpened" class="col-lg-offset-10 col-lg-3 sidebar-nav">
             <sidebar-menu></sidebar-menu>
         </div>
         <div class="content">
-            <row>
+            <div ng-show="hmCtrl.isLoggedIn">
+                <row>
+                    <div class="col-lg-offset-3 col-lg-6">
+                        <h1 class="page-header">Dashboard</h1>
+                        <project-selection></project-selection>
+                    </div>
+                </row>
                 <div class="col-lg-offset-3 col-lg-6">
-                    <h1 class="page-header">Dashboard</h1>
-                    <project-selection></project-selection>
-                </div>
-            </row>
-            <div class="col-lg-offset-3 col-lg-6">
-                <div ng-repeat="column in toDoCtrl.columns">
-                    <div class="col-lg-4">
-                        <div class="panel panel-primary" ng-class="{'panel-primary' : column.title == 'To Do',
+                    <div ng-repeat="column in toDoCtrl.columns">
+                        <div class="col-lg-4">
+                            <div class="panel panel-primary" ng-class="{'panel-primary' : column.title == 'To Do',
                                                    'panel-success' : column.title == 'In Progress',
                                                    'panel-green' : column.title == 'Done'}">
-                            <div class="panel-heading">
-                                <i class="fa fa-bell fa-fw"></i> {{column.title}}
-                            </div>
-                            <div class="columnSortable" id="style-{{$index}}">
-                                <div id="column-{{$index+1}}" ng-model="column.items" class="column connectedSortable" ui-sortable="toDoCtrl.sortableOpt">
-                                    <div ng-repeat="item in column.items" class="ng-animate-disabled">
-                                        <to-do-item></to-do-item>
-                                    </div>
+                                <div class="panel-heading">
+                                    <i class="fa fa-bell fa-fw"></i> {{column.title}}
                                 </div>
-                                <div ng-show="toDoCtrl.toDoItems.items.length == 0" class="emptyList">Empty</div>
+                                <div class="columnSortable" id="style-{{$index}}">
+                                    <div id="column-{{$index+1}}" ng-model="column.items" class="column connectedSortable" ui-sortable="toDoCtrl.sortableOpt">
+                                        <div ng-repeat="item in column.items" class="ng-animate-disabled">
+                                            <to-do-item ng-class="{'unsortable' : toDoCtrl.canDrag(item)}"></to-do-item>
+                                        </div>
+                                    </div>
+                                    <div ng-show="toDoCtrl.toDoItems.items.length == 0" class="emptyList">Empty</div>
+                                </div>
                             </div>
                         </div>
                     </div>

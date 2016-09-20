@@ -22,17 +22,20 @@ app.controller('projectController', ['$scope', '$rootScope', 'projectService', '
 
             vm.projects.selected = vm.projects.items[0];
             vm.update();
+        }).then(function (error) {
+
         });
     }
 
-    init();
-
-    vm.add = function (project) {
-        project.adminId = appService.getLoginInfo().id;
-        projectService.add(project);
-    };
+    if ($scope.hmCtrl.isLoggedIn) init();
 
     vm.update = function () {
         $rootScope.$broadcast('selected-project-changed', vm.projects.selected);
     }
+
+    $scope.$on('project-added', function (event, args) {
+        vm.projects.items.push(args);
+        vm.projects.selected = args;
+        vm.update();
+    });
 }]);

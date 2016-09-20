@@ -11,15 +11,24 @@ app.factory('ToDoItem', ['$uibModal', 'toDoItemService', function ($uibModal, to
     this.user = {};
 
     var ToDoItem = function (item) {
-        this.status = item.status;
-        this.description = item.description;
-        this.id = item.id;
-        this.team = item.team;
-        this.name = item.name;
-        this.type = item.type;
-        this.status = item.status;
-        this.user = item.user;
+        if (item != undefined) {
+            this.status = item.status;
+            this.description = item.description;
+            this.id = item.id;
+            this.team = item.team;
+            this.name = item.name;
+            this.type = item.type;
+            this.status = item.status;
+            this.user = item.user;
+        } else {
+            this.id = 0;
+        }
     }
+
+    ToDoItem.prototype.setTeam = function (team) {
+        this.team = team;
+    }
+
 
     ToDoItem.prototype.setValues = function (from) {
         this.description = from.description;
@@ -36,11 +45,9 @@ app.factory('ToDoItem', ['$uibModal', 'toDoItemService', function ($uibModal, to
         var newItem = this;
         newItem.description = this.description;
         newItem.id = this.id;
-        newItem.teamId = this.team.id;
         newItem.name = this.name;
         newItem.type = this.type;
         newItem.status = this.status;
-        newItem.userId = this.user.id;
 
         return newItem;
     }
@@ -76,7 +83,7 @@ app.factory('ToDoItem', ['$uibModal', 'toDoItemService', function ($uibModal, to
         } else if (id === 'column-3') {
             this.status = 'Done'
         }
-        toDoItemService.update(this.copy());
+        toDoItemService.update(this.copy(), this.team.id, this.user.id);
     };
 
 

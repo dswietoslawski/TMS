@@ -1,4 +1,5 @@
-﻿using TeamManagementService.Infrastructure;
+﻿using System;
+using TeamManagementService.Infrastructure;
 using TeamManagementService.Repositories.ToDoItems;
 using TeamManagementService.Repositories.User;
 
@@ -32,7 +33,11 @@ namespace TeamManagementService.Repositories {
         }
 
         public void Save() {
-            context.SaveChanges();
+            try {
+                context.SaveChanges();
+            } catch (Exception ex) {
+                throw ex;
+            }
         }
     }
 }

@@ -22,7 +22,16 @@ app.service('httpService', ['$http', '$q', function ($http, $q) {
     };
 
     this.post = function (url, data) {
+        var def = $q.defer();
 
+        var response = $http.post(url, data, config)
+        .success(function (response) {
+            def.resolve(response);
+        }).error(function (error) {
+            def.reject(parseErrors(error));
+        });
+
+        return def.promise;
     };
 
     this.put = function (url, data) {

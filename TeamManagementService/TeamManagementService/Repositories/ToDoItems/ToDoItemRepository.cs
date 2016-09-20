@@ -45,5 +45,11 @@ namespace TeamManagementService.Repositories.ToDoItems {
                 throw new KeyNotFoundException();
             }
         }
+
+        public bool Delete(ToDoItem entity) {
+            context.Tasks.Attach(entity);
+            context.Tasks.Remove(entity);
+            return true;
+        }
     }
 }

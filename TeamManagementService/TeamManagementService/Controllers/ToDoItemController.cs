@@ -11,14 +11,14 @@ namespace TeamManagementService.Controllers {
     public class ToDoItemController : BaseApiController {
 
         [HttpPost]
-        [Route("")]
+        [Route("teams/{teamId}/users/{userId}/todoitems")]
         [Authorize]
-        public IHttpActionResult Post(ToDoItemBindingModel toDoItemModel) {
+        public IHttpActionResult Post(ToDoItemBindingModel toDoItemModel, int teamId, string userId) {
             if (ModelState.IsValid) {
                 var toDoItem = ModelFactory.Create(toDoItemModel);
 
-                toDoItem.Team = UnitOfWork.TeamRepository.Get(toDoItemModel.TeamId);
-                toDoItem.User = UnitOfWork.UserRepository.Get(toDoItemModel.UserId);
+                toDoItem.Team = UnitOfWork.TeamRepository.Get(teamId);
+                toDoItem.User = UnitOfWork.UserRepository.Get(userId);
 
                 var entity = UnitOfWork.ToDoItemRepository.Add(toDoItem);
                 UnitOfWork.Save();
@@ -60,17 +60,29 @@ namespace TeamManagementService.Controllers {
         }
 
         [HttpPut]
-        [Route("todoitems")]
-        public IHttpActionResult Update(ToDoItemBindingModel model) {
+        [Route("teams/{teamId}/users/{userId}/todoitems")]
+        public IHttpActionResult Update(ToDoItemBindingModel model, int teamId, string userId) {
             if (ModelState.IsValid) {
                 var entity = ModelFactory.Create(model);
-                entity.User = UnitOfWork.UserRepository.Get(model.UserId);
-                entity.Team = UnitOfWork.TeamRepository.Get(model.TeamId);
+                entity.User = UnitOfWork.UserRepository.Get(userId);
+                entity.Team = UnitOfWork.TeamRepository.Get(teamId);
 
                 var response = ModelFactory.Create(UnitOfWork.ToDoItemRepository.Update(entity));
                 UnitOfWork.Save();
                 return Ok(response);
             };
+            return BadRequest();
+        }
+
+        [HttpDelete]
+        [Route("teams/{teamId}/todoitems")]
+        public IHttpActionResult Delete(ToDoItemBindingModel model, int teamId, string userId) {
+            if (ModelState.IsValid) {
+                var entity = ModelFactory.Create(model);
+                bool response = UnitOfWork.ToDoItemRepository.Delete(entity);
+                UnitOfWork.Save();
+                if (response) return Ok();
+            }
             return BadRequest();
         }
     }
