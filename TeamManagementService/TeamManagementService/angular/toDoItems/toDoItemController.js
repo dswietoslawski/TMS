@@ -69,8 +69,8 @@ app.controller('toDoItemController', ['$scope', '$rootScope', 'toDoItemService',
         };
 
         vm.canDelete = function (item) {
-            var canDel = (item.status !== undefined && ( item.team != undefined && item.team.admin != undefined && item.team.admin.id === $scope.hmCtrl.currentProject.admin.id));
-            return true;
+            var canDel = (item.status !== undefined && ( item.team !== undefined && item.team.admin !== undefined && item.team.admin.id === $scope.hmCtrl.currentProject.admin.id));
+            return canDel;
         }
 
         vm.delete = function (item) {
