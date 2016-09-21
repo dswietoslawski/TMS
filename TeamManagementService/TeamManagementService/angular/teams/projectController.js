@@ -33,7 +33,7 @@ app.controller('projectController', ['$scope', '$rootScope', 'projectService', '
         $rootScope.$broadcast('selected-project-changed', vm.projects.selected);
     }
 
-    $scope.$on('project-added', function (event, args) {
+    $rootScope.$on('project-added', function (event, args) {
         vm.projects.items.push(args);
         vm.projects.selected = args;
         vm.update();

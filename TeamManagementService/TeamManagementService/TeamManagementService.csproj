@@ -764,6 +764,8 @@
     <Content Include="angular\lib\ui-bootstrap\ui-bootstrap-tpls-2.0.1.min.js" />
     <Content Include="angular\modules\offCanvas.js" />
     <Content Include="angular\services\httpService.js" />
+    <Content Include="angular\sidebarMenu\addTeam\addTeam.html" />
+    <Content Include="angular\sidebarMenu\addTeam\addTeamController.js" />
     <Content Include="angular\sidebarMenu\addUser.html" />
     <Content Include="angular\sidebarMenu\addUserController.js" />
     <Content Include="angular\sidebarMenu\sidebarController.js" />

@@ -1,13 +1,11 @@
 ﻿<uib-accordion close-others="true">
-    <a class="dropdown-toggle" href="#" ng-show="hmCtrl.currentUser.id == sidebar.currentProject.admin.id" ng-click="sidebar.editUsers()">
+    <a class="dropdown-toggle" href="#" ng-disabled="!hmCtrl.currentUser.id != sidebar.currentProject.admin.id" ng-click="sidebar.editUsers()">
         Edit members<i class="fa fa-sign-out fa-fw"></i>
     </a>
 
-    <div uib-accordion-group class="panel-default" heading="Add team">
-        <form class="form-inline" name="newTeamForm">
-            <input type="text" class="form-control" ng-model="sidebar.newProject.name" minlength="6" maxlength="20" required>
-            <input type="submit" class="btn btn-primary" value="Add" ng-click="sidebar.submitTeam()" ng-disabled="newTeamForm.$invalid" />
-        </form>
-    </div>
+    <a class="dropdown-toggle" href="#" ng-click="sidebar.addTeam()">
+        Add team<i class="fa fa-sign-out fa-fw"></i>
+    </a>
+
     <div logout-button></div>
 </uib-accordion>
