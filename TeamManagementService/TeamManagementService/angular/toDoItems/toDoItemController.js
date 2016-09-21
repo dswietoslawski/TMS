@@ -5,6 +5,7 @@ app.controller('toDoItemController', ['$scope', '$rootScope', 'toDoItemService',
 
         var vm = this;
         vm.columns = [];
+        vm.hoverOnClose = false;
 
         vm.sortableOpt = {
             connectWith: '.connectedSortable',

@@ -59,6 +59,15 @@
             <div class="col-md-offset-1 col-md-3 navbar-header">
                 <a class="navbar-brand" href="#"><i class="fa fa-trello"></i> Team Management System</a>
             </div>
+            <ul class="nav navbar-top-links navbar-right">
+                <li ng-show="!hmCtrl.isLoggedIn" register-button></li>
+                <li ng-show="!hmCtrl.isLoggedIn" login-button></li>
+                <li ng-show="hmCtrl.isLoggedIn">
+                    <a class="dropdown-toggle" ng-click="hmCtrl.toggleSidebar()">
+                        <i class="fa fa-bars fa-fw"></i>{{hmCtrl.currentUser.userName}}
+                    </a>
+                </li>
+            </ul>
             <div class="col-md-offset-4 col-md-2">
                 <p class="navbar-text navbar-right" style="color:white;">Signed in as {{hmCtrl.currentUser.userName}}</p>
             </div>

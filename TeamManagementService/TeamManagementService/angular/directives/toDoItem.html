@@ -11,16 +11,16 @@
                 <div><p class="text-left">{{item.user.userName}}</p></div>
             </row>
     </div>
-    <div class="col-md-2 note-right">
-        <div ng-click="toDoCtrl.delete(item)" ng-show="toDoCtrl.canDelete(item)" class="close-note"><i class="fa fa-times"></i></div>
+    <div class="col-md-2 note-right" ng-class="{'note-right-hoverOnClose' : item.hoverOnClose}">
+        <div ng-mouseenter="item.hoverOnClose=true" ng-mouseleave="item.hoverOnClose=false" ng-click="toDoCtrl.delete(item)" ng-show="toDoCtrl.canDelete(item)" class="close-note"><i class="fa fa-times"></i></div>
         <div class="xxx">
             <div ng-class="{'Bug' : item.type == 'Bug',
-                                                            'ChangeRequestIcon' : item.type == 'ChangeRequest',
-                                                            'TaskIcon' : item.type == 'Task'}">
+                            'ChangeRequestIcon' : item.type == 'ChangeRequest',
+                            'TaskIcon' : item.type == 'Task'}">
                 <div class="icon">
                     <i ng-class="{'fa fa-bug fa-2x' : item.type == 'Bug',
-                                                                           'fa fa-info fa-2x' : item.type == 'ChangeRequest',
-                                                                           'fa fa-tasks fa-2x' : item.type == 'Task'}" class="fa fa- fa-2x"></i>
+                                  'fa fa-info fa-2x' : item.type == 'ChangeRequest',
+                                  'fa fa-tasks fa-2x' : item.type == 'Task'}" class="fa fa- fa-2x"></i>
                 </div>
             </div>
         </div>

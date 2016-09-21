@@ -389,7 +389,7 @@ nav li a {
     }
 
 .note-right {
-    background: black;
+    background-color: gainsboro;
     height: inherit;
     width: 52px;
     padding: 0px;
@@ -407,15 +407,22 @@ nav li a {
 
     .close-note > i {
         font-size: 20px;
-        color: white;
+        color: black;
         height: inherit;
         width: inherit;
     }
 
-    .close-note:hover {
+    .close-note > i:hover {
         opacity: 1;
         cursor: pointer;
+        color: black;
+
     }
+.note-right-hoverOnClose {
+    background-color: white;
+}
+
+
 
 .xxx {
     height: inherit;
