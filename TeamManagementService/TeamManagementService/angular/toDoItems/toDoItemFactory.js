@@ -86,6 +86,5 @@ app.factory('ToDoItem', ['$uibModal', 'toDoItemService', function ($uibModal, to
         toDoItemService.update(this.copy(), this.team.id, this.user.id);
     };
 
-
     return ToDoItem;
 }]);

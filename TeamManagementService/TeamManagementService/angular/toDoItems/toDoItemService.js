@@ -34,8 +34,8 @@ app.service('toDoItemService', ['httpService', function (httpService) {
         return httpService.post(url, toDoItem);
     };
 
-    this.delete = function (toDoItem, teamId) {
-        var url = serviceBase + 'teams/' + teamId + '/todoitems';
-        return httpService.delete(url, toDoItem);
+    this.delete = function (itemId, teamId) {
+        var url = serviceBase + 'teams/' + teamId + '/todoitems/' + itemId;
+        return httpService.delete(url);
     }
 }]);

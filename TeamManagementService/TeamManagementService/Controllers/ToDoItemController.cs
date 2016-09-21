@@ -75,10 +75,10 @@ namespace TeamManagementService.Controllers {
         }
 
         [HttpDelete]
-        [Route("teams/{teamId}/todoitems")]
-        public IHttpActionResult Delete(ToDoItemBindingModel model, int teamId, string userId) {
+        [Route("teams/{teamId}/todoitems/{toDoItemId}")]
+        public IHttpActionResult Delete(int toDoItemId, int teamId) {
             if (ModelState.IsValid) {
-                var entity = ModelFactory.Create(model);
+                var entity = UnitOfWork.ToDoItemRepository.Get(toDoItemId);
                 bool response = UnitOfWork.ToDoItemRepository.Delete(entity);
                 UnitOfWork.Save();
                 if (response) return Ok();
