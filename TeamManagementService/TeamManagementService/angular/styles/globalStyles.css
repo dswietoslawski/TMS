@@ -168,7 +168,7 @@ md-visually-hidden  {
 }
 
 .content {
-    padding-top: 50px;
+    padding-top: 100px;
 }
 
 .collapse.in {
@@ -214,10 +214,12 @@ nav li a {
 /*#region NavBar*/
 .navbar {
     background-color: maroon;
+    border-bottom: 1px solid white;
 }
 
 .navbar-brand {
     color: white;
+
 }
 
 .navbar-top-links li {

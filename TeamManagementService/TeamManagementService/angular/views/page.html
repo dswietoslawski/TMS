@@ -58,18 +58,12 @@
 <body ng-controller="homeController as hmCtrl" ng-init="hmCtrl.onInit()">
     <div id="fullheightAndWidth" class="wrapper" ng-controller="projectController as projectCtrl">
         <nav class="navbar" role="navigation">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="index.html"></a>
+            <div class="col-md-offset-1 col-md-3 navbar-header">
+                <a class="navbar-brand" href="#"><i class="fa fa-trello"></i> Team Management System</a>
             </div>
-            <ul class="nav navbar-top-links navbar-right">
-                <li ng-show="!hmCtrl.isLoggedIn" register-button></li>
-                <li ng-show="!hmCtrl.isLoggedIn" login-button></li>
-                <li ng-show="hmCtrl.isLoggedIn">
-                    <a class="dropdown-toggle" ng-click="hmCtrl.toggleSidebar()">
-                        <i class="fa fa-bars fa-fw"></i>{{hmCtrl.currentUser.userName}}
-                    </a>
-                </li>
-            </ul>
+            <div class="col-md-offset-4 col-md-2">
+                <p class="navbar-text navbar-right" style="color:white;">Signed in as {{hmCtrl.currentUser.userName}}</p>
+            </div>
         </nav>
     </div>
     <div class="container-fluid" ng-controller="toDoItemController as toDoCtrl">
@@ -77,23 +71,21 @@
             <sidebar-menu></sidebar-menu>
         </div>
         <div class="content" ng-show="hmCtrl.isLoggedIn">
-            <row>
-                <div class="col-md-offset-2 col-md-8">
-                    <h1 class="page-header">Dashboard</h1>
-                    <project-selection></project-selection>
-                </div>
-            </row>
-            <div class="col-md-offset-2 col-md-8">
+            <div class="col-md-offset-1 col-md-10">
                 <div ng-repeat="column in toDoCtrl.columns">
                     <div class="col-lg-4">
                         <div class="panel panel-primary" ng-class="{'panel-primary' : column.title == 'To Do',
                                                    'panel-info' : column.title == 'In Progress',
                                                    'panel-green' : column.title == 'Done'}">
                             <div class="panel-heading">
-                                <i class="fa fa-bell fa-fw"></i> {{column.title}}
-                                <button type="button" ng-class="{'btn btn-primary' : column.title == 'To Do',
+                                <row>
+                                    <div class="col-md-offset-2 col-md-8" style="font-size: 20px;"><i class="fa fa-bell fa-fw"></i>{{column.title}}</div>
+                                    <button type="button" ng-class="{'btn btn-primary' : column.title == 'To Do',
                                                    'btn btn-info' : column.title == 'In Progress',
-                                                   'btn btn-success' : column.title == 'Done'}">{{column.items.length}}</button>
+                                                   'btn btn-success' : column.title == 'Done'}">
+                                        {{column.items.length}}
+                                    </button>
+                                </row>
                             </div>
                             <div class="columnSortable" id="style-{{$index}}">
                                 <div id="column-{{$index+1}}" ng-model="column.items" class="column connectedSortable" ui-sortable="toDoCtrl.sortableOpt">
