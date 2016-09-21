@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamManagementService", "TeamManagementService\TeamManagementService.csproj", "{50E0EEB9-5785-44C6-8E34-1864B7563C23}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamManagementService.Tests", "TeamManagementService.Tests\TeamManagementService.Tests.csproj", "{FAD62F8E-2451-4DCB-8E0F-96D98992F5B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +15,6 @@ Global
 		{50E0EEB9-5785-44C6-8E34-1864B7563C23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50E0EEB9-5785-44C6-8E34-1864B7563C23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50E0EEB9-5785-44C6-8E34-1864B7563C23}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FAD62F8E-2451-4DCB-8E0F-96D98992F5B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FAD62F8E-2451-4DCB-8E0F-96D98992F5B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FAD62F8E-2451-4DCB-8E0F-96D98992F5B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FAD62F8E-2451-4DCB-8E0F-96D98992F5B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
