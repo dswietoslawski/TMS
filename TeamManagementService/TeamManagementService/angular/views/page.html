@@ -71,17 +71,10 @@
         </nav>
     </div>
     <div class="container-fluid" ng-controller="toDoItemController as toDoCtrl">
-        <row>
-            <div class="col-lg-offset-3 col-lg-6">
-                <h1 class="page-header" ng-show="!hmCtrl.isLoggedIn">
-                    Tutaj by był spoko jakiś taki kwadrat z login/password + button sign in ( coś jak u Cb na stronce) i do tego register button który wywoła modal który jest na górze , wtedy można ukryć navbar jak się nie jest zalogowanym
-                </h1>
-            </div>
-        </row>
         <div uib-collapse="!hmCtrl.sidebarOpened" class="col-lg-offset-10 col-lg-3 sidebar-nav">
             <sidebar-menu></sidebar-menu>
         </div>
-        <div class="content">
+        <div class="content" ng-show="hmCtrl.isLoggedIn">
             <row>
                 <div class="col-md-offset-2 col-md-8">
                     <h1 class="page-header">Dashboard</h1>
