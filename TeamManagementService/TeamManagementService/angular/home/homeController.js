@@ -1,6 +1,6 @@
 ﻿var app = angular.module('tmsApp');
 
-app.controller('homeController', ['$scope', '$rootScope', 'projectService', 'appService', function ($scope, $rootScope, projectService, appService) {
+app.controller('homeController', ['$scope', '$rootScope', 'projectService', 'appService', 'offCanvas', function ($scope, $rootScope, projectService, appService, offCanvas) {
 
     var vm = this;
     vm.currentUser = {};
@@ -17,7 +17,7 @@ app.controller('homeController', ['$scope', '$rootScope', 'projectService', 'app
 
 
     vm.toggleSidebar = function () {
-        vm.sidebarOpened = !vm.sidebarOpened;
+        vm.toggle = offCanvas.toggle();
     }
 
     $rootScope.$on('selected-project-changed', function (event, args) {
