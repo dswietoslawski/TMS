@@ -27,7 +27,7 @@
 .sidebar-nav {
     background-color: white;
     margin-top: 53px;
-    position:fixed;
+    position: fixed;
 }
 
     .sidebar-nav div a {
@@ -165,7 +165,7 @@ nav li a {
 /*#region Tasks List 
     ---------------------------------------------------- */
 .columnSortable {
-    background-image: url("../images/background/tloList.jpg");
+    background-image: url("../images/background/tloList2.jpg");
     min-height: 700px;
     max-height: 700px;
     height: 100%;
@@ -209,7 +209,7 @@ nav li a {
 }
 
 .note {
-    height: 50px;
+    height: 65px;
     width: 100%;
     margin: auto;
     margin-top: 5px;
@@ -217,13 +217,6 @@ nav li a {
     padding: 0px;
     font-size: 10px;
 }
-
-    .note:hover {
-        opacity: 1;
-        cursor: pointer;
-        height: 70px;
-        font-size: 12px;
-    }
 
 .note-left {
     height: inherit;
@@ -237,17 +230,50 @@ nav li a {
         cursor: pointer;
     }
 
+    .note-left > row > div > p {
+        margin: 0px;
+    }
+
 .note-right {
-    background: rgba(255,255,255,1);
+    background: black;
     height: inherit;
-    width: 15%;
-    -webkit-border-radius: 0 20px 0 50px;
-    border-radius: 0 30px 0 0px;
+    width: 52px;
+    padding: 0px;
+}
+
+.close-note {
+    position: absolute;
+    color: white;
+    left: 36px;
+    top: -1px;
+    height: 20px;
+    width: 20px;
+    opacity: 0.4;
+}
+
+    .close-note > i {
+        font-size: 20px;
+        color: white;
+        height: inherit;
+        width: inherit;
+    }
+
+    .close-note:hover {
+        opacity: 1;
+        cursor: pointer;
+    }
+
+.xxx {
+    height: inherit;
+    width: 50px;
+    background-color: white;
+    -webkit-border-radius: 0 30px 0 30px;
+    border-radius: 0 60px 0 0px;
     padding: 0px;
 }
 
 .note-placeholder {
-    height: 70px;
+    height: 60px;
     margin-left: 5px;
     background: #ccc;
     -webkit-border-radius: 0 20px 0 50px;
@@ -258,13 +284,25 @@ nav li a {
 .note-highlight {
 }
 
+.note-name-user {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.note-description {
+    word-wrap: break-word;
+    font-size: 12px;
+    height: 20px;
+}
+
 .icon {
     display: flex;
     align-items: center; /* Vertical center alignment */
     justify-content: center; /* Horizontal center alignment */
 }
 
-.xx {
+.icon {
     height: inherit;
     -webkit-border-radius: 0 20px 0 50px;
     border-radius: 0 30px 0 00px;
@@ -274,7 +312,7 @@ nav li a {
     justify-content: center; /* Horizontal center alignment */
 }
 
-    .xx:hover {
+    .icon:hover {
         opacity: 1;
         font-size: 15px;
         cursor: pointer;
@@ -287,6 +325,7 @@ nav li a {
 .Bug {
     margin: 0px;
     color: red;
+    height: inherit;
 }
 
 .BugIcon {
@@ -299,14 +338,17 @@ nav li a {
 
 .ChangeRequestIcon {
     color: royalblue;
+    height: inherit;
 }
 
 .Task {
     margin: 0px;
+    height: inherit;
 }
 
 .TaskIcon {
     color: darkseagreen;
+    height: inherit;
 }
 
 /*#endregion Type of Task END */

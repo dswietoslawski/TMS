@@ -66,29 +66,32 @@
         </div>
         <div class="content">
             <row>
-                <div class="col-lg-offset-3 col-lg-6">
+                <div class="col-md-offset-2 col-md-8">
                     <h1 class="page-header">Dashboard</h1>
                     <project-selection></project-selection>
                 </div>
             </row>
-            <div class="col-lg-offset-3 col-lg-6">
+            <div class="col-md-offset-2 col-md-8">
                 <div ng-repeat="column in toDoCtrl.columns">
                     <div class="col-lg-4">
                         <div class="panel panel-primary" ng-class="{'panel-primary' : column.title == 'To Do',
-                                                   'panel-success' : column.title == 'In Progress',
+                                                   'panel-info' : column.title == 'In Progress',
                                                    'panel-green' : column.title == 'Done'}">
                             <div class="panel-heading">
                                 <i class="fa fa-bell fa-fw"></i> {{column.title}}
+                                <button type="button" ng-class="{'btn btn-primary' : column.title == 'To Do',
+                                                   'btn btn-info' : column.title == 'In Progress',
+                                                   'btn btn-success' : column.title == 'Done'}">{{column.items.length}}</button>
                             </div>
                             <div class="columnSortable" id="style-{{$index}}">
                                 <div id="column-{{$index+1}}" ng-model="column.items" class="column connectedSortable" ui-sortable="toDoCtrl.sortableOpt">
                                     <div ng-repeat="item in column.items" class="ng-animate-disabled">
-                                        <to-do-item></to-do-item>
+                                        <to-Do-Item></to-Do-Item>
                                     </div>
                                 </div>
-                                <div ng-show="toDoCtrl.toDoItems.items.length == 0" class="emptyList">Empty</div>
                             </div>
                         </div>
+                        <div ng-show="toDoCtrl.toDoItems.items.length == 0" class="emptyList">Empty</div>
                     </div>
                 </div>
             </div>
