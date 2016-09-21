@@ -30,6 +30,7 @@ app.controller('projectController', ['$scope', '$rootScope', 'projectService', '
     if ($scope.hmCtrl.isLoggedIn) init();
 
     vm.update = function () {
+        appService.setProjectInfo(vm.projects.selected)
         $rootScope.$broadcast('selected-project-changed', vm.projects.selected);
     }
 

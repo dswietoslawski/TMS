@@ -24,19 +24,14 @@ app.controller('sidebarController', ['$scope', '$rootScope', 'userService', 'pro
             templateUrl: '../sidebarMenu/addUser.html',
             backdrop: 'static',
             controller: 'addUserController',
-            controllerAs: 'addUser',
-            resolve: {
-                projectToEdit: function () {
-                    return $scope.hmCtrl.currentProject;
-                }
-            }
+            controllerAs: 'addUser'
         });
     };
 
     vm.addTeam = function () {
         var modalInstance = $uibModal.open({
             animation: true,
-            templateUrl: '../sidebarMenu/addUser.html',
+            templateUrl: '../sidebarMenu/addTeam/addTeam.html',
             backdrop: 'static',
             controller: 'addTeamController',
             controllerAs: 'addTeam'
