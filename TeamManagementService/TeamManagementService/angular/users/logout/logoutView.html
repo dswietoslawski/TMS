@@ -1,3 +1,5 @@
-﻿<a class="dropdown-toggle" href="#" ng-click="logoutCtrl.logout()">
-    Logout<i class="fa fa-sign-out fa-fw"></i>
-</a>
+﻿<ul class="nav navbar-top-links navbar-right">
+    <li ng-show="hmCtrl.isLoggedIn" style="border-left: solid 1px white">
+        <a style="padding-top:14px;" ng-click="logoutCtrl.logout()"> Logout</a>
+    </li>
+</ul>

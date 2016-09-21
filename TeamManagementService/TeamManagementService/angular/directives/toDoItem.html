@@ -1,7 +1,7 @@
 ﻿<link href="../styles/globalStyles.css" rel="stylesheet" />
 
 <div class="row note">
-    <div class="col-xs-10 note-left" ng-click="item.edit()">
+    <div class="col-md-9 note-left" ng-click="item.edit()">
         <row>
             <div><p class="text-left note-name-user">{{item.name}}</p></div>
             <row>
@@ -11,7 +11,7 @@
                 <div><p class="text-left">{{item.user.userName}}</p></div>
             </row>
     </div>
-    <div class="col-md-2 note-right" ng-class="{'note-right-hoverOnClose' : item.hoverOnClose}">
+    <div class="col-md-3 note-right" ng-class="{'note-right-hoverOnClose' : item.hoverOnClose}">
         <div ng-mouseenter="item.hoverOnClose=true" ng-mouseleave="item.hoverOnClose=false" ng-click="toDoCtrl.delete(item)" ng-show="toDoCtrl.canDelete(item)" class="close-note"><i class="fa fa-times"></i></div>
         <div class="xxx">
             <div ng-class="{'Bug' : item.type == 'Bug',

@@ -9,6 +9,8 @@ app.factory('offCanvas', function (cnOffCanvas) {
     return cnOffCanvas({
         controller: 'sidebarController',
         controllerAs: 'sidebar',
+        container: 'footer',
+        containerClass: 'col-md-2 dupa',
         templateUrl: '../sidebarMenu/sidebarMenu.html'
     })
 });
