@@ -17,7 +17,7 @@ app.controller('homeController', ['$scope', '$rootScope', 'projectService', 'app
 
 
     vm.toggleSidebar = function () {
-        vm.toggle = offCanvas.toggle;
+        vm.toggle = offCanvas.toggle();
     }
 
     $rootScope.$on('selected-project-changed', function (event, args) {

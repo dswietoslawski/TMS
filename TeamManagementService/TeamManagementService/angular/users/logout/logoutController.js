@@ -4,7 +4,7 @@ var app = angular.module('tmsApp');
 app.controller('logoutController', ['$scope', 'userService', '$window', 'appService', function ($scope, userService, $window, appService) {
     var vm = this;
 
-    vm.currentUser = $scope.hmCtrl.currentUser;
+    vm.currentUser = appService.getLoginInfo();
 
     vm.logout = function () {
         userService.logout(vm.currentUser)
