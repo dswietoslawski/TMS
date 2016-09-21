@@ -762,6 +762,7 @@
     <Content Include="angular\lib\sb-admin-2\tables.html" />
     <Content Include="angular\lib\sb-admin-2\typography.html" />
     <Content Include="angular\lib\ui-bootstrap\ui-bootstrap-tpls-2.0.1.min.js" />
+    <Content Include="angular\modules\offCanvas.js" />
     <Content Include="angular\services\httpService.js" />
     <Content Include="angular\sidebarMenu\addUser.html" />
     <Content Include="angular\sidebarMenu\addUserController.js" />
