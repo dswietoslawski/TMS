@@ -65,5 +65,24 @@ app.controller('toDoItemController', ['$scope', '$rootScope', 'toDoItemService',
 
         vm.canDrag = function (item) {
             return (item.status === undefined || !(item.user.id === $scope.hmCtrl.currentUser.id || $scope.hmCtrl.currentUser.id === $scope.hmCtrl.currentProject.admin.id));
+        };
+
+        vm.canDelete = function (item) {
+            var canDel = (item.status !== undefined && (item.team.admin.id === $scope.hmCtrl.currentProject.admin.id));
+            return canDel;
         }
+
+        vm.delete = function (item) {
+            toDoItemService.delete(item.id, item.team.id);
+            vm.columns[getColumnId(item.status)].remove(item);
+        }
+
+        function getColumnId(status) {
+            if (status === 'ToDo')
+                return 0;
+            if (status === 'InProgress')
+                return 1;
+            return 2;
+        }
+
     }]);

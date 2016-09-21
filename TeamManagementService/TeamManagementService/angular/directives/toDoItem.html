@@ -1,7 +1,7 @@
 ﻿<link href="../styles/globalStyles.css" rel="stylesheet" />
 
-<div class="row note" ng-click="item.edit()">
-    <div class="col-xs-10 note-left">
+<div class="row note">
+    <div class="col-xs-10 note-left" ng-click="item.edit()">
         <row>
             <div><p class="text-left note-name-user">{{item.name}}</p></div>
             <row>
@@ -12,9 +12,7 @@
             </row>
     </div>
     <div class="col-md-2 note-right">
-        <div class="close-note">
-            <i class="fa fa-times"></i>
-        </div>
+        <div ng-click="toDoCtrl.delete(item)" ng-show="toDoCtrl.canDelete(item)" class="close-note"><i class="fa fa-times"></i></div>
         <div class="xxx">
             <div ng-class="{'Bug' : item.type == 'Bug',
                                                             'ChangeRequestIcon' : item.type == 'ChangeRequest',
