@@ -10,11 +10,6 @@ namespace TeamManagementService.Models.Tasks {
 
         [StringLength(100)]
         public string Description { get; set; }
-
-        [Required]
-        public int TeamId { get; set; }
-
-        public string UserId { get; set; }
         public string Type { get; set; }
         public string Status { get; set; }
     }

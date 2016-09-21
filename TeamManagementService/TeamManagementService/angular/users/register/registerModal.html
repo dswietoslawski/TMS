@@ -1,25 +1,41 @@
-﻿<div class="modal-header">
-    <h3 class="modal-title" id="modal-title">Register</h3>
-</div>
-<div class="modal-body" id="modal-body">
-    <form name="registerForm">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" ng-model="registerModalCtrl.registerUser.userName" id="username" class="form-control" required />
-            <label for="password">Password</label>
-            <input type="password" id="password" ng-model="registerModalCtrl.registerUser.password" class="form-control" required />
-            <label for="cfrmPassword">Confirm password</label>
-            <input type="password" ng-model="registerModalCtrl.registerUser.confirmPassword" id="cfrmPassword" class="form-control" required />
-            <label for="email">E-Mail</label>
-            <input type="email" ng-model="registerModalCtrl.registerUser.email" id="email" class="form-control" required />
-            <label for="firstName">First Name</label>
-            <input type="text" ng-model="registerModalCtrl.registerUser.firstName" class="form-control" required />
-            <label for="firstName">Last Name</label>
-            <input type="text" ng-model="registerModalCtrl.registerUser.lastName" class="form-control" required />
+﻿
+<div class="modal-dialog registerForm">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" ng-click="registerModalCtrl.cancel()">
+                <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+            </button>
+            <h3 class="modal-title" id="modal-register-label">Sign up now</h3>
+            <p>Fill in the form below to register in the system:</p>
         </div>
-        <button type="submit" ng-disabled="registerForm.$invalid" class="btn btn-primary" ng-click="registerModalCtrl.register(registerUser)">Register</button>
-    </form>
-</div>
-<div class="modal-footer">
-    <button class="btn btn-warning" type="button" ng-click="registerModalCtrl.cancel()">Cancel</button>
+        <div class="modal-body" id="modal-body">
+            <form name="registerForm" class="registration-form">
+                <div class="form-group">
+                    <label class="sr-only" for="username">Username</label>
+                    <input type="text" ng-model="registerModalCtrl.registerUser.userName" placeholder="Username..." id="username" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="password">Password</label>
+                    <input type="password" id="password" ng-model="registerModalCtrl.registerUser.password" placeholder="Password..." class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="cfrmPassword">Confirm password</label>
+                    <input type="password" ng-model="registerModalCtrl.registerUser.confirmPassword" placeholder="Confirm password..." id="cfrmPassword" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="email">E-Mail</label>
+                    <input type="email" ng-model="registerModalCtrl.registerUser.email" placeholder="E-mail..." id="email" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="firstName">First Name</label>
+                    <input type="text" ng-model="registerModalCtrl.registerUser.firstName" placeholder="First name..." class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="firstName">Last Name</label>
+                    <input type="text" ng-model="registerModalCtrl.registerUser.lastName" placeholder="Last name..." class="form-control" required />
+                </div>
+                <button type="submit" ng-disabled="registerForm.$invalid" class="btn btn-primary" ng-click="registerModalCtrl.register(registerModalCtrl.registerUser)">Register</button>
+            </form>
+        </div>
+    </div>
 </div>

@@ -17,7 +17,7 @@ app.factory('ItemColumn', ['ToDoItem', '$filter', function (ToDoItem, $filter) {
     }
 
     ItemColumn.prototype.setItems = function (items) {
-        instance.items = items;
+        this.items = items;
     };
 
     ItemColumn.prototype.getItems = function () {
@@ -25,16 +25,20 @@ app.factory('ItemColumn', ['ToDoItem', '$filter', function (ToDoItem, $filter) {
     };
 
     ItemColumn.prototype.addItem = function (item) {
-        instance.items.push(item);
+        this.items.push(item);
     };
 
+    ItemColumn.prototype.addItemToBeginning = function (item) {
+        this.items.splice(0, 0, item);
+    }
+
     ItemColumn.prototype.clearItems = function () {
-        instance.items = [];
+        this.items = [];
     }
 
     ItemColumn.prototype.remove = function (item) {
         var index = instance.items.indexOf(item);
-        instance.items.splice(index, 1);
+        this.items.splice(index, 1);
     }
 
     ItemColumn.prototype.findById = function (itemId) {

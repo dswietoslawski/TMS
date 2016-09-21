@@ -7,7 +7,8 @@ namespace TeamManagementService.Models {
             if (project != null)
                 return new ProjectReturnModel() {
                     Id = project.Id,
-                    Name = project.Name
+                    Name = project.Name,
+                    Admin = Create(project.Admin),
                 };
             return null;
         }

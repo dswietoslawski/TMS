@@ -17,6 +17,7 @@ namespace TeamManagementService.Models {
         }
 
         public UserReturnModel Create(ApplicationUser appUser) {
+            if (appUser == null) return null;
             return new UserReturnModel {
                 Id = appUser.Id,
                 UserName = appUser.UserName,

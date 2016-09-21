@@ -27,6 +27,11 @@ app.service('userService', ['$http', 'appService', 'httpService', '$q', function
         return httpService.get(url);
     };
 
+    this.get = function () {
+        var url = 'http://localhost:63601/api/accounts/users';
+        return httpService.get(url);
+    }
+
     this.login = function (user) {
         var def = $q.defer();
 

@@ -4,7 +4,6 @@ app.controller('toDoItemController', ['$scope', '$rootScope', 'toDoItemService',
     function ($scope, $rootScope, toDoItemService, appService, ItemColumn, ToDoItem, $filter) {
 
         var vm = this;
-        init();
         vm.columns = [];
 
         vm.sortableOpt = {
@@ -16,16 +15,11 @@ app.controller('toDoItemController', ['$scope', '$rootScope', 'toDoItemService',
             dropOnEmpty: true,
             receive: function (event, ui) {
                 ui.item.sortable.model.update(ui.item.sortable.droptarget[0].id);
-            }
+            },
+            cancel: ".unsortable"
         }
 
         //-- init
-        function init() {
-
-            toDoItemService.getByTeam(1).then(function (items) {
-                initializeToDoItems(items);
-            });
-        };
 
         var getByTeam = function (project) {
             toDoItemService.getByTeam(project.id).then(function (items) {
@@ -45,6 +39,8 @@ app.controller('toDoItemController', ['$scope', '$rootScope', 'toDoItemService',
             vm.columns.push(toDoItems);
             vm.columns.push(inProgressItems);
             vm.columns.push(doneItems);
+
+            initializeEmptyItem();
         };
         //-- initialize items
 
@@ -53,7 +49,21 @@ app.controller('toDoItemController', ['$scope', '$rootScope', 'toDoItemService',
         };
 
         $rootScope.$on('selected-project-changed', function (event, args) {
+            vm.currentProject = args;
             getByTeam(args);
         });
 
+        $rootScope.$on('item-added', function (event, args) {
+            initializeEmptyItem();
+        });
+
+        function initializeEmptyItem() {
+            var emptyItem = new ToDoItem();
+            emptyItem.setTeam(vm.currentProject);
+            vm.columns[0].addItemToBeginning(emptyItem);
+        };
+
+        vm.canDrag = function (item) {
+            return (item.status === undefined || !(item.user.id === $scope.hmCtrl.currentUser.id || $scope.hmCtrl.currentUser.id === $scope.hmCtrl.currentProject.admin.id));
+        }
     }]);

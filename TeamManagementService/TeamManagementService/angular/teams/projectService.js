@@ -1,6 +1,6 @@
 ﻿var app = angular.module('tmsApp');
 
-app.service('projectService', ['$http', '$q', function ($http, $q) {
+app.service('projectService', ['$http', '$q', 'httpService', function ($http, $q, httpService) {
 
     var config = {
         headers: {
@@ -27,7 +27,17 @@ app.service('projectService', ['$http', '$q', function ($http, $q) {
     }
 
     this.getById = function (id) {
-        var response = $http.get('http://localhost:63601/api/teams' + id, config)
+        var response = httpService.get('http://localhost:63601/api/teams' + id, config)
+        return response;
+    }
+
+    this.addUser = function (teamId, userId) {
+        var response = httpService.put('http://localhost:63601/api/teams/' + teamId + '/users/' + userId);
+        return response;
+    }
+
+    this.deleteUser = function (teamId, userId) {
+        var response = httpService.delete('http://localhost:63601/api/teams/' + teamId + '/users/' + userId);
         return response;
     }
 }]);

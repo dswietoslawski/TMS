@@ -7,6 +7,6 @@ app.directive('sidebarMenu', function () {
         },
         restrict: 'E',
         controller: 'sidebarController',
-        controllerAs: 'sidebar'
+        controllerAs: 'sidebar',
     }
 });
