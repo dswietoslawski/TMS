@@ -52,6 +52,12 @@
 
 /*#endregion*/
 
+.dupa {
+    height:100%;
+    background-color: red;
+    right: 0px;
+
+}
 
 
 /*#region Modal */
@@ -213,8 +219,17 @@ md-visually-hidden  {
     cursor: pointer;
 }
 
+.container-fluid {
+    padding-top: 53px;
+    padding-right: 0px;
+    height:inherit;
+    min-width: 100% !important;
+    width: 102%;
+}
+
 .content {
-    padding-top: 100px;
+    padding-top: 20px;
+    height:inherit;
 }
 
 .collapse.in {
@@ -368,7 +383,7 @@ nav li a {
     background-image: url("../images/background/tloList2.jpg");
     min-height: 700px;
     max-height: 700px;
-    height: 100%;
+    height: 10%;
     overflow-y: scroll;
 }
 
@@ -414,7 +429,6 @@ nav li a {
     margin: auto;
     margin-top: 5px;
     margin-bottom: 5px;
-    padding: 0px;
     font-size: 10px;
 }
 
@@ -422,7 +436,6 @@ nav li a {
     height: inherit;
     opacity: 0.8;
     background: rgba(255,255,255,1);
-    width: 80%;
 }
 
     .note-left:hover {
@@ -435,16 +448,15 @@ nav li a {
     }
 
 .note-right {
-    background: black;
+    background-color: gainsboro;
     height: inherit;
-    width: 52px;
     padding: 0px;
 }
 
 .close-note {
     position: absolute;
     color: white;
-    left: 36px;
+    right: -4px;
     top: -1px;
     height: 20px;
     width: 20px;
@@ -453,19 +465,25 @@ nav li a {
 
     .close-note > i {
         font-size: 20px;
-        color: white;
+        color: black;
         height: inherit;
         width: inherit;
     }
 
-    .close-note:hover {
+    .close-note > i:hover {
         opacity: 1;
         cursor: pointer;
+        color: black;
+
     }
+.note-right-hoverOnClose {
+    background-color: white;
+}
+
+
 
 .xxx {
     height: inherit;
-    width: 50px;
     background-color: white;
     -webkit-border-radius: 0 30px 0 30px;
     border-radius: 0 60px 0 0px;
