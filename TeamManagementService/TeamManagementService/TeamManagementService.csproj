@@ -1109,6 +1109,10 @@
     <Content Include="angular\lib\angular-messages\LICENSE.md" />
     <Content Include="angular\lib\angular-messages\package.json" />
     <Content Include="angular\lib\angular-messages\README.md" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1172,6 +1176,11 @@
     <Compile Include="Models\Users\UserBindingModel.cs" />
     <Compile Include="Models\Users\UserReturnModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\Project\IProjectRepository.cs" />
     <Compile Include="Repositories\Project\ProjectRepository.cs" />
