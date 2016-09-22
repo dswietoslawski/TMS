@@ -60,7 +60,7 @@
             <div class="col-md-offset-1 col-md-3 navbar-header">
                 <a class="navbar-brand" href="#"><i class="fa fa-trello"></i> Team Management System</a>
             </div>
-            <div class="col-md-4" style="margin-top: 2px;"><project-selection></project-selection></div>
+            <div class="col-md-4" style="margin-top: 2px;"><project-selection ng-hide="!hmCtrl.isLoggedIn"></project-selection></div>
             <div class="col-md-2" ng-show="hmCtrl.isLoggedIn">
                 <p class="navbar-text navbar-right" style="color:white;">Signed in as {{hmCtrl.currentUser.userName}} </p>
             </div>
@@ -104,7 +104,7 @@
                 </div>
             </div>
         </div>
-        <footer></footer>
+        <h4 ng-hide="!hmCtrl.isLoggedIn"></h4>
     </div>
 </body>
 </html>
