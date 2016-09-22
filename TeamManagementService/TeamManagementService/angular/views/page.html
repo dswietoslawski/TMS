@@ -94,7 +94,7 @@
                             <div class="columnSortable" id="style-{{$index}}">
                                 <div id="column-{{$index+1}}" ng-model="column.items" class="column connectedSortable" ui-sortable="toDoCtrl.sortableOpt">
                                     <div ng-repeat="item in column.items" class="ng-animate-disabled">
-                                        <to-Do-Item ng-class="{'unsortable' : !canDrag(item)}"></to-Do-Item>
+                                        <to-Do-Item ng-class="{'unsortable' : !(toDoCtrl.canDrag(item))}"></to-Do-Item>
                                     </div>
                                 </div>
                             </div>

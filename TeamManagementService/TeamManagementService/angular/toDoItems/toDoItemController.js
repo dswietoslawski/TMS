@@ -65,7 +65,8 @@ app.controller('toDoItemController', ['$scope', '$rootScope', 'toDoItemService',
         };
 
         vm.canDrag = function (item) {
-            return (item.status === undefined || !(item.user.id === $scope.hmCtrl.currentUser.id || $scope.hmCtrl.currentUser.id === $scope.hmCtrl.currentProject.admin.id));
+            var canDrg = (item.status === undefined || !(item.user.id === $scope.hmCtrl.currentUser.id || $scope.hmCtrl.currentUser.id === $scope.hmCtrl.currentProject.admin.id));
+            return canDrg;
         };
 
         vm.canDelete = function (item) {
