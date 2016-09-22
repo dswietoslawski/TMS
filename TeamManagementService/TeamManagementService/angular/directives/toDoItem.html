@@ -1,28 +1,56 @@
 ﻿<link href="../styles/globalStyles.css" rel="stylesheet" />
 
-<div class="row note">
+<div class="row note" ng-show="item.type != undefined">
     <div class="col-md-9 note-left" ng-click="item.edit()">
         <row>
-            <div><p class="text-left note-name-user">{{item.name}}</p></div>
+            <div>
+                <p class="text-left note-name-user">
+                    {{item.name}}
+                </p>
+            </div>
             <row>
-                <div><p class="col-md-offset-6 text-right note-description">{{item.description | limitTo: 25 }}<span ng-show="item.description.length > 25">(...)</span></p></div>
+                <div>
+                    <p class="col-md-offset-6 text-right note-description">
+                        {{item.description | limitTo: 20 }}
+                        <span ng-show="item.description.length > 20">
+                            (...)
+                        </span>
+                    </p>
+                </div>
             </row>
             <row>
-                <div><p class="text-left">{{item.user.userName}}</p></div>
+                <div>
+                    <p class="text-left">
+                        {{item.user.userName}}
+                    </p>
+                </div>
             </row>
     </div>
-    <div class="col-md-3 note-right" ng-class="{'note-right-hoverOnClose' : item.hoverOnClose}">
-        <div ng-mouseenter="item.hoverOnClose=true" ng-mouseleave="item.hoverOnClose=false" ng-click="toDoCtrl.delete(item)" ng-show="toDoCtrl.canDelete(item)" class="close-note"><i class="fa fa-times"></i></div>
+    <div class="col-md-3 note-right"
+         ng-class="{'note-right-hoverOnClose' : item.hoverOnClose}">
+        <div ng-mouseenter="item.hoverOnClose=true"
+             ng-mouseleave="item.hoverOnClose=false"
+             ng-click="toDoCtrl.delete(item)"
+             ng-show="toDoCtrl.canDelete(item)"
+             class="close-note">
+            <i class="fa fa-times"></i>
+        </div>
         <div class="xxx">
-            <div ng-class="{'Bug' : item.type == 'Bug',
+            <div ng-class="{'Bug'               : item.type == 'Bug',
                             'ChangeRequestIcon' : item.type == 'ChangeRequest',
-                            'TaskIcon' : item.type == 'Task'}">
+                            'TaskIcon'          : item.type == 'Task'}">
                 <div class="icon">
-                    <i ng-class="{'fa fa-bug fa-2x' : item.type == 'Bug',
-                                  'fa fa-info fa-2x' : item.type == 'ChangeRequest',
-                                  'fa fa-tasks fa-2x' : item.type == 'Task'}" class="fa fa- fa-2x"></i>
+                    <i ng-class="{'fa fa-bug fa-2x'   : item.type == 'Bug',
+                                  'fa fa-info fa-2x'  : item.type == 'ChangeRequest',
+                                  'fa fa-tasks fa-2x' : item.type == 'Task'}"
+                       class="fa fa- fa-2x">
+                    </i>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+<div class="row note Undefined" ng-click="item.edit()" ng-show="item.type == undefined">
+    <p class="emptyList" style="width:75%">ADD</p>
 </div>
