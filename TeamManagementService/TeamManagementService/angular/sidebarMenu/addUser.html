@@ -1,39 +1,37 @@
-﻿<div ng-cloak="" class="modal-content">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" ng-click="addUser.close()">
-            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-        </button>
-        <h3 class="modal-title" id="modal-register-label">User management}</h3>
-    </div>
-    <div class="modal-body" id="modal-body">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th class="col-md-6">Username</th>
-                    <th class="col-md-6">Membership</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="user in addUser.shownUsers">
-                    <td class="col-md-6">{{user.userName}}</td>
-                    <td class="col-md-6"><button ng-disabled="addUser.editedProject.admin.id == user.id" ng-class="{'fa fa-minus' : user.isInTeam, 'fa fa-plus' : !user.isInTeam}" ng-click="addUser.edit(user)"></button></td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="form-inline">
-            <div class="form-group">
-                <label class="col-form-label">Search:</label>
-                <input type="text" ng-model="addUser.filterText" ng-change="addUser.filterUsers()" />
-            </div>
-            <div class="form-group pull-right">
-                <select ng-change="addUser.filterUsers()" ng-model="addUser.filterOptions.selected" ng-options="option.value for option in addUser.filterOptions.options track by option.id">
-                    <option ng-repeat="option in addUser.filterOptions.options" value="{{option.value}}">{{option.value}}</option>
-                </select>
-            </div>
+﻿<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="addUser.close()">
+        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+    </button>
+    <h3 class="modal-title" id="modal-register-label">User management}</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="col-md-6">Username</th>
+                <th class="col-md-6">Membership</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in addUser.shownUsers">
+                <td class="col-md-6">{{user.userName}}</td>
+                <td class="col-md-6"><button ng-disabled="addUser.editedProject.admin.id == user.id" ng-class="{'fa fa-minus' : user.isInTeam, 'fa fa-plus' : !user.isInTeam}" ng-click="addUser.edit(user)"></button></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="form-inline">
+        <div class="form-group">
+            <label class="col-form-label">Search:</label>
+            <input type="text" ng-model="addUser.filterText" ng-change="addUser.filterUsers()" />
         </div>
-        <ul uib-pagination boundary-links="true" ng-change="addUser.changePage()"
-            items-per-page="addUser.itemsPerPage" total-items="addUser.totalItems"
-            ng-model="addUser.currentPage" class="pagination-sm"
-            previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+        <div class="form-group pull-right">
+            <select ng-change="addUser.filterUsers()" ng-model="addUser.filterOptions.selected" ng-options="option.value for option in addUser.filterOptions.options track by option.id">
+                <option ng-repeat="option in addUser.filterOptions.options" value="{{option.value}}">{{option.value}}</option>
+            </select>
+        </div>
     </div>
+    <ul uib-pagination boundary-links="true" ng-change="addUser.changePage()"
+        items-per-page="addUser.itemsPerPage" total-items="addUser.totalItems"
+        ng-model="addUser.currentPage" class="pagination-sm"
+        previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
 </div>

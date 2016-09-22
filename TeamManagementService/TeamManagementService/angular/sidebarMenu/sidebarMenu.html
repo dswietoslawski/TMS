@@ -1,11 +1,31 @@
-﻿<uib-accordion close-others="true">
-    <a class="dropdown-toggle" href="#" ng-disabled="!hmCtrl.currentUser.id != sidebar.currentProject.admin.id" ng-click="sidebar.editUsers()">
-        Edit members<i class="fa fa-sign-out fa-fw"></i>
-    </a>
-
-    <a class="dropdown-toggle" href="#" ng-click="sidebar.addTeam()">
-        Add team<i class="fa fa-sign-out fa-fw"></i>
-    </a>
-
-    <div logout-button></div>
-</uib-accordion>
+﻿<ul>
+    <li class="col-md-12">
+        <i class="col-md-2 fa-sign-out fa-fw"></i>
+        <p class="col-md-10 dropdown-toggle" ng-disabled="!hmCtrl.currentUser.id != sidebar.currentProject.admin.id" ng-click="sidebar.editUsers()">
+            Edit members
+        </p>
+    </li>
+    <li class="col-md-12">
+        <i class="col-md-2 fa-sign-out fa-fw"></i>
+        <p class="col-md-10 dropdown-toggle" href="#" ng-click="sidebar.addTeam()">
+            Add team
+        </p>
+    </li>
+</ul>
+<!--<div class="sidebarright-activities">
+    <h1 class="text-center">Activities</h1>
+    <ul>
+        <li class="col-md-12">
+            <i class="col-md-2 fa-sign-out fa-fw"></i>
+            <p class="col-md-10 dropdown-toggle" ng-disabled="!hmCtrl.currentUser.id != sidebar.currentProject.admin.id" ng-click="sidebar.editUsers()">
+                xxxx
+            </p>
+        </li>
+        <li class="col-md-12">
+            <i class="col-md-2 fa-sign-out fa-fw"></i>
+            <p class="col-md-10 dropdown-toggle" href="#" ng-click="sidebar.addTeam()">
+                xxxx
+            </p>
+        </li>
+    </ul>
+</div>-->

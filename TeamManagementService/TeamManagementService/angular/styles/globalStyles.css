@@ -52,12 +52,59 @@
 
 /*#endregion*/
 
-.dupa {
+.sidebarright {
     height: 100%;
-    background-color: red;
+    background-color: maroon;
     right: 0px;
+    border-left: 1px solid white;
+    padding: 0px;
 }
 
+    .sidebarright > ul {
+        height: 50%;
+        margin: auto;
+        padding: 0px;
+    }
+
+        .sidebarright > ul > li {
+            list-style-type: none;
+            border-bottom: 1px solid white;
+            color: white;
+            padding: 10px;
+            padding-left: 15px;
+            text-align: left;
+        }
+
+            .sidebarright > ul > li:hover {
+                list-style-type: none;
+                color: red;
+                background-color: white;
+            }
+
+.sidebarright-activities {
+    height: 50%;
+    background-color: white;
+}
+
+.sidebarright-activities > ul {
+    margin: auto;
+    padding: 0px;
+}
+
+    .sidebarright-activities > ul > li {
+        list-style-type: none;
+        border-bottom: 1px solid white;
+        color: black;
+        padding: 10px;
+        padding-left: 15px;
+        text-align: left;
+    }
+
+        .sidebarright-activies > ul > li:hover {
+            list-style-type: none;
+            color: red;
+            background-color: white;
+        }
 
 /*#region Modal */
 
@@ -603,6 +650,7 @@ nav li a {
     opacity: 0.6;
     color: black;
 }
+
 .Bug {
     margin: 0px;
     color: red;
