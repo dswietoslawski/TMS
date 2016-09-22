@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using TeamManagementService.Infrastructure;
@@ -32,6 +33,10 @@ namespace TeamManagementService.Repositories {
         public bool DeleteUserFromTeam(int teamId, ApplicationUser user) {
             var team = context.Teams.Where(t => t.Id == teamId).Include(t => t.Members).Single();
             return team.Members.Remove(user);
+        }
+
+        public IEnumerable<Project> GetByUser(string userId) {
+            return context.Teams.Include(t => t.Members).Include(t => t.Admin).Where(t => t.Members.Any(m => m.Id == userId) || t.Admin.Id == userId).Include(t => t.Admin);
         }
     }
 }
