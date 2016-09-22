@@ -1,41 +1,67 @@
 ﻿
-<div class="modal-dialog registerForm">
-    <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" ng-click="registerModalCtrl.cancel()">
-                <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-            </button>
-            <h3 class="modal-title" id="modal-register-label">Sign up now</h3>
-            <p>Fill in the form below to register in the system:</p>
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="registerModalCtrl.cancel()">
+        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+    </button>
+    <h3 class="modal-title" id="modal-register-label">Sign up now</h3>
+    <p>Fill in the form below to register in the system:</p>
+</div>
+<div class="modal-body" id="modal-body">
+    <form name="registerForm" class="form-horizontal">
+        <div class="form-group">
+            <label for="userName" class="col-sm-3 control-label">
+                Login
+            </label>
+            <div class="col-sm-9">
+                <input class="form-control" ng-model="registerModalCtrl.registerUser.userName" placeholder="Username..." id="username"  required>
+            </div>
         </div>
-        <div class="modal-body" id="modal-body">
-            <form name="registerForm" class="registration-form">
-                <div class="form-group">
-                    <label class="sr-only" for="username">Username</label>
-                    <input type="text" ng-model="registerModalCtrl.registerUser.userName" placeholder="Username..." id="username" class="form-control" required />
-                </div>
-                <div class="form-group">
-                    <label class="sr-only" for="password">Password</label>
-                    <input type="password" id="password" ng-model="registerModalCtrl.registerUser.password" placeholder="Password..." class="form-control" required />
-                </div>
-                <div class="form-group">
-                    <label class="sr-only" for="cfrmPassword">Confirm password</label>
-                    <input type="password" ng-model="registerModalCtrl.registerUser.confirmPassword" placeholder="Confirm password..." id="cfrmPassword" class="form-control" required />
-                </div>
-                <div class="form-group">
-                    <label class="sr-only" for="email">E-Mail</label>
-                    <input type="email" ng-model="registerModalCtrl.registerUser.email" placeholder="E-mail..." id="email" class="form-control" required />
-                </div>
-                <div class="form-group">
-                    <label class="sr-only" for="firstName">First Name</label>
-                    <input type="text" ng-model="registerModalCtrl.registerUser.firstName" placeholder="First name..." class="form-control" required />
-                </div>
-                <div class="form-group">
-                    <label class="sr-only" for="firstName">Last Name</label>
-                    <input type="text" ng-model="registerModalCtrl.registerUser.lastName" placeholder="Last name..." class="form-control" required />
-                </div>
-                <button type="submit" ng-disabled="registerForm.$invalid" class="btn btn-primary" ng-click="registerModalCtrl.register(registerModalCtrl.registerUser)">Register</button>
-            </form>
+        <div class="form-group">
+            <label for="password" class="col-sm-3 control-label">
+                Password
+            </label>
+            <div class="col-sm-9">
+                <input class="form-control" ng-model="registerModalCtrl.registerUser.password" placeholder="Password..." id="password" required>
+            </div>
         </div>
-    </div>
+        <div class="form-group">
+            <label for="confirmPassword" class="col-sm-3 control-label">
+                Confirm Password
+            </label>
+            <div class="col-sm-9">
+                <input class="form-control" ng-model="registerModalCtrl.registerUser.confirmPassword" placeholder="Confirm Password..." id="confirmPassword" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="col-sm-3 control-label">
+                Email
+            </label>
+            <div class="col-sm-9">
+                <input class="form-control" ng-model="registerModalCtrl.registerUser.email" placeholder="Email..." id="email" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="firstName" class="col-sm-3 control-label">
+                First Name
+            </label>
+            <div class="col-sm-9">
+                <input class="form-control" ng-model="registerModalCtrl.registerUser.firstName" placeholder="First Name..." id="firstName" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lastName" class="col-sm-3 control-label">
+                Last Name
+            </label>
+            <div class="col-sm-9">
+                <input class="form-control" ng-model="registerModalCtrl.registerUser.lastName" placeholder="Last Name..." id="lastName" required>
+            </div>
+        </div>
+        <div class="form-group last">
+            <div class="col-sm-offset-3 col-sm-9">
+                <button type="submit" ng-disabled="registerForm.$invalid" class="btn btn-success btn-sm" ng-click="registerModalCtrl.register(registerModalCtrl.registerUser)">
+                     Register
+                </button>
+            </div>
+        </div>
+    </form>
 </div>

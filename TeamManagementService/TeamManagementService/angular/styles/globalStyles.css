@@ -53,19 +53,18 @@
 /*#endregion*/
 
 .dupa {
-    height:100%;
+    height: 100%;
     background-color: red;
     right: 0px;
-
 }
 
 
 /*#region Modal */
 
 .modal-content input[type="text"], input[type="password"], input[type="email"], select,
-textarea, 
+textarea,
 textarea.form-control {
-	height: 50px;
+    height: 50px;
     margin: 0;
     padding: 0 20px;
     vertical-align: middle;
@@ -76,39 +75,57 @@ textarea.form-control {
     font-weight: 300;
     line-height: 50px;
     color: #888;
-    -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
-    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
-    -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -o-transition: all .3s;
+    -moz-transition: all .3s;
+    -webkit-transition: all .3s;
+    -ms-transition: all .3s;
+    transition: all .3s;
 }
 
 .modal-body {
-    color:white;
+    color: white;
 }
 
 .modal-content textarea, select,
 textarea.form-control {
-	padding-top: 10px;
-	padding-bottom: 10px;
-	line-height: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 30px;
 }
 
-.modal-content input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, 
-textarea:focus, 
-textarea.form-control:focus {
-	outline: 0;
-	background: #444;
-    border: 3px solid #555;
-    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
-}
+    .modal-content input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus,
+    textarea:focus,
+    textarea.form-control:focus {
+        outline: 0;
+        background: white;
+        border: 3px solid #555;
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
 
-.modal-content input[type="text"]:-moz-placeholder, input[type="password"]:-moz-placeholder, input[type="email"]:-moz-placeholder, textarea:-moz-placeholder, textarea.form-control:-moz-placeholder { color: #888; }
-.modal-content input[type="text"]:-ms-input-placeholder, input[type="password"]:-ms-input-placeholder, input[type="email"]:-ms-input-placeholder, textarea:-ms-input-placeholder, textarea.form-control:-ms-input-placeholder { color: #888; }
-.modal-content input[type="text"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder, input[type="email"]::-webkit-input-placeholder, textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeholder { color: #888; }
+    .modal-content input[type="text"]:-moz-placeholder, input[type="password"]:-moz-placeholder, input[type="email"]:-moz-placeholder, textarea:-moz-placeholder, textarea.form-control:-moz-placeholder {
+        color: #888;
+    }
+
+    .modal-content input[type="text"]:-ms-input-placeholder, input[type="password"]:-ms-input-placeholder, input[type="email"]:-ms-input-placeholder, textarea:-ms-input-placeholder, textarea.form-control:-ms-input-placeholder {
+        color: #888;
+    }
+
+    .modal-content input[type="text"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder, input[type="email"]::-webkit-input-placeholder, textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeholder {
+        color: #888;
+    }
 
 
 .modal-content button.btn {
-	width: 100%;
-	height: 50px;
+    width: 100%;
+    height: 50px;
     margin: 0;
     padding: 0 20px;
     vertical-align: middle;
@@ -119,95 +136,137 @@ textarea.form-control:focus {
     font-weight: 300;
     line-height: 50px;
     color: #fff;
-    -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
     text-shadow: none;
-    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
-    -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -o-transition: all .3s;
+    -moz-transition: all .3s;
+    -webkit-transition: all .3s;
+    -ms-transition: all .3s;
+    transition: all .3s;
 }
 
-.modal-content button.btn:hover { opacity: 0.6; color: #fff; }
+    .modal-content button.btn:hover {
+        opacity: 0.6;
+        color: #fff;
+    }
 
-.modal-content button.btn:active { outline: 0; opacity: 0.6; color: #fff; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; }
+    .modal-content button.btn:active {
+        outline: 0;
+        opacity: 0.6;
+        color: #fff;
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
 
-.modal-content button.btn:focus { outline: 0; opacity: 0.6; background: #fd625e; color: #fff; }
+    .modal-content button.btn:focus {
+        outline: 0;
+        opacity: 0.6;
+        background: #fd625e;
+        color: #fff;
+    }
 
-.modal-content button.btn:active:focus, button.btn.active:focus { outline: 0; opacity: 0.6; background: #fd625e; color: #fff; }
+    .modal-content button.btn:active:focus, button.btn.active:focus {
+        outline: 0;
+        opacity: 0.6;
+        background: #fd625e;
+        color: #fff;
+    }
+
 .modal-content {
-	background: #3a3a3a;
-	-moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
-	border: 0;
-	text-align: left;
+    background: #3a3a3a;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid white;
+    text-align: left;
+    margin-top: 150px;
 }
 
 .modal-header {
-	padding: 25px 25px 15px 25px;
-	background: #333;
-	border: 0;
-	-moz-border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0; border-radius: 4px 4px 0 0;
-	color: #888;
+    padding: 25px 25px 15px 25px;
+    background: #333;
+    border: 0;
+    -moz-border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+    color: white;
+    background-color: maroon;
+    border-bottom: 1px solid white;
 }
 
-.modal-header .close {
-	font-size: 36px;
-	color: #eee;
-	font-weight: 300;
-	text-shadow: none;
-	opacity: 1;
-}
+    .modal-header .close {
+        font-size: 36px;
+        color: #eee;
+        font-weight: 300;
+        text-shadow: none;
+        opacity: 1;
+    }
 
 .modal-title {
-	margin-bottom: 10px;
-	line-height: 30px;
-	color: #eee;
+    margin-bottom: 10px;
+    line-height: 30px;
+    color: #eee;
 }
 
 .modal-body {
-	padding: 25px 25px 30px 25px;
-	background: #3a3a3a;
-	text-align: left;
-	-moz-border-radius: 0 0 4px 4px; -webkit-border-radius: 0 0 4px 4px; border-radius: 0 0 4px 4px;
+    background-image: url("../images/background/tloList2.jpg");
+    padding: 25px 25px 30px 25px;
+    text-align: left;
+    -moz-border-radius: 0 0 4px 4px;
+    -webkit-border-radius: 0 0 4px 4px;
+    border-radius: 0 0 4px 4px;
 }
 
-.modal-body img {
-	margin-bottom: 15px;
-}
+    .modal-body img {
+        margin-bottom: 15px;
+    }
 
-.modal-body form textarea {
-	height: 100px;
-}
+    .modal-body form textarea {
+        height: 100px;
+    }
 
-.modal-body form .input-error {
-	border-color: #fd625e;
-}
+    .modal-body form .input-error {
+        border-color: #fd625e;
+    }
 /*#endregion End of modal*/
-md-visually-hidden  {
-    z-index:-1000 !important;
-    position:absolute;
+md-visually-hidden {
+    z-index: -1000 !important;
+    position: absolute;
 }
 
 .md-visually-hidden p {
-    z-index:-1000 !important;
-    position:absolute;
+    z-index: -1000 !important;
+    position: absolute;
 }
 
 .autocompletedemoCustomTemplate .autocomplete-custom-template li {
-  border-bottom: 1px solid #ccc;
-  height: auto;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  white-space: normal; }
+    border-bottom: 1px solid #ccc;
+    height: auto;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    white-space: normal;
+}
 
-.autocompletedemoCustomTemplate .autocomplete-custom-template li:last-child {
-  border-bottom-width: 0; }
+    .autocompletedemoCustomTemplate .autocomplete-custom-template li:last-child {
+        border-bottom-width: 0;
+    }
 
 .autocompletedemoCustomTemplate .autocomplete-custom-template .item-title,
 .autocompletedemoCustomTemplate .autocomplete-custom-template .item-metadata {
-  display: block;
-  line-height: 2; }
+    display: block;
+    line-height: 2;
+}
 
-.autocompletedemoCustomTemplate .autocomplete-custom-template .item-title md-icon {
-  height: 18px;
-  width: 18px; }
+    .autocompletedemoCustomTemplate .autocomplete-custom-template .item-title md-icon {
+        height: 18px;
+        width: 18px;
+    }
 
 
 .borderRadiusTopRight {
@@ -222,14 +281,14 @@ md-visually-hidden  {
 .container-fluid {
     padding-top: 53px;
     padding-right: 0px;
-    height:inherit;
+    height: inherit;
     min-width: 100% !important;
     width: 102%;
 }
 
 .content {
     padding-top: 20px;
-    height:inherit;
+    height: inherit;
 }
 
 .collapse.in {
@@ -280,7 +339,6 @@ nav li a {
 
 .navbar-brand {
     color: white;
-
 }
 
 .navbar-top-links li {
@@ -392,7 +450,7 @@ nav li a {
     margin: 0px;
     min-height: 100px;
     height: inherit;
-    width: 100%;
+    width: 98%;
 }
 
     .column > li {
@@ -470,12 +528,12 @@ nav li a {
         width: inherit;
     }
 
-    .close-note > i:hover {
-        opacity: 1;
-        cursor: pointer;
-        color: black;
+        .close-note > i:hover {
+            opacity: 1;
+            cursor: pointer;
+            color: black;
+        }
 
-    }
 .note-right-hoverOnClose {
     background-color: white;
 }
@@ -540,6 +598,11 @@ nav li a {
 
 /*#region Type of Task 
     ---------------------------------------------------- */
+.Undefined {
+    background-color: dimgrey;
+    opacity: 0.6;
+    color: black;
+}
 .Bug {
     margin: 0px;
     color: red;

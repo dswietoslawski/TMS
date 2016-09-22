@@ -1,44 +1,43 @@
-﻿<div class="modal-content">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" ng-click="toDoItemEditCtrl.close()">
-            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-        </button>
-        <h3 class="modal-title" id="modal-register-label">Task: {{toDoItemEditCtrl.editedToDoItem.name}}</h3>
-    </div>
-    <div class="modal-body" id="modal-body">
-        <form name="editItemForm">
-            <div class="form-group">
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label"" for="name">Name</label>
-                    <div class="col-sm-8">
-                        <input class="form-control" id="name" ng-model="toDoItemEditCtrl.editedToDoItem.name" type="text" maxlength="20" required />
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label" for="description">Description</label>
-                    <div class="col-sm-8">
-                        <textarea class="col-sm-8 form-control" id="description" ng-model="toDoItemEditCtrl.editedToDoItem.description" required maxlength="100"></textarea>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label" for="user">User</label>
-                    <div class="col-sm-8">
-                        <select style="width:100%" required ng-model="toDoItemEditCtrl.userSelection.selectedOption" ng-options="user.userName for user in toDoItemEditCtrl.userSelection.users track by user.id">
-                            <option ng-repeat="user in toDoItemEditCtrl.userSelection.users" value="{{user.id}}">{{user.userName}}</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label" style="color:white" for="type">Type</label>
-                    <div class="col-sm-8">
-                        <select style="width:100%" required  ng-model="toDoItemEditCtrl.typeSelection.selectedOption" ng-options="type.value for type in toDoItemEditCtrl.typeSelection.types track by type.id">
-                            <option ng-repeat="type in toDoItemEditCtrl.typeSelection.types" value="{{type.id}}">{{type.value}}</option>
-                        </select>
-                    </div>
+﻿
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="toDoItemEditCtrl.close()">
+        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+    </button>
+    <h3 class="modal-title" id="modal-register-label">Task: {{toDoItemEditCtrl.editedToDoItem.name}}</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <form name="editItemForm">
+        <div class="form-group">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" " for="name">Name</label>
+                <div class="col-sm-8">
+                    <input class="form-control" id="name" ng-model="toDoItemEditCtrl.editedToDoItem.name" type="text" maxlength="20" required />
                 </div>
             </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="description">Description</label>
+                <div class="col-sm-8">
+                    <textarea class="col-sm-8 form-control" id="description" ng-model="toDoItemEditCtrl.editedToDoItem.description" required maxlength="100"></textarea>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="user">User</label>
+                <div class="col-sm-8">
+                    <select style="width:100%" required ng-model="toDoItemEditCtrl.userSelection.selectedOption" ng-options="user.userName for user in toDoItemEditCtrl.userSelection.users track by user.id">
+                        <option ng-repeat="user in toDoItemEditCtrl.userSelection.users" value="{{user.id}}">{{user.userName}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" style="color:white" for="type">Type</label>
+                <div class="col-sm-8">
+                    <select style="width:100%" required ng-model="toDoItemEditCtrl.typeSelection.selectedOption" ng-options="type.value for type in toDoItemEditCtrl.typeSelection.types track by type.id">
+                        <option ng-repeat="type in toDoItemEditCtrl.typeSelection.types" value="{{type.id}}">{{type.value}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
 
-            <button class="btn btn-primary" type="button" ng-disabled="editItemForm.$invalid" ng-click="toDoItemEditCtrl.save()">{{toDoItemEditCtrl.confirmButtonVal}}</button>
-        </form>
-    </div>
+        <button class="btn btn-primary" type="button" ng-disabled="editItemForm.$invalid" ng-click="toDoItemEditCtrl.save()">{{toDoItemEditCtrl.confirmButtonVal}}</button>
+    </form>
 </div>
