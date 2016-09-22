@@ -37,8 +37,21 @@ app.factory('ItemColumn', ['ToDoItem', '$filter', function (ToDoItem, $filter) {
     }
 
     ItemColumn.prototype.remove = function (item) {
-        var index = instance.items.indexOf(item);
-        this.items.splice(index, 1);
+        removeByAttr(this.items, 'id', item.id);
+    }
+
+    var removeByAttr = function(arr, attr, value){
+        var i = arr.length;
+        while(i--){
+            if( arr[i] 
+                && arr[i].hasOwnProperty(attr) 
+                && (arguments.length > 2 && arr[i][attr] === value ) ){ 
+
+                arr.splice(i,1);
+
+            }
+        }
+        return arr;
     }
 
     ItemColumn.prototype.findById = function (itemId) {

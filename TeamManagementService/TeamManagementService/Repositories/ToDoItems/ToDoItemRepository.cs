@@ -32,7 +32,7 @@ namespace TeamManagementService.Repositories.ToDoItems {
         }
 
         public IEnumerable<ToDoItem> GetByTeam(int teamId) {
-            return context.Tasks.Where(t => t.Team.Id == teamId).Include(t => t.User).Include(t => t.Team).ToList();
+            return context.Tasks.Where(t => t.Team.Id == teamId).Include(t => t.User).Include(t => t.Team).Include(t => t.Team.Admin).ToList();
         }
 
         public ToDoItem Update(ToDoItem toDoItem) {
