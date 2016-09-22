@@ -13,10 +13,10 @@ app.service('projectService', ['$http', '$q', 'httpService', function ($http, $q
         return response;
     }
 
-    this.get = function () {
+    this.get = function (userId) {
         var def = $q.defer();
 
-        var response = $http.get('http://localhost:63601/api/teams', config)
+        var response = $http.get('http://localhost:63601/api/users/' + userId + '/teams', config)
         .success(function (response) {
             def.resolve(response);
         }).error(function (error) {

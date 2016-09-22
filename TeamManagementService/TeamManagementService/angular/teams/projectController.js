@@ -17,11 +17,12 @@ app.controller('projectController', ['$scope', '$rootScope', 'projectService', '
         vm.projects = {};
         vm.projects.selected = {};
 
-        projectService.get().then(function (response) {
+        projectService.get(appService.getLoginInfo().id).then(function (response) {
             vm.projects.items = response;
-
-            vm.projects.selected = vm.projects.items[0];
-            vm.update();
+            if (vm.projects.items.length !== 0) {
+                vm.projects.selected = vm.projects.items[0];
+                vm.update();
+            }
         }).then(function (error) {
 
         });

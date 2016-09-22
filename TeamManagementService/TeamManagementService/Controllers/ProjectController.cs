@@ -4,11 +4,11 @@ using System.Web.Http;
 using TeamManagementService.Models.Projects;
 
 namespace TeamManagementService.Controllers {
-    [RoutePrefix("api/teams")]
+    [RoutePrefix("api")]
     public class ProjectController : BaseApiController {
 
         [HttpGet]
-        [Route("")]
+        [Route("teams")]
         public IHttpActionResult Get() {
             var entities = UnitOfWork.TeamRepository.Get();
             var response = new List<ProjectReturnModel>();
@@ -20,14 +20,28 @@ namespace TeamManagementService.Controllers {
         }
 
         [HttpGet]
-        [Route("")]
+        [Route("teams")]
         public IHttpActionResult Get(int id) {
             var team = UnitOfWork.TeamRepository.Get(id);
             return Ok(ModelFactory.Create(team));
         }
 
+        [HttpGet]
+        [Route("users/{userId}/teams")]
+        [Authorize]
+        public IHttpActionResult GetByUser(string userId) {
+            var entities = UnitOfWork.TeamRepository.GetByUser(userId);
+            var response = new List<ProjectReturnModel>();
+
+            foreach (var entity in entities)
+                response.Add(ModelFactory.Create(entity));
+
+            return Ok(response);
+        }
+
+
         [HttpPost]
-        [Route("")]
+        [Route("teams")]
         [Authorize]
         public IHttpActionResult Post(ProjectBindingModel teamModel) {
             if (ModelState.IsValid) {
@@ -48,7 +62,7 @@ namespace TeamManagementService.Controllers {
         }
 
         [HttpDelete]
-        [Route("{teamId}/users/{userId}")]
+        [Route("teams/{teamId}/users/{userId}")]
         [Authorize]
         public IHttpActionResult DeleteUser(int teamId, string userId) {
             var user = UnitOfWork.UserRepository.Get(userId);
@@ -66,7 +80,7 @@ namespace TeamManagementService.Controllers {
 
 
         [HttpPut]
-        [Route("{teamId}/users/{userId}")]
+        [Route("teams/{teamId}/users/{userId}")]
         [Authorize]
         public IHttpActionResult Update(int teamId, string userId) {
             var user = UnitOfWork.UserRepository.Get(userId);
