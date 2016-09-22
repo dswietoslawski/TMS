@@ -1,8 +1,6 @@
 ﻿<!DOCTYPE html>
 <html ng-app="tmsApp" ng-cloak>
 <head>
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
@@ -59,15 +57,15 @@
 <body ng-controller="homeController as hmCtrl" ng-init="hmCtrl.onInit()">
     <div id="fullheightAndWidth" class="wrapper" ng-controller="projectController as projectCtrl">
         <nav class="navbar" role="navigation">
-            <div class="col-md-offset-2 col-md-3 navbar-header">
+            <div class="col-md-offset-1 col-md-3 navbar-header">
                 <a class="navbar-brand" href="#"><i class="fa fa-trello"></i> Team Management System</a>
             </div>
-            <div class="col-md-offset-3 col-md-2" ng-show="hmCtrl.isLoggedIn">
+            <div class="col-md-4" style="margin-top: 2px;"><project-selection></project-selection></div>
+            <div class="col-md-2" ng-show="hmCtrl.isLoggedIn">
                 <p class="navbar-text navbar-right" style="color:white;">Signed in as {{hmCtrl.currentUser.userName}} </p>
             </div>
             <div logout-button class="col-md-1"></div>
             <ul class="nav navbar-top-links navbar-right">
-
                 <li ng-show="hmCtrl.isLoggedIn">
                     <a class="dropdown-toggle" ng-click="hmCtrl.toggleSidebar()">
                         <i class="fa fa-bars fa-fw"></i>

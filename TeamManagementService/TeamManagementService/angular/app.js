@@ -10,7 +10,7 @@ app.factory('offCanvas', function (cnOffCanvas) {
         controller: 'sidebarController',
         controllerAs: 'sidebar',
         container: 'footer',
-        containerClass: 'col-md-2 dupa',
+        containerClass: 'col-md-2 sidebarright',
         templateUrl: '../sidebarMenu/sidebarMenu.html'
     })
 });
