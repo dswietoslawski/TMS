@@ -1,7 +1,7 @@
 ﻿var app = angular.module('tmsApp');
 
-app.controller('addUserController', ['$scope', 'userService', 'User', '$timeout', '$q', '$uibModalInstance', 'projectToEdit', 'projectService',
-    function ($scope, userService, User, $timeout, $q, $uibModalInstance, projectToEdit, projectService) {
+app.controller('addUserController', ['$scope', 'userService', 'User', '$timeout', '$q', '$uibModalInstance', 'projectService', 'appService',
+    function ($scope, userService, User, $timeout, $q, $uibModalInstance, projectService, appService) {
         var vm = this;
 
         vm.filterOptions = {
@@ -56,7 +56,7 @@ app.controller('addUserController', ['$scope', 'userService', 'User', '$timeout'
             }
         }
 
-        vm.editedProject = projectToEdit;
+        vm.editedProject = appService.getProjectInfo();
         vm.close = function () {
             $uibModalInstance.close();
         };

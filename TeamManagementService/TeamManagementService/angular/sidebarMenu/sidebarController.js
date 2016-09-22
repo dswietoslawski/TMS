@@ -24,29 +24,18 @@ app.controller('sidebarController', ['$scope', '$rootScope', 'userService', 'pro
             templateUrl: '../sidebarMenu/addUser.html',
             backdrop: 'static',
             controller: 'addUserController',
-            controllerAs: 'addUser',
-            resolve: {
-                projectToEdit: function () {
-                    return $scope.hmCtrl.currentProject;
-                }
-            }
+            controllerAs: 'addUser'
         });
     };
 
-    vm.submitTeam = function () {
-        var promise = projectService.add(vm.newProject);
-
-        vm.isAddTeamButtonDisabled = true;
-
-        promise.then(function (response) {
-            $scope.$broadcast('project-added', response.data);
-            vm.isAddTeamButtonDisabled = false;
-            vm.newProject.name = "";
-
-        }).then(function (error) {
-            vm.isAddTeamButtonDisabled = false;
+    vm.addTeam = function () {
+        var modalInstance = $uibModal.open({
+            animation: true,
+            templateUrl: '../sidebarMenu/addTeam/addTeam.html',
+            backdrop: 'static',
+            controller: 'addTeamController',
+            controllerAs: 'addTeam'
         });
-
     };
 
 }]);
