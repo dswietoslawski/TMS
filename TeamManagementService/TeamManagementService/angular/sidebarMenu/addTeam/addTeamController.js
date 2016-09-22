@@ -5,7 +5,7 @@ app.controller('addTeamController', ['$scope', '$rootScope', 'userService', 'Use
         var vm = this;
 
         vm.submitTeam = function () {
-            vm.newProject.adminId = appService.getProjectInfo().admin.id;
+            vm.newProject.adminId = appService.getLoginInfo().id;
             var promise = projectService.add(vm.newProject);
 
             vm.isAddTeamButtonDisabled = true;

@@ -40,8 +40,8 @@ app.controller('toDoItemController', ['$scope', '$rootScope', 'toDoItemService',
             vm.columns.push(toDoItems);
             vm.columns.push(inProgressItems);
             vm.columns.push(doneItems);
-
-            initializeEmptyItem();
+            if ($scope.hmCtrl.currentProject.admin.id === $scope.hmCtrl.currentUser.id)
+                initializeEmptyItem();
         };
         //-- initialize items
 
@@ -69,7 +69,7 @@ app.controller('toDoItemController', ['$scope', '$rootScope', 'toDoItemService',
         };
 
         vm.canDelete = function (item) {
-            var canDel = (item.status !== undefined && ( item.team !== undefined && item.team.admin !== null && item.team.admin.id === $scope.hmCtrl.currentProject.admin.id));
+            var canDel = (item.status !== undefined && (item.team !== undefined && item.team.admin !== null && item.team.admin.id === $scope.hmCtrl.currentUser.id));
             return canDel;
         }
 

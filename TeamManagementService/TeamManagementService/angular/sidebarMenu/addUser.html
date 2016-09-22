@@ -3,7 +3,7 @@
         <button type="button" class="close" data-dismiss="modal" ng-click="addUser.close()">
             <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
         </button>
-        <h3 class="modal-title" id="modal-register-label">User management}</h3>
+        <h3 class="modal-title" id="modal-register-label">User management</h3>
     </div>
     <div class="modal-body" id="modal-body">
         <table class="table">
@@ -16,7 +16,7 @@
             <tbody>
                 <tr ng-repeat="user in addUser.shownUsers">
                     <td class="col-md-6">{{user.userName}}</td>
-                    <td class="col-md-6"><button ng-disabled="addUser.editedProject.admin.id == user.id" ng-class="{'fa fa-minus' : user.isInTeam, 'fa fa-plus' : !user.isInTeam}" ng-click="addUser.edit(user)"></button></td>
+                    <td class="col-md-6"><i class="btn btn-sm btn-danger" ng-class="{'fa fa-minus' : user.isInTeam, 'fa fa-plus' : !user.isInTeam}" ng-disabled="addUser.editedProject.admin.id == user.id" ng-click="addUser.edit(user)"></td>
                 </tr>
             </tbody>
         </table>

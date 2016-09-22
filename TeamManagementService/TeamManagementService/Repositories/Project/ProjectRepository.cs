@@ -36,6 +36,7 @@ namespace TeamManagementService.Repositories {
         }
 
         public IEnumerable<Project> GetByUser(string userId) {
+            var x = context.Teams.Include(t => t.Members).Include(t => t.Admin).Where(t => t.Members.Any(m => m.Id == userId) || t.Admin.Id == userId).Include(t => t.Admin).ToList();
             return context.Teams.Include(t => t.Members).Include(t => t.Admin).Where(t => t.Members.Any(m => m.Id == userId) || t.Admin.Id == userId).Include(t => t.Admin);
         }
     }
