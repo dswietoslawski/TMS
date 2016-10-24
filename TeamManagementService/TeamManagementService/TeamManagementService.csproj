@@ -764,6 +764,7 @@
     <Content Include="angular\lib\ui-bootstrap\ui-bootstrap-tpls-2.0.1.min.js" />
     <Content Include="angular\modules\offCanvas.js" />
     <Content Include="angular\services\httpService.js" />
+    <Content Include="angular\services\modalService.js" />
     <Content Include="angular\sidebarMenu\addTeam\addTeam.html" />
     <Content Include="angular\sidebarMenu\addTeam\addTeamController.js" />
     <Content Include="angular\sidebarMenu\addUser.html" />
@@ -796,6 +797,7 @@
     <Content Include="angular\users\register\registerView.html" />
     <Content Include="angular\users\userFactory.js" />
     <Content Include="angular\users\userService.js" />
+    <Content Include="angular\views\modal.html" />
     <Content Include="angular\views\page.html" />
     <Content Include="est\example.js" />
     <Content Include="est\index.html" />

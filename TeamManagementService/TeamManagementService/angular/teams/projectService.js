@@ -40,4 +40,8 @@ app.service('projectService', ['$http', '$q', 'httpService', function ($http, $q
         var response = httpService.delete('http://localhost:63601/api/teams/' + teamId + '/users/' + userId);
         return response;
     }
+
+    this.delete = function (teamId) {
+        var response = httpService.delete('http://localhost:63601/api/teams/' + teamId);
+    }
 }]);

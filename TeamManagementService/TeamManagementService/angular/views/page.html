@@ -53,6 +53,7 @@
     <script src="../sidebarMenu/sidebarController.js"></script>
     <script src="../sidebarMenu/sidebarMenuDirective.js"></script>
     <script src="../users/userFactory.js"></script>
+    <script src="../services/modalService.js"></script>
 </head>
 <body ng-controller="homeController as hmCtrl" ng-init="hmCtrl.onInit()">
     <div id="fullheightAndWidth" class="wrapper" ng-controller="projectController as projectCtrl">
@@ -88,7 +89,8 @@
                                 <button type="button" ng-class="{'btn btn-primary' : column.title == 'To Do',
                                                                  'btn btn-info'    : column.title == 'In Progress',
                                                                  'btn btn-success' : column.title == 'Done'}">
-                                    {{column.items.length}}
+                                    <span ng-if="column.title == 'To Do' && hmCtrl.isAdmin">{{column.items.length - 1}}</span>
+                                    <span ng-if="!(column.title == 'To Do') || !hmCtrl.isAdmin">{{column.items.length}}</span>
                                 </button>
                             </div>
                             <div class="columnSortable" id="style-{{$index}}">

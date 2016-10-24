@@ -23,18 +23,35 @@ app.controller('toDoItemController', ['$scope', '$rootScope', 'toDoItemService',
         //-- init
 
         var getByTeam = function (project) {
-            toDoItemService.getByTeam(project.id).then(function (items) {
-                initializeToDoItems(items);
-            });
+            if (project !== null && project !== undefined) {
+                toDoItemService.getByTeam(project.id).then(function (items) {
+                    initializeToDoItems(items);
+                }).then(function (error) {
+                    var toDoItems = new ItemColumn([], { status: 'ToDo' }, "To Do", 1);
+                    var inProgressItems = new ItemColumn([], { status: 'ToDo' }, "To Do", 1);
+                    var doneItems = new ItemColumn([], { status: 'ToDo' }, "To Do", 1);
+                });
+            }
+            else {
+                var toDoItems = new ItemColumn([], "To Do", 1);
+                var inProgressItems = new ItemColumn([], "In Progress", 2);
+                var doneItems = new ItemColumn([], 'Done', 3);
+
+                vm.columns = [];
+
+                vm.columns.push(toDoItems);
+                vm.columns.push(inProgressItems);
+                vm.columns.push(doneItems);
+            }
         };
         //!-- init
 
         //--initialize items
+
         var initializeToDoItems = function (items) {
             var toDoItems = new ItemColumn($filter('filter')(items, { status: 'ToDo' }), "To Do", 1);
             var inProgressItems = new ItemColumn($filter('filter')(items, { status: 'InProgress' }), "In Progress", 2);
             var doneItems = new ItemColumn($filter('filter')(items, { status: 'Done' }), 'Done', 3);
-
             vm.columns = [];
 
             vm.columns.push(toDoItems);
@@ -65,7 +82,7 @@ app.controller('toDoItemController', ['$scope', '$rootScope', 'toDoItemService',
         };
 
         vm.canDrag = function (item) {
-            var canDrg = (item.status === undefined || !(item.user.id === $scope.hmCtrl.currentUser.id || $scope.hmCtrl.currentUser.id === $scope.hmCtrl.currentProject.admin.id));
+            var canDrg = (item.status === undefined || (item.user.id === $scope.hmCtrl.currentUser.id || $scope.hmCtrl.currentUser.id === $scope.hmCtrl.currentProject.admin.id));
             return canDrg;
         };
 

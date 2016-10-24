@@ -8,11 +8,11 @@ namespace TeamManagementService.Repositories {
 
         private ApplicationDbContext context = new ApplicationDbContext();
 
-        private IProjectRepository teamRepository;
-        public IProjectRepository TeamRepository {
+        private IProjectRepository projectRepository;
+        public IProjectRepository ProjectRepository {
             get {
-                if (teamRepository == null) teamRepository = new ProjectRepository(context);
-                return teamRepository;
+                if (projectRepository == null) projectRepository = new ProjectRepository(context);
+                return projectRepository;
             }
         }
 

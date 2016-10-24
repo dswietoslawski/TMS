@@ -39,5 +39,12 @@ namespace TeamManagementService.Repositories {
             var x = context.Teams.Include(t => t.Members).Include(t => t.Admin).Where(t => t.Members.Any(m => m.Id == userId) || t.Admin.Id == userId).Include(t => t.Admin).ToList();
             return context.Teams.Include(t => t.Members).Include(t => t.Admin).Where(t => t.Members.Any(m => m.Id == userId) || t.Admin.Id == userId).Include(t => t.Admin);
         }
+
+        public void Delete(int teamId) {
+            var team = context.Teams.Include(t => t.Members).Include(t => t.Tasks).First(t => t.Id == teamId);
+            team.Members.Clear();
+            team.Tasks.Clear();
+            context.Teams.Remove(team);
+        }
     }
 }

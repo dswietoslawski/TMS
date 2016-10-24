@@ -10,7 +10,7 @@ namespace TeamManagementService.Controllers {
         [HttpGet]
         [Route("teams")]
         public IHttpActionResult Get() {
-            var entities = UnitOfWork.TeamRepository.Get();
+            var entities = UnitOfWork.ProjectRepository.Get();
             var response = new List<ProjectReturnModel>();
 
             foreach (var entity in entities)
@@ -22,7 +22,7 @@ namespace TeamManagementService.Controllers {
         [HttpGet]
         [Route("teams")]
         public IHttpActionResult Get(int id) {
-            var team = UnitOfWork.TeamRepository.Get(id);
+            var team = UnitOfWork.ProjectRepository.Get(id);
             return Ok(ModelFactory.Create(team));
         }
 
@@ -30,7 +30,7 @@ namespace TeamManagementService.Controllers {
         [Route("users/{userId}/teams")]
         [Authorize]
         public IHttpActionResult GetByUser(string userId) {
-            var entities = UnitOfWork.TeamRepository.GetByUser(userId);
+            var entities = UnitOfWork.ProjectRepository.GetByUser(userId);
             var response = new List<ProjectReturnModel>();
 
             foreach (var entity in entities)
@@ -49,7 +49,7 @@ namespace TeamManagementService.Controllers {
                 var team = ModelFactory.Create(teamModel);
                 team.Admin = UnitOfWork.UserRepository.Get(teamModel.AdminId);
 
-                var entity = UnitOfWork.TeamRepository.Add(team);
+                var entity = UnitOfWork.ProjectRepository.Add(team);
                 UnitOfWork.Save();
 
                 var response = ModelFactory.Create(entity);
@@ -68,7 +68,7 @@ namespace TeamManagementService.Controllers {
             var user = UnitOfWork.UserRepository.Get(userId);
             if (user == null) return BadRequest();
 
-            if (UnitOfWork.TeamRepository.DeleteUserFromTeam(teamId, user))
+            if (UnitOfWork.ProjectRepository.DeleteUserFromTeam(teamId, user))
                 try {
                     UnitOfWork.Save();
                     return Ok();
@@ -86,8 +86,21 @@ namespace TeamManagementService.Controllers {
             var user = UnitOfWork.UserRepository.Get(userId);
             if (user == null) return BadRequest();
 
-            UnitOfWork.TeamRepository.AddUserToTeam(teamId, user);
+            UnitOfWork.ProjectRepository.AddUserToTeam(teamId, user);
             UnitOfWork.Save(); return Ok();
+        }
+
+        [HttpDelete]
+        [Route("teams/{teamId}")]
+        [Authorize]
+        public IHttpActionResult Delete(int teamId) {
+            try {
+                UnitOfWork.ProjectRepository.Delete(teamId);
+                UnitOfWork.Save();
+                return Ok();
+            } catch (Exception ex) {
+                return InternalServerError(ex);
+            }
         }
     }
 }

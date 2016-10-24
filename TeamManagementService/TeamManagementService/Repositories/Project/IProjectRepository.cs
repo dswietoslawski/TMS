@@ -10,5 +10,6 @@ namespace TeamManagementService.Repositories {
         void AddUserToTeam(int teamId, ApplicationUser user);
         bool DeleteUserFromTeam(int teamId, ApplicationUser user);
         IEnumerable<Project> GetByUser(string userId);
+        void Delete(int teamId);
     }
 }

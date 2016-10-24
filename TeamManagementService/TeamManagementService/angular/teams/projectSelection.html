@@ -1,7 +1,8 @@
 ﻿<div class="form-group row">
     <div class="col-sm-offset-2 col-sm-8">
-        <select ng-change="projectCtrl.update()" class="form-control" ng-model="projectCtrl.projects.selected" ng-options="project.name for project in projectCtrl.projects.items track by project.id">
+        <select dropdown is-open="projectCtrl.projects.isOpen" ng-change="projectCtrl.update()" class="form-control" ng-model="projectCtrl.projects.selected" ng-options="project.name for project in projectCtrl.projects.items track by project.id">
             <option ng-repeat="project in projectCtrl.projects.items" value="{{project.id}}">{{project.name}}</option>
         </select>
     </div>
+    <button ng-click="projectCtrl.delete()" ng-disabled="!hmCtrl.isAdmin" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button> 
 </div>

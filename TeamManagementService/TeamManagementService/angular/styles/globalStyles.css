@@ -177,6 +177,10 @@ textarea.form-control {
     }
 
 
+    .modal-content button.btn.delete{
+        width:20%;
+    }
+
 .modal-content button.btn {
     width: 100%;
     height: 50px;

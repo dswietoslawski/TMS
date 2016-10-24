@@ -17,7 +17,7 @@ namespace TeamManagementService.Controllers {
             if (ModelState.IsValid) {
                 var toDoItem = ModelFactory.Create(toDoItemModel);
 
-                toDoItem.Team = UnitOfWork.TeamRepository.Get(teamId);
+                toDoItem.Team = UnitOfWork.ProjectRepository.Get(teamId);
                 toDoItem.User = UnitOfWork.UserRepository.Get(userId);
 
                 var entity = UnitOfWork.ToDoItemRepository.Add(toDoItem);
@@ -65,7 +65,7 @@ namespace TeamManagementService.Controllers {
             if (ModelState.IsValid) {
                 var entity = ModelFactory.Create(model);
                 entity.User = UnitOfWork.UserRepository.Get(userId);
-                entity.Team = UnitOfWork.TeamRepository.Get(teamId);
+                entity.Team = UnitOfWork.ProjectRepository.Get(teamId);
 
                 var response = ModelFactory.Create(UnitOfWork.ToDoItemRepository.Update(entity));
                 UnitOfWork.Save();

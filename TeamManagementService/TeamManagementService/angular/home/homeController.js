@@ -22,5 +22,7 @@ app.controller('homeController', ['$scope', '$rootScope', 'projectService', 'app
 
     $rootScope.$on('selected-project-changed', function (event, args) {
         vm.currentProject = args;
+        vm.isAdmin = vm.currentProject !== null && vm.currentProject !== undefined && (vm.currentUser.id == vm.currentProject.admin.id);
     });
+
 }]);
