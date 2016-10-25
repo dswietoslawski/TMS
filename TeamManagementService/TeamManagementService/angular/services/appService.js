@@ -10,7 +10,7 @@ app.service('appService',['localStorageService', function (localStorageService) 
         return localStorageService.get('userInfo');
     }
 
-    this.setProjectInfo = function (project) {
+    this.setProjectInfo = function (project, user) {
         localStorageService.set('projectInfo', project);
     };
 

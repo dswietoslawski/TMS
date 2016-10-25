@@ -25,6 +25,29 @@ app.factory('ToDoItem', ['$uibModal', 'toDoItemService', function ($uibModal, to
         }
     }
 
+    ToDoItem.prototype.edit = function () {
+        var instance = this;
+        var modalInstance = $uibModal.open({
+            animation: true,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            templateUrl: '../toDoItems/toDoItemModal.html',
+            controller: 'toDoItemEditController',
+            controllerAs: 'toDoItemEditCtrl',
+            backdrop: 'static',
+            resolve: {
+                itemForEdit: function () {
+                    return instance;
+                }
+            }
+        });
+
+
+        modalInstance.result.then(function (toDoItem) {
+            instance.setValues(toDoItem);
+        });
+    };
+
     ToDoItem.prototype.setTeam = function (team) {
         this.team = team;
     }
@@ -52,28 +75,7 @@ app.factory('ToDoItem', ['$uibModal', 'toDoItemService', function ($uibModal, to
         return newItem;
     }
 
-    ToDoItem.prototype.edit = function () {
-        var instance = this;
-        var modalInstance = $uibModal.open({
-            animation: true,
-            ariaLabelledBy: 'modal-title',
-            ariaDescribedBy: 'modal-body',
-            templateUrl: '../toDoItems/toDoItemModal.html',
-            controller: 'toDoItemEditController',
-            controllerAs: 'toDoItemEditCtrl',
-            backdrop: 'static',
-            resolve: {
-                itemForEdit: function () {
-                    return instance;
-                }
-            }
-        });
 
-
-        modalInstance.result.then(function (toDoItem) {
-            instance.setValues(toDoItem);
-        });
-    };
 
     ToDoItem.prototype.update = function (id) {
         if (id === 'column-1') {

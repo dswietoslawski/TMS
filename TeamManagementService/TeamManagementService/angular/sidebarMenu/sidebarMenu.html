@@ -1,9 +1,9 @@
 ﻿<ul>
-    <li class="col-md-12">
+    <li class="col-md-12" ng-hide="!hmCtrl.isAdmin && hmCtrl.isProjectSelected">
         <i class="col-md-2 fa-sign-out fa-fw"></i>
-        <p class="col-md-10 dropdown-toggle" ng-disabled="!hmCtrl.currentUser.id != sidebar.currentProject.admin.id" ng-click="sidebar.editUsers()">
+        <i class="col-md-10 dropdown-toggle" ng-click="sidebar.editUsers()">
             Edit members
-        </p>
+        </i>
     </li>
     <li class="col-md-12">
         <i class="col-md-2 fa-sign-out fa-fw"></i>

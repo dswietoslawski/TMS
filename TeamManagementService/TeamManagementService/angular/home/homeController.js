@@ -13,6 +13,8 @@ app.controller('homeController', ['$scope', '$rootScope', 'projectService', 'app
     vm.onInit = function () {
         vm.currentUser = appService.getLoginInfo();
         vm.isLoggedIn = vm.currentUser !== null;
+        vm.isProjectSelected = false;
+        vm.isAdmin = false;
     };
 
 
@@ -23,6 +25,7 @@ app.controller('homeController', ['$scope', '$rootScope', 'projectService', 'app
     $rootScope.$on('selected-project-changed', function (event, args) {
         vm.currentProject = args;
         vm.isAdmin = vm.currentProject !== null && vm.currentProject !== undefined && (vm.currentUser.id == vm.currentProject.admin.id);
+        vm.isProjectSelected = vm.currentProject != null && vm.currentProject !== undefined;
     });
 
 }]);

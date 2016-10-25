@@ -78,7 +78,9 @@
     <div ng-controller="toDoItemController as toDoCtrl" class="container-fluid">
         <div ng-show="!hmCtrl.isLoggedIn" login-button></div>
         <div class="content col-md-10" ng-show="hmCtrl.isLoggedIn">
-            <div class="col-md-offset-2 col-md-10">
+
+            <div class="col-md-offset-2 col-md-10" ng-show="!hmCtrl.isProjectSelected"></div>
+            <div class="col-md-offset-2 col-md-10" ng-show="hmCtrl.isProjectSelected">
                 <div ng-repeat="column in toDoCtrl.columns">
                     <div class="col-md-4 ">
                         <div class="panel panel-primary" ng-class="{'panel-primary' : column.title == 'To Do',

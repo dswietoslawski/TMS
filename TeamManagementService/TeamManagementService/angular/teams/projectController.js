@@ -1,6 +1,7 @@
 ﻿var app = angular.module('tmsApp');
 
-app.controller('projectController', ['$scope', '$rootScope', 'projectService', 'appService', 'modalService', function ($scope, $rootScope, projectService, appService, modalService) {
+app.controller('projectController', ['$scope', '$rootScope', 'projectService', 'appService', 'modalService',
+    function ($scope, $rootScope, projectService, appService, modalService) {
 
     var vm = this;
 
