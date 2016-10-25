@@ -7,13 +7,13 @@
     overflow-x: hidden;
 }
 
-.pagination>li.active>a {
-  background: gray;
-  color: #fff;
+.pagination > li.active > a {
+    background: gray;
+    color: #fff;
 }
 
 h4 {
-    margin:0;
+    margin: 0;
 }
 /*#region off canvas*/
 .off-canvas__nav {
@@ -28,6 +28,7 @@ h4 {
     -o-transition: all 0.3s cubic-bezier(0.16, 0.63, 0.45, 0.98);
     transition: all 0.3s cubic-bezier(0.16, 0.63, 0.45, 0.98);
 }
+
 .off-canvas__content {
     -webkit-transform: translate3d(0, 0, 0) translateX(0);
     -ms-transform: translate3d(0, 0, 0) translateX(0);
@@ -93,25 +94,25 @@ h4 {
     background-color: white;
 }
 
-.sidebarright-activities > ul {
-    margin: auto;
-    padding: 0px;
-}
-
-    .sidebarright-activities > ul > li {
-        list-style-type: none;
-        border-bottom: 1px solid white;
-        color: black;
-        padding: 10px;
-        padding-left: 15px;
-        text-align: left;
+    .sidebarright-activities > ul {
+        margin: auto;
+        padding: 0px;
     }
 
-        .sidebarright-activies > ul > li:hover {
+        .sidebarright-activities > ul > li {
             list-style-type: none;
-            color: red;
-            background-color: white;
+            border-bottom: 1px solid white;
+            color: black;
+            padding: 10px;
+            padding-left: 15px;
+            text-align: left;
         }
+
+.sidebarright-activies > ul > li:hover {
+    list-style-type: none;
+    color: red;
+    background-color: white;
+}
 
 /*#region Modal */
 
@@ -177,9 +178,9 @@ textarea.form-control {
     }
 
 
-    .modal-content button.btn.delete{
-        width:20%;
-    }
+.modal-content button.btn.delete {
+    width: 20%;
+}
 
 .modal-content button.btn {
     width: 100%;
@@ -694,3 +695,79 @@ nav li a {
 /*#endregion Type of Task END */
 
 /*#endregion Tasks List*/
+
+
+
+#features {
+    margin-top: 20px;
+}
+
+.feature, .feature i, .feature h3, .feature .title_border {
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+.feature {
+    background-image: url("../images/background/tlo2.jpg");
+    text-align: center;
+    padding: 20px;
+    border: solid 1px #cccccc;
+}
+
+    .feature p {
+        margin-top: 20px;
+        margin-bottom: 30px;
+        color: white;
+        font-size: 20px;
+    }
+
+    .feature i {
+        font-size: 80px;
+        color: #FFFFFF;
+        background: #1E825F;
+        padding: 30px;
+        border-radius: 50%;
+        border: solid 3px white;
+    }
+
+    .feature h3 {
+        color: white;
+    }
+
+    .feature:hover {
+        background: #F5F5F5;
+        -webkit-transform: translate(0,1em);
+        -moz-transform: translate(0,1em);
+        -o-transform: translate(0,1em);
+        -ms-transform: translate(0,1em);
+        transform: translate(0,1em);
+    }
+
+        .feature:hover i {
+            color: maroon;
+            border-color: maroon;
+            background: #FFFFFF;
+        }
+
+        .feature:hover p {
+            color: maroon;
+        }
+
+        .feature:hover .title_border {
+            background-color: maroon;
+            width: 50%;
+        }
+        .feature:hover h3 {
+            color: maroon;
+        }
+
+    .feature .title_border {
+        width: 0%;
+        height: 3px;
+        background: #1E825F;
+        margin: 0 auto;
+        margin-top: 12px;
+        margin-bottom: 8px;
+    }

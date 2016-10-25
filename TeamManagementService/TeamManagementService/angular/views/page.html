@@ -61,25 +61,30 @@
             <div class="col-md-offset-1 col-md-3 navbar-header">
                 <a class="navbar-brand" href="#"><i class="fa fa-trello"></i> Team Management System</a>
             </div>
-            <div class="col-md-4" style="margin-top: 2px;"><project-selection ng-hide="!hmCtrl.isLoggedIn"></project-selection></div>
+            <div class="col-md-4" style="margin-top: 2px;">
+                <project-selection ng-hide="!hmCtrl.isLoggedIn"></project-selection>
+            </div>
             <div class="col-md-2" ng-show="hmCtrl.isLoggedIn">
                 <p class="navbar-text navbar-right" style="color:white;">Signed in as {{hmCtrl.currentUser.userName}} </p>
             </div>
             <div logout-button class="col-md-1"></div>
-            <ul class="nav navbar-top-links navbar-right">
-                <li ng-show="hmCtrl.isLoggedIn">
-                    <a class="dropdown-toggle" ng-click="hmCtrl.toggleSidebar()">
-                        <i class="fa fa-bars fa-fw"></i>
-                    </a>
-                </li>
-            </ul>
         </nav>
     </div>
     <div ng-controller="toDoItemController as toDoCtrl" class="container-fluid">
         <div ng-show="!hmCtrl.isLoggedIn" login-button></div>
-        <div class="content col-md-10" ng-show="hmCtrl.isLoggedIn">
-
-            <div class="col-md-offset-2 col-md-10" ng-show="!hmCtrl.isProjectSelected"></div>
+        <div class="content col-md-12" ng-show="hmCtrl.isLoggedIn">
+            <div class="col-md-12" ng-show="!hmCtrl.isProjectSelected">
+                <div class="container" id="features">
+                    <div class="row">
+                        <div class="col-md-12 feature">
+                            <i class="fa fa-trello"></i>
+                            <h3>TMS</h3>
+                            <div class="title_border"></div>
+                            <p>To start your work click select one of the existing projects or add a new one by clicking Add Project on the navigation bar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-offset-2 col-md-10" ng-show="hmCtrl.isProjectSelected">
                 <div ng-repeat="column in toDoCtrl.columns">
                     <div class="col-md-4 ">
