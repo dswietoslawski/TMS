@@ -1,4 +1,4 @@
-﻿var app = angular.module('tmsApp', ['LocalStorageModule', 'ngAnimate', 'ngSanitize','ngAria', 'ngMaterial', 'ngMessages', 'ui.bootstrap', 'ui.sortable', 'ngTouch', 'cn.offCanvas']);
+﻿var app = angular.module('tmsApp', ['LocalStorageModule', 'ngAnimate', 'ngSanitize','ngAria', 'ngMaterial', 'ngMessages', 'ui.bootstrap', 'ui.sortable', 'ngTouch', 'cn.offCanvas', 'ngSanitize']);
 
 app.config(function ($animateProvider) {
     $animateProvider.classNameFilter(/^(?:(?!ng-animate-disabled).)*$/);

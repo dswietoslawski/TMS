@@ -95,7 +95,6 @@ app.controller('toDoItemController', ['$scope', '$rootScope', 'toDoItemService',
             toDoItemService.delete(item.id, item.team.id);
             vm.columns[getColumnId(item.status)].remove(item);
         }
-
         function getColumnId(status) {
             if (status === 'ToDo')
                 return 0;

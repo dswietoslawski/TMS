@@ -1,7 +1,7 @@
 ﻿var app = angular.module('tmsApp');
 
-app.controller('projectController', ['$scope', '$rootScope', 'projectService', 'appService', 'modalService',
-    function ($scope, $rootScope, projectService, appService, modalService) {
+app.controller('projectController', ['$scope', '$rootScope', 'projectService', 'appService', 'modalService', '$uibModal',
+    function ($scope, $rootScope, projectService, appService, modalService, $uibModal) {
 
     var vm = this;
 
@@ -77,4 +77,30 @@ app.controller('projectController', ['$scope', '$rootScope', 'projectService', '
         vm.projects.selected = args;
         vm.update();
     });
+
+    vm.newProject = {
+        id: 0,
+        name: "",
+        adminId: appService.getLoginInfo() != null ? appService.getLoginInfo().id : 0
+    };
+
+    vm.editUsers = function () {
+        var modalInstance = $uibModal.open({
+            animation: true,
+            templateUrl: '../sidebarMenu/addUser.html',
+            backdrop: 'static',
+            controller: 'addUserController',
+            controllerAs: 'addUser'
+        });
+    };
+
+    vm.addTeam = function () {
+        var modalInstance = $uibModal.open({
+            animation: true,
+            templateUrl: '../sidebarMenu/addTeam/addTeam.html',
+            backdrop: 'static',
+            controller: 'addTeamController',
+            controllerAs: 'addTeam'
+        });
+    };
 }]);

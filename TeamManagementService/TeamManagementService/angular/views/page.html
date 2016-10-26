@@ -21,6 +21,7 @@
     <link href="../lib/sb-admin-2/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <script src="../lib/angular-ui-sortable/sortable.min.js"></script>
     <link href="../lib/sb-admin-2/css/sb-admin-2.css" rel="stylesheet" />
+    <script src="http://code.angularjs.org/1.0.4/angular-sanitize.min.js"></script>
 
     <link href="../styles/globalStyles.css" rel="stylesheet" />
 
@@ -85,7 +86,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-offset-2 col-md-10" ng-show="hmCtrl.isProjectSelected">
+            <div class="col-md-offset-2 col-md-8" ng-show="hmCtrl.isProjectSelected">
                 <div ng-repeat="column in toDoCtrl.columns">
                     <div class="col-md-4 ">
                         <div class="panel panel-primary" ng-class="{'panel-primary' : column.title == 'To Do',
@@ -113,7 +114,6 @@
                 </div>
             </div>
         </div>
-        <h4 ng-hide="!hmCtrl.isLoggedIn"></h4>
     </div>
 </body>
 </html>

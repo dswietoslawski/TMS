@@ -1,6 +1,6 @@
 ﻿var app = angular.module('tmsApp');
 
-app.controller('registerModalController', ['$scope', '$window', 'userService', 'appService', '$uibModalInstance', function ($scope, $window, userService, appService, $uibModalInstance) {
+app.controller('registerModalController', ['$scope', '$window', 'userService', 'appService', '$uibModalInstance', '$rootScope', function ($scope, $window, userService, appService, $uibModalInstance, $rootScope) {
     var vm = this;
 
     vm.registerUser = {
@@ -16,9 +16,10 @@ app.controller('registerModalController', ['$scope', '$window', 'userService', '
         userService.register(user)
             .then(function (response) {
                 $uibModalInstance.dismiss({ $value: 'cancel' });
+                $rootScope.$broadcast('register-succesful');
             },
             function (error) {
-                vm.userMsg = error;
+                vm.userExists = error;
             });// get a promise use login function if SUCCESS
     };
 

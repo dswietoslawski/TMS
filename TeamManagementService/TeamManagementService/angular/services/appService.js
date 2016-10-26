@@ -10,12 +10,14 @@ app.service('appService',['localStorageService', function (localStorageService) 
         return localStorageService.get('userInfo');
     }
 
-    this.setProjectInfo = function (project, user) {
-        localStorageService.set('projectInfo', project);
+    this.setProjectInfo = function (project) {
+        var login = this.getLoginInfo();
+        localStorageService.set('projectInfo' + login.id, project);
     };
 
     this.getProjectInfo = function () {
-        var project = localStorageService.get('projectInfo');
-        return localStorageService.get('projectInfo');
+        var login = this.getLoginInfo();
+        var project = localStorageService.get('projectInfo' + login.id);
+        return localStorageService.get('projectInfo' + login.id);
     }
 }]);

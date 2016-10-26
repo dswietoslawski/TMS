@@ -15,8 +15,8 @@ app.service('userService', ['$http', 'appService', 'httpService', '$q', function
             .success(function (response) {
                 def.resolve("User registered");
             })
-            .error(function () {
-                def.reject("Failed to register");
+            .error(function (error) {
+                def.reject(parseErrors(error));
             });
 
         return def.promise;
@@ -67,6 +67,7 @@ app.service('userService', ['$http', 'appService', 'httpService', '$q', function
                 errors.push(response.modelState[key][i]);
             }
         }
-        return errors;
+        errors = errors.toString();
+        return errors.replace(',', '<br />');
     }
 }]);

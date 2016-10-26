@@ -7,13 +7,16 @@
     <p>Fill in the form below to register in the system:</p>
 </div>
 <div class="modal-body" id="modal-body">
+    <div ng-show="registerModalCtrl.userExists" class="alert alert-danger">
+        <strong>Error! </strong><span ng-bind-html="registerModalCtrl.userExists"></span>
+    </div>
     <form name="registerForm" class="form-horizontal">
         <div class="form-group">
             <label for="userName" class="col-sm-3 control-label">
                 Login
             </label>
             <div class="col-sm-9">
-                <input class="form-control" ng-model="registerModalCtrl.registerUser.userName" placeholder="Username..." id="username"  required>
+                <input class="form-control" ng-model="registerModalCtrl.registerUser.userName" placeholder="Username..." id="username" required>
             </div>
         </div>
         <div class="form-group">
@@ -21,7 +24,7 @@
                 Password
             </label>
             <div class="col-sm-9">
-                <input class="form-control" ng-model="registerModalCtrl.registerUser.password" placeholder="Password..." id="password" required>
+                <input class="form-control" type="password" ng-model="registerModalCtrl.registerUser.password" placeholder="Password..." id="password" required>
             </div>
         </div>
         <div class="form-group">
@@ -29,7 +32,7 @@
                 Confirm Password
             </label>
             <div class="col-sm-9">
-                <input class="form-control" ng-model="registerModalCtrl.registerUser.confirmPassword" placeholder="Confirm Password..." id="confirmPassword" required>
+                <input class="form-control" type="password" ng-model="registerModalCtrl.registerUser.confirmPassword" placeholder="Confirm Password..." id="confirmPassword" required>
             </div>
         </div>
         <div class="form-group">
@@ -37,7 +40,7 @@
                 Email
             </label>
             <div class="col-sm-9">
-                <input class="form-control" ng-model="registerModalCtrl.registerUser.email" placeholder="Email..." id="email" required>
+                <input class="form-control" type="email" ng-model="registerModalCtrl.registerUser.email" placeholder="Email..." id="email" required>
             </div>
         </div>
         <div class="form-group">
@@ -59,7 +62,7 @@
         <div class="form-group last">
             <div class="col-sm-offset-3 col-sm-9">
                 <button type="submit" ng-disabled="registerForm.$invalid" class="btn btn-success btn-sm" ng-click="registerModalCtrl.register(registerModalCtrl.registerUser)">
-                     Register
+                    Register
                 </button>
             </div>
         </div>
