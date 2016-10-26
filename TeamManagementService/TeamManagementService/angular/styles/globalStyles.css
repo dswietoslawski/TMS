@@ -400,6 +400,12 @@ nav li a {
     color: white;
 }
 
+.navbar-selection > div {
+    padding-bottom:0px;
+    vertical-align: middle;
+    margin:auto;
+}
+
 .navbar-top-links li {
     display: inline-block;
 }
@@ -498,9 +504,9 @@ nav li a {
     ---------------------------------------------------- */
 .columnSortable {
     background-image: url("../images/background/tloList2.jpg");
-    min-height: 700px;
-    max-height: 700px;
-    height: 10%;
+    min-height: 800px;
+    max-height: 800px;
+    height: 90%;
     overflow-y: scroll;
 }
 
@@ -759,6 +765,7 @@ nav li a {
             background-color: maroon;
             width: 50%;
         }
+
         .feature:hover h3 {
             color: maroon;
         }

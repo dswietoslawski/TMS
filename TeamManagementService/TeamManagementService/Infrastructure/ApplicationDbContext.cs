@@ -23,6 +23,6 @@ namespace TeamManagementService.Infrastructure {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             base.OnModelCreating(modelBuilder);
 
-}
+        }
     }
 }

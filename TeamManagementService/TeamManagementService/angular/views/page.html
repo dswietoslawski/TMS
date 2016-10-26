@@ -62,10 +62,10 @@
             <div class="col-md-offset-1 col-md-3 navbar-header">
                 <a class="navbar-brand" href="#"><i class="fa fa-trello"></i> Team Management System</a>
             </div>
-            <div class="col-md-4" style="margin-top: 2px;">
+            <div class="col-md-4 navbar-selection">
                 <project-selection ng-hide="!hmCtrl.isLoggedIn"></project-selection>
             </div>
-            <div class="col-md-2" ng-show="hmCtrl.isLoggedIn">
+            <div class="col-md-2 col-md-offset-1" ng-show="hmCtrl.isLoggedIn">
                 <p class="navbar-text navbar-right" style="color:white;">Signed in as {{hmCtrl.currentUser.userName}} </p>
             </div>
             <div logout-button class="col-md-1"></div>
@@ -81,7 +81,7 @@
                             <i class="fa fa-trello"></i>
                             <h3>TMS</h3>
                             <div class="title_border"></div>
-                            <p>To start your work click select one of the existing projects or add a new one by clicking Add Project on the navigation bar</p>
+                            <p>To start your work click select one of the existing projects or add a new one by clicking the Add button on the navigation bar</p>
                         </div>
                     </div>
                 </div>
